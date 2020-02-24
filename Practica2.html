@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto navegador</title>
+    <style>
+        .parrafos{
+            font-size: 25px;
+        }
+        #boton{
+            background-color:whitesmoke;
+        }
+        .texto1{
+            border:solid 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Objeto Navigator Testeado</h1>
+    <p class="parrafos texto1"> OuO</p>
+    <p class="parrafos">UnU</p>
+    <button id="boton" onclick="obtieneDatos()">Obtener datos del navegador</button>
+
+    <ul id="navegador">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    
+    <script>
+
+      var navegador = document.getElementById("navegador");
+      var datos = navegador.getElementsByTagName("li");
+
+      function obtieneDatos() {
+        datos[0].innerHTML = "Tu navegador es: "  + navigator.appCodeName;
+        datos[1].innerHTML = "La versión del navegador es: " + navigator.appVersion;
+        datos[2].innerHTML = "Estatus del internet: " + navigator.onLine;
+        datos[3].innerHTML = "SO: " + navigator.platform;
+      }
+
+    </script>
+</body>
+</html>

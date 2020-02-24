@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Obtener coordenadas</title>
+</head>
+<body>
+
+  <p>Haz clic para obtener las coordenadas</p>
+
+  <button onclick="getLocation()">Obtener Coordenadas</button>
+  
+  <p id="test"></p>
+  
+  <script>
+  var x = document.getElementById("test");
+  
+  function getLocation() {
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+      x.innerHTML = "El navegador no tiene geolocalización";
+    }
+  }
+
+
+
+
+  function trunc (x, posiciones = 0) {
+  var s = x.toString()
+  var l = s.length
+  var decimalLength = s.indexOf('.') + 1
+  if (l - decimalLength <= posiciones){
+    return x
+  }
+  var isNeg  = x < 0
+  var decimal =  x % 1
+  var entera  = isNeg ? Math.ceil(x) : Math.floor(x)
+  var decimalFormated = Math.floor(
+    Math.abs(decimal) * Math.pow(10, posiciones)
+  )
+  var finalNum = entera + 
+    ((decimalFormated / Math.pow(10, posiciones))*(isNeg ? -1 : 1))
+  
+  return finalNum
+}
+  
+  function showPosition(position) {
+    x.innerHTML = "Latitud: " + trunc(position.coords.latitude,2) + 
+    "<br>Longitud: " + trunc(position.coords.longitude,2);
+  }
+  </script>
+
+    
+</body>
+</html>
