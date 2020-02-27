@@ -1,39 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Maps</title>
     <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url("http://getwallpapers.com/wallpaper/full/f/1/6/1220649-download-free-world-map-time-zones-wallpaper-2560x1600-laptop.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+        }
 
-    body {
-        background-color: #efefef;
-    }
+        .WhiteText {
+            color: white;
+        }
 
-    #mapa {
+        .textoMenu {
+            text-align: center;
+            font-size: 13px;
+        }
+        #mapa {
         width: 100%;
         height: 500px;
     } 
-
     </style>
-
 </head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <body>
 
-    <div class="container-fluid">
-        <div class="container bg-white rounded shadow-lg">
-            <div class="row m-5">
-                <div class="col-12 p-5">
-                    <h1 class="text-center">Google Maps con Bootstrap v3</h1>
-                    <div id="mapa"></div>
-                </div>
-            </div>
-        </div>
+    <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:60px;">
+        <a href="Practica1-66292.html" class="w3-bar-item w3-button"><i class="fa fa-globe">
+                <h1 class="textoMenu">Map</h1>
+            </i></a>
+        <a href="Practica2.html" class="w3-bar-item w3-button"><i class="fa fa-info-circle">
+                <h1 class="textoMenu">Nav. Info</h1>
+            </i></a>
+        <a href="Practica3.html" class="w3-bar-item w3-button"><i class="fa fa-map-marker">
+                <h1 class="textoMenu">Ubic.</h1>
+            </i></a>
+        <a href="Practica4.html" class="w3-bar-item w3-button"><i class="fa fa-file-photo-o">
+                <h1 class="textoMenu">Static Map</h1>
+            </i></a>
+        <a href="Practica5.html" class="w3-bar-item w3-button"><i class="fa fa-map-pin">
+                <h1 class="textoMenu">Info. Win.</h1>
+            </i></a>
     </div>
 
+    <div style="margin-left:70px">
 
+        <div class="w3-container">
+            <div class="container bg-white rounded shadow-lg">
+                <div class="row m-5">
+                    <div class="col-12 p-5">
+                        <h1 class="WhiteText">Google Maps con Bootstrap v3</h1>
+                        <div id="mapa"></div>
+                    </div>
+                </div>
+        </div>
+
+    </div>
     <script>
 
         function iniciaMapa() {
@@ -55,10 +85,19 @@
 
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=%41%49%7A%61%53%79%41%44%6A%4F%66%64%47%49%67%2D%37%4A%69%71%6A%6F%54%73%74%4D%4E%39%65%6C%34%67%2D%6E%4C%68%78%78%41&callback=%69%6E%69%63%69%61%4D%61%70%61" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=%41%49%7A%61%53%79%41%44%6A%4F%66%64%47%49%67%2D%37%4A%69%71%6A%6F%54%73%74%4D%4E%39%65%6C%34%67%2D%6E%4C%68%78%78%41&callback=%69%6E%69%63%69%61%4D%61%70%61"
+        async defer></script>
 
 </body>
+
 </html>

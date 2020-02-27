@@ -1,28 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mapa Estático</title>
-    <style>
-      #mapa {
-        width: 800px;
-        height: 400px;
-        background-color:whitesmoke;
-        border: gainsboro;
-        padding: 100px;
-      }
-    </style>
-</head>
-<body>
-    <p>Obtener las coordenadas de tu dispositivo</p>
-    <button onclick="obtieneUbicacion()">Obtener Coordenadas</button>
-    <p id="mensaje"></p>
+<html lang="es">
 
-    <div id="mapa"></div>
-    
-    <script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa Estatico</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url("http://getwallpapers.com/wallpaper/full/f/1/6/1220649-download-free-world-map-time-zones-wallpaper-2560x1600-laptop.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0;
+    }
+
+    .WhiteText {
+      color: white;
+    }
+
+    .textoMenu {
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .BotonWhite {
+      color: white;
+      background-color: rgb(14, 19, 20);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+  <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:60px;">
+    <a href="Practica1-66292.html" class="w3-bar-item w3-button"><i class="fa fa-globe">
+        <h1 class="textoMenu">Map</h1>
+      </i></a>
+    <a href="Practica2.html" class="w3-bar-item w3-button"><i class="fa fa-info-circle">
+        <h1 class="textoMenu">Nav. Info</h1>
+      </i></a>
+    <a href="Practica3.html" class="w3-bar-item w3-button"><i class="fa fa-map-marker">
+        <h1 class="textoMenu">Ubic.</h1>
+      </i></a>
+    <a href="Practica4.html" class="w3-bar-item w3-button"><i class="fa fa-file-photo-o">
+        <h1 class="textoMenu">Static Map</h1>
+      </i></a>
+    <a href="Practica5.html" class="w3-bar-item w3-button"><i class="fa fa-map-pin">
+        <h1 class="textoMenu">Info. Win.</h1>
+      </i></a>
+  </div>
+
+  <div style="margin-left:70px">
+
+    <div class="w3-container">
+      <p class="WhiteText">Obtener las coordenadas de tu dispositivo en un mapa estatico</p>
+      <button class="BotonWhite" onclick="obtieneUbicacion()">Obtener Coordenadas</button>
+      <p class="WhiteText" id="mensaje"></p>
+  
+      <div id="mapa"></div>
+      
+      
+
+    </div>
+
+  </div>
+
+  <script>
     var x = document.getElementById("mensaje");
     
     function obtieneUbicacion() {
@@ -45,6 +91,7 @@
     }
 
     </script>
-    
+
 </body>
+
 </html>
