@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        body {
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          background-image: url("https://hdwallsource.com/img/2016/9/store-computer-wallpaper-51198-52894-hd-wallpapers.jpg");
+          background-size: cover;
+          background-repeat: repeat-y;
+          margin: 0;
+        }
+    
+        .WhiteText {
+          color: white;
+        }
+    
+        .textoMenu {
+          text-align: center;
+          font-size: 13px;
+        }
+    
+        .BotonWhite {
+          color: white;
+          background-color: rgb(14, 19, 20);
+          border-radius: 10px;
+        }
+      </style>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+  <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:60px;">
+    <a href="Practica1.html" class="w3-bar-item w3-button"><i class="fa fa-barcode">
+        <h1 class="textoMenu">Prod.</h1>
+      </i></a>
+  </div>
+
+  <div style="margin-left:70px">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                </div>
+            </div>
+        </div>
+        <h1 class="WhiteText">Lista de productos</h1>
+        <form id="forma">
+            <input  type="text" name="nombre" placeholder="Nombre">
+            <input type="text" name="codigo" placeholder="Codigo">
+            <button class="BotonWhite" type="submit">Agregar</button>
+        </form>
+        <ul id="lista"></ul>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM",
+                authDomain: "sistemasgeo66292.firebaseapp.com",
+                databaseURL: "https://sistemasgeo66292.firebaseio.com",
+                projectId: "sistemasgeo66292",
+                storageBucket: "sistemasgeo66292.appspot.com",
+                messagingSenderId: "50590867142",
+                appId: "1:50590867142:web:824a53e20de615f8c981c7"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            const db = firebase.firestore();
+            //QuerySelectos es muy similar a getElementById, pero lo toma como primera referencia
+            const formulario = document.querySelector("#forma");
+            const productosLista = document.querySelector("#lista");
+            function renderProducto(doc) {
+                console.log(doc.data());
+                let li = document.createElement("li");
+                let nombre = document.createElement("span");
+                let codigo = document.createElement("span");
+                let borrar = document.createElement("button");
+
+                //borrar.className="btn btn-danger a-3";
+
+                nombre.textContent = "   " + doc.data().nombre + "   ";
+                codigo.textContent = doc.data().codigo;
+                borrar.textContent = "Borrar";
+
+                borrar.className="BotonWhite";
+                li.setAttribute("id", doc.id);
+                li.setAttribute("class", "WhiteText");
+                li.appendChild(borrar);
+                li.appendChild(nombre);
+                li.appendChild(codigo);
+
+                productosLista.appendChild(li);
+
+                borrar.addEventListener("click", (e) => {
+                    let id = e.target.parentElement.getAttribute("id");
+                    db.collection("productos").doc(id).delete();
+                });
+
+            }
+            formulario.addEventListener("submit", (e) => {
+                e.preventDefault();
+                db.collection("productos").add({
+                    nombre: formulario.nombre.value,
+                    codigo: formulario.codigo.value
+                });
+
+            });
+
+            db.collection("productos").onSnapshot(snapshot => {
+                let changes = snapshot.docChanges();
+                changes.forEach(change => {
+                    if (change.type == "added") {
+                        renderProducto(change.doc);
+                    } else if (change.type == "removed") {
+                        console.log(change.doc.id);
+                        let valorid = document.getElementById(change.doc.id);
+                        lista.removeChild(valorid);
+
+
+                    }
+
+                });
+                formulario.nombre.value = "";
+                formulario.codigo.value = "";
+            });
+
+        </script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+  </div>
+
+
+</body>
+
+
+</html>
