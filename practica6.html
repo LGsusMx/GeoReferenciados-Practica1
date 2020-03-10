@@ -10,7 +10,9 @@
             background-image: url("http://getwallpapers.com/wallpaper/full/f/1/6/1220649-download-free-world-map-time-zones-wallpaper-2560x1600-laptop.jpg");
             background-size: cover;
             background-repeat: repeat-y;
-
+            margin: 0;
+            padding: 0;
+            height: 100%;
         }
 
         .WhiteText {
@@ -55,7 +57,6 @@
 
 
     <div id="map"></div>
-
     <script>
         var coordenadas={
             lat:0,
@@ -67,8 +68,15 @@
         }
         function iniciaMapa(){
             map = new google.maps.Map(document.getElementById("map"),propiedades);
+            var icono={
+                url:"https://thumbs.gfycat.com/InexperiencedGlossyAsiaticgreaterfreshwaterclam-max-1mb.gif"
+            };
             var marker= new google.maps.Marker({
-                position:{lat:0,lng :0}
+                position:{lat:0,lng :0},
+                icon:icono,
+                scaledSize: new google.maps.Size(50,50),
+                map:map
+
             });
             if (navigator.geolocation) {
                 moverPosicion(marker);
