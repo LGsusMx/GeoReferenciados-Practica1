@@ -82,7 +82,10 @@
 
             });
             if (navigator.geolocation) {
-                moverPosicion(marker);
+                setInterval(function(){
+                     moverPosicion(marker);
+                },3000);
+                
             }
         }
         function moverPosicion(marker){
