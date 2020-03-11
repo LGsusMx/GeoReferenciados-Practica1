@@ -69,12 +69,15 @@
         function iniciaMapa(){
             map = new google.maps.Map(document.getElementById("map"),propiedades);
             var icono={
-                url:"https://thumbs.gfycat.com/InexperiencedGlossyAsiaticgreaterfreshwaterclam-max-1mb.gif"
+                url:"https://thumbs.gfycat.com/InexperiencedGlossyAsiaticgreaterfreshwaterclam-max-1mb.gif",
+                scaledSize: new google.maps.Size(50,50),
+                origin: new google.maps.Point(0,0),
+                anchor: new google.maps.Point(0,0),
             };
             var marker= new google.maps.Marker({
                 position:{lat:0,lng :0},
                 icon:icono,
-                scaledSize: new google.maps.Size(5,5),
+                scaledSize: new google.maps.Size(50,50),
                 map:map
 
             });
