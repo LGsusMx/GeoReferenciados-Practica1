@@ -93,12 +93,12 @@
             });
             if (navigator.geolocation) {
                 setInterval(function(){
-                    moverPosicion(marker);
+                    moverPosicion(marker,milf1,milf2,milf3);
                 },3000);
                 
             }
         }
-        function moverPosicion(marker) {
+        function moverPosicion(marker,milf1,milf2,milf3) {
             navigator.geolocation.getCurrentPosition(posicion => {
                 var pos = {
                     lat: posicion.coords.latitude,
