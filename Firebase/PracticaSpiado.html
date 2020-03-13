@@ -61,11 +61,12 @@
                 position:{lat:0,lng :0},
                 icon:icono,
                 scaledSize: new google.maps.Size(50,50),
-                map:map
+                map:map,
+                text:"uwu"
 
             });
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showMilfs);
+                //navigator.geolocation.getCurrentPosition(showMilfs);
                 setInterval(function(){
                     moverPosicion(marker);
                 },3000);
