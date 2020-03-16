@@ -47,7 +47,7 @@
         }
         var propiedades = {
             center: coordenadas,
-            zoom :20
+            zoom :18
         }
         function iniciaMapa(){
             map = new google.maps.Map(document.getElementById("map"),propiedades);
@@ -91,6 +91,13 @@
                 map:map,
 
             });
+            var milf4= new google.maps.Marker({
+                position:{lat:0,lng :0},
+                icon:icono,
+                scaledSize: new google.maps.Size(50,50),
+                map:map,
+
+            });
             if (navigator.geolocation) {
                 setInterval(function(){
                     moverPosicion(marker,milf1,milf2,milf3);
@@ -106,8 +113,9 @@
                 }
                 marker.setPosition(new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude));
                 milf1.setPosition(new google.maps.LatLng(posicion.coords.latitude+.0051, posicion.coords.longitude+.0051));
-                milf2.setPosition(new google.maps.LatLng(posicion.coords.latitude+.007, posicion.coords.longitude+.007));
+                milf2.setPosition(new google.maps.LatLng(posicion.coords.latitude-.005, posicion.coords.longitude+.005));
                 milf3.setPosition(new google.maps.LatLng(posicion.coords.latitude-.005, posicion.coords.longitude-.002));
+                milf4.setPosition(new google.maps.LatLng(posicion.coords.latitude+.005, posicion.coords.longitude-.005));
                 
                 map.panTo(new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude));
                 map.setCenter(pos);
