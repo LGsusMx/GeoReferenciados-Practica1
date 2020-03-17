@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,148 +18,160 @@
 
         .WhiteText {
             color: white;
-            margin-left:70px;
+            margin-left: 70px;
         }
 
         .textoMenu {
             text-align: center;
             font-size: 13px;
         }
+
         #map {
-        margin-top: 50px;  
-        width: 80%;
-        height: 500px;
-        margin-left:70px;
-    } 
+            margin-top: 50px;
+            width: 80%;
+            height: 500px;
+            margin-left: 70px;
+        }
     </style>
 </head>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+
 <body>
     <h1 class="WhiteText">Encuentra mujeres solteras cerca de ti</h1>
-    <h3 class="WhiteText">Introduce tu nombre para localizar a mujeres cerca de ti.</h3>
+    <h3 class="WhiteText">Introduce tu nombre para localizar a mujeres cerca
+        de ti.</h3>
     <input style="margin-left:70px" type="text" id="txtNombre" placeholder="Nombre">
-                <button class="btn btn-success btn-circle btn-md" onclick="Iniciar();" type="button">Buscar</button>
+    <button class="btn btn-success btn-circle btn-md" onclick="Iniciar();" type="button">Buscar</button>
     <div id="map"></div>
     <script>
         var hoy = new Date();
         var firebaseConfig = {
-                apiKey: "AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM",
-                authDomain: "sistemasgeo66292.firebaseapp.com",
-                databaseURL: "https://sistemasgeo66292.firebaseio.com",
-                projectId: "sistemasgeo66292",
-                storageBucket: "sistemasgeo66292.appspot.com",
-                messagingSenderId: "50590867142",
-                appId: "1:50590867142:web:824a53e20de615f8c981c7"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            const db = firebase.firestore();
+            apiKey: "AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM",
+            authDomain: "sistemasgeo66292.firebaseapp.com",
+            databaseURL: "https://sistemasgeo66292.firebaseio.com",
+            projectId: "sistemasgeo66292",
+            storageBucket: "sistemasgeo66292.appspot.com",
+            messagingSenderId: "50590867142",
+            appId: "1:50590867142:web:824a53e20de615f8c981c7"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
         var Nombresote;
-        var map ; 
-        var coordenadas={
-            lat:0,
-            lng:0
+        var Llavesota;
+        var map;
+        var coordenadas = {
+            lat: 0,
+            lng: 0
         }
         var propiedades = {
             center: coordenadas,
-            zoom :18
+            zoom: 18
         }
-        function iniciaMapa(){
+        function iniciaMapa() {
 
         }
-        
-        function Iniciar(){
-            Nombresote=document.getElementById("txtNombre").value;
-            if (Nombresote != null && Nombresote !="") {
-                iniciarMapa();   
+
+        function Iniciar() {
+            Nombresote = document.getElementById("txtNombre").value;
+            if (Nombresote != null && Nombresote != "") {
+                iniciarMapa();
             }
-                    
+
         }
-        function iniciarMapa(){
-            map = new google.maps.Map(document.getElementById("map"),propiedades);
-            var icono={
-                url:"https://thumbs.gfycat.com/InexperiencedGlossyAsiaticgreaterfreshwaterclam-max-1mb.gif",
-                scaledSize: new google.maps.Size(70,70),
-                origin: new google.maps.Point(0,0),
-                anchor: new google.maps.Point(0,0),
+        function iniciarMapa() {
+            map = new google.maps.Map(document.getElementById("map"), propiedades);
+            var icono = {
+                url: "https://thumbs.gfycat.com/InexperiencedGlossyAsiaticgreaterfreshwaterclam-max-1mb.gif",
+                scaledSize: new google.maps.Size(70, 70),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 0),
             };
-            var icono2={
-                url:"https://image.flaticon.com/icons/svg/1104/1104720.svg",
-                scaledSize: new google.maps.Size(60,60),
-                origin: new google.maps.Point(0,0),
-                anchor: new google.maps.Point(0,0),
+            var icono2 = {
+                url: "https://image.flaticon.com/icons/svg/1104/1104720.svg",
+                scaledSize: new google.maps.Size(60, 60),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 0),
             };
-            var marker= new google.maps.Marker({
-                position:{lat:0,lng :0},
-                icon:icono2,
-                scaledSize: new google.maps.Size(50,50),
-                map:map,
+            var marker = new google.maps.Marker({
+                position: { lat: 0, lng: 0 },
+                icon: icono2,
+                scaledSize: new google.maps.Size(50, 50),
+                map: map,
 
             });
-            var milf1= new google.maps.Marker({
-                position:{lat:0,lng :0},
-                icon:icono,
-                scaledSize: new google.maps.Size(50,50),
-                map:map,
+            var milf1 = new google.maps.Marker({
+                position: { lat: 0, lng: 0 },
+                icon: icono,
+                scaledSize: new google.maps.Size(50, 50),
+                map: map,
 
             });
-            var milf2= new google.maps.Marker({
-                position:{lat:0,lng :0},
-                icon:icono,
-                scaledSize: new google.maps.Size(50,50),
-                map:map,
+            var milf2 = new google.maps.Marker({
+                position: { lat: 0, lng: 0 },
+                icon: icono,
+                scaledSize: new google.maps.Size(50, 50),
+                map: map,
 
             });
-            var milf3= new google.maps.Marker({
-                position:{lat:0,lng :0},
-                icon:icono,
-                scaledSize: new google.maps.Size(50,50),
-                map:map,
+            var milf3 = new google.maps.Marker({
+                position: { lat: 0, lng: 0 },
+                icon: icono,
+                scaledSize: new google.maps.Size(50, 50),
+                map: map,
 
             });
-            var milf4= new google.maps.Marker({
-                position:{lat:0,lng :0},
-                icon:icono,
-                scaledSize: new google.maps.Size(50,50),
-                map:map,
+            var milf4 = new google.maps.Marker({
+                position: { lat: 0, lng: 0 },
+                icon: icono,
+                scaledSize: new google.maps.Size(50, 50),
+                map: map,
 
             });
             if (navigator.geolocation) {
-                setInterval(function(){
-                    moverPosicion(marker,milf1,milf2,milf3,milf4);
-                },3000);
+                setInterval(function () {
+                    moverPosicion(marker, milf1, milf2, milf3, milf4);
+                }, 3000);
                 navigator.geolocation.getCurrentPosition(posicion => {
                     db.collection("Espiados").add({
-                    Nombre: Nombresote,
-                    Coordenadas: new firebase.firestore.GeoPoint(posicion.coords.latitude, posicion.coords.longitude),
-                    UltimaActualizacion: FechaHoraActual()
+                        Nombre: Nombresote,
+                        Coordenadas: new firebase.firestore.GeoPoint(posicion.coords.latitude, posicion.coords.longitude),
+                        UltimaActualizacion: FechaHoraActual()
+                    }).then(function (docRef) {
+                        Llavesota = docRef.id;
+                    })
+                        .catch(function (error) {
+                            console.error("Error adding document: ", error);
+                        });
                 });
-            });
             }
         }
-        function moverPosicion(marker,milf1,milf2,milf3,milf4) {
+        function moverPosicion(marker, milf1, milf2, milf3, milf4) {
             navigator.geolocation.getCurrentPosition(posicion => {
                 var pos = {
                     lat: posicion.coords.latitude,
                     lng: posicion.coords.longitude
                 }
                 marker.setPosition(new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude));
-                milf1.setPosition(new google.maps.LatLng(posicion.coords.latitude+.0051, posicion.coords.longitude+.0051));
-                milf2.setPosition(new google.maps.LatLng(posicion.coords.latitude-.005, posicion.coords.longitude+.005));
-                milf3.setPosition(new google.maps.LatLng(posicion.coords.latitude-.005, posicion.coords.longitude-.002));
-                milf4.setPosition(new google.maps.LatLng(posicion.coords.latitude+.005, posicion.coords.longitude-.005));
-                
+                milf1.setPosition(new google.maps.LatLng(posicion.coords.latitude + .0051, posicion.coords.longitude + .0051));
+                milf2.setPosition(new google.maps.LatLng(posicion.coords.latitude - .005, posicion.coords.longitude + .005));
+                milf3.setPosition(new google.maps.LatLng(posicion.coords.latitude - .005, posicion.coords.longitude - .002));
+                milf4.setPosition(new google.maps.LatLng(posicion.coords.latitude + .005, posicion.coords.longitude - .005));
+                db.collection("Espiados").doc(Llavesota).update({
+                    Coordenadas: new firebase.firestore.GeoPoint(posicion.coords.latitude, posicion.coords.longitude),
+                    UltimaActualizacion: FechaHoraActual()
+                });
                 map.panTo(new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude));
                 map.setCenter(pos);
             });
 
-            
+
         }
-        function FechaHoraActual(){
-            var fecha = hoy.getDate() + '-' + ( hoy.getMonth() + 1 ) + '-' + hoy.getFullYear();
+        function FechaHoraActual() {
+            var fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
             var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
             var fechaYHora = fecha + ' ' + hora;
             return fechaYHora;
