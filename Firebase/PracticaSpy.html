@@ -102,6 +102,8 @@
             </div>
             <script>
                 // Your web app's Firebase configuration
+                var Puntos2 = [];
+                var Nombres2 = [];
                 var firebaseConfig = {
                     apiKey: "AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM",
                     authDomain: "sistemasgeo66292.firebaseapp.com",
@@ -120,10 +122,12 @@
                 function LlenarProducto(doc) {
                     var indicador1 = document.getElementById('cuerpazo');
                     var cuerpo = indicador1.innerHTML + '<div  id="' + doc.id + '" class="col-lg-4 col-sm-6 mb-4"><div class="card h-100"><a ><div class="mapax"  id="' + doc.data().Nombre + '"></div></a><div class="card-body"><h4 class="card-title"><a >' + doc.data().Nombre + '</a></h4><p class="card-text"> <a class="center"> </a> <a> Ultima actualizacion:  ' + doc.data().UltimaActualizacion + '</a></p> </p></div></div></div>';
-                    
                     indicador1.innerHTML = cuerpo;
-                    iniciarMapa(doc.data().Coordenadas, doc.data().Nombre);
+                    Puntos2.push(doc.data().Coordenadas);
+                    Nombres2.push(doc.data().Nombre);
+                    //iniciarMapa(doc.data().Coordenadas, doc.data().Nombre);
                 }
+
                 function iniciarMapa(coordenadas, idmapa) {
                     console.log(coordenadas.longitude);
                     var coordenadas = {
@@ -163,6 +167,10 @@
 
 
                     });
+                    for (var i = 0; i < Puntos2.length; i++) {
+                        iniciarMapa(Puntos2[i], Nombres2[i]);
+                    }
+
                 });
 
             </script>
