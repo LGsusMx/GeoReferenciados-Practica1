@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/06/Dark-Woods-Backgrounds.jpg");
+            background-size: cover;
+            background-repeat: repeat-y;
+            margin: 0;
+        }
+
+        .WhiteText {
+            color: white;
+        }
+
+        .textoMenu {
+            text-align: center;
+            font-size: 13px;
+        }
+    </style>
+    <style type="text/css">
+        .xyz {
+            background-size: auto;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .btn-circle.btn-sm {
+            width: 30px;
+            height: 30px;
+            padding: 6px 0px;
+            border-radius: 15px;
+            font-size: 8px;
+            text-align: center;
+        }
+
+        .btn-circle.btn-md {
+            width: 70px;
+            height: 35px;
+            padding: 4px 5px;
+            border-radius: 25px;
+            margin-bottom: 7px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .btn-circle.btn-xl {
+            width: 70px;
+            height: 70px;
+            padding: 10px 16px;
+            border-radius: 35px;
+            font-size: 12px;
+            text-align: center;
+        }
+        .mapax {
+        width: 100%;
+        height: 200px;
+    } 
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+    <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:60px;">
+        <a href="Practica1.html" class="w3-bar-item w3-button"><i class="fa fa-map-marker">
+                <h1 class="textoMenu">Rast.</h1>
+            </i></a>
+    </div>
+
+    <div style="margin-left:70px">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                    </div>
+                </div>
+            </div>
+            <h1 class="WhiteText">Lista de personas</h1>
+            <form id="forma">
+                <input type="text" name="nombre" placeholder="Nombre">
+                <input type="text" name="codigo" placeholder="Codigo">
+                <button class="btn btn-success btn-circle btn-md" type="submit">Agregar</button>
+                <button disabled=true id="Editablex" class="btn btn-primary
+                        btn-circle btn-md" type="button" onclick="editarF();">Editar</button>
+            </form>
+            <ul id="lista"></ul>
+            <div id="cuerpazo" class="row">
+
+            </div>
+            <script>
+                // Your web app's Firebase configuration
+                var firebaseConfig = {
+                    apiKey: "AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM",
+                    authDomain: "sistemasgeo66292.firebaseapp.com",
+                    databaseURL: "https://sistemasgeo66292.firebaseio.com",
+                    projectId: "sistemasgeo66292",
+                    storageBucket: "sistemasgeo66292.appspot.com",
+                    messagingSenderId: "50590867142",
+                    appId: "1:50590867142:web:824a53e20de615f8c981c7"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+                const db = firebase.firestore();
+                //QuerySelectos es muy similar a getElementById, pero lo toma como primera referencia
+                const formulario = document.querySelector("#forma");
+                const productosLista = document.querySelector("#lista");
+                function LlenarProducto(doc) {
+                    var indicador1 = document.getElementById('cuerpazo');
+                    var cuerpo = indicador1.innerHTML + '<div id="' + doc.id + '" class="col-lg-4 col-sm-6 mb-4"><div class="card h-100"><a ><div class="mapax" onload="iniciarMapa(`'+doc.data().Coordenadas+'`,`'+doc.data().Nombre+'`);" id="' + doc.data().Nombre + '"></div></a><div class="card-body"><h4 class="card-title"><a >' + doc.data().Nombre + '</a></h4><p class="card-text"> <a class="center"> </a> <a> Ultima actualizacion:  ' + doc.data().UltimaActualizacion + '</a></p> </p></div></div></div>';
+                    indicador1.innerHTML = cuerpo;
+                }
+                function iniciarMapa(coordenadas,idmapa) {
+                    console.log(coordenadas);
+
+                    var map = new google.maps.Map(
+                        document.getElementById(idmapa),
+                        {
+                            center: coordenadas,
+                            zoom: 15
+                        }
+                    );
+
+                    var marcador = new google.maps.Marker({ position: coordenadas, map: map });
+                }
+                function iniciaMapa() {
+                    
+                }
+                db.collection("Espiados").onSnapshot(snapshot => {
+                    let changes = snapshot.docChanges();
+                    changes.forEach(change => {
+                        if (change.type == "added") {
+                            LlenarProducto(change.doc);
+                        } else if (change.type == "removed") {
+                            let imagen = document.getElementById(change.doc.id);
+                            padre = imagen.parentNode;
+                            padre.removeChild(imagen);
+                        }
+                        else if (change.type === "modified") {
+                            let imagen = document.getElementById(change.doc.id);
+                            padre = imagen.parentNode;
+                            padre.removeChild(imagen);
+                            LlenarProducto(change.doc);
+                        }
+
+
+                    });
+                });
+
+            </script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+            <script
+                src="https://maps.googleapis.com/maps/api/js?key=%41%49%7A%61%53%79%41%44%6A%4F%66%64%47%49%67%2D%37%4A%69%71%6A%6F%54%73%74%4D%4E%39%65%6C%34%67%2D%6E%4C%68%78%78%41&callback=%69%6E%69%63%69%61%4D%61%70%61"
+                async defer></script>
+        </div>
+
+
+</body>
+
+
+</html>

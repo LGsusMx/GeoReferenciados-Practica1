@@ -44,10 +44,10 @@
     <h3 class="WhiteText">Introduce tu nombre para localizar a mujeres cerca
         de ti.</h3>
     <input style="margin-left:70px" type="text" id="txtNombre" placeholder="Nombre">
-    <button class="btn btn-success btn-circle btn-md" onclick="Iniciar();" type="button">Buscar</button>
+    <button id="txtBotonzon" class="btn btn-success btn-circle btn-md" onclick="Iniciar();" type="button">Buscar</button>
     <div id="map"></div>
     <script>
-        var hoy = new Date();
+        
         var firebaseConfig = {
             apiKey: "AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM",
             authDomain: "sistemasgeo66292.firebaseapp.com",
@@ -79,6 +79,8 @@
             Nombresote = document.getElementById("txtNombre").value;
             if (Nombresote != null && Nombresote != "") {
                 iniciarMapa();
+                document.getElementById("txtNombre").disabled = true;
+                document.getElementById("txtBotonzon").disabled = true;
             }
 
         }
@@ -171,6 +173,7 @@
 
         }
         function FechaHoraActual() {
+            var hoy = new Date();
             var fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
             var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
             var fechaYHora = fecha + ' ' + hora;
