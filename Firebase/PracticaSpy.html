@@ -119,13 +119,22 @@
                 const productosLista = document.querySelector("#lista");
                 function LlenarProducto(doc) {
                     var indicador1 = document.getElementById('cuerpazo');
-                    var cuerpo = indicador1.innerHTML + '<div onload="iniciarMapa(`' + doc.data().Nombre + '`,`' + doc.data().Nombre + '`);" id="' + doc.id + '" class="col-lg-4 col-sm-6 mb-4"><div class="card h-100"><a ><div class="mapax"  id="' + doc.data().Nombre + '"></div></a><div class="card-body"><h4 class="card-title"><a >' + doc.data().Nombre + '</a></h4><p class="card-text"> <a class="center"> </a> <a> Ultima actualizacion:  ' + doc.data().UltimaActualizacion + '</a></p> </p></div></div></div>';
+                    var cuerpo = indicador1.innerHTML + '<div  id="' + doc.id + '" class="col-lg-4 col-sm-6 mb-4"><div class="card h-100"><a ><div class="mapax"  id="' + doc.data().Nombre + '"></div></a><div class="card-body"><h4 class="card-title"><a >' + doc.data().Nombre + '</a></h4><p class="card-text"> <a class="center"> </a> <a> Ultima actualizacion:  ' + doc.data().UltimaActualizacion + '</a></p> </p></div></div></div>';
+                    iniciarMapa(doc.data().Coordenadas , doc.data().Nombre );
                     indicador1.innerHTML = cuerpo;
                 }
                 function iniciarMapa(coordenadas, idmapa) {
                     console.log(coordenadas);
 
-                    
+                    var map = new google.maps.Map(
+                        document.getElementById(idmapa),
+                        {
+                            center: coordenadas,
+                            zoom: 15
+                        }
+                    );
+
+                    var marcador = new google.maps.Marker({ position: coordenadas, map: map });
                 }
                 function iniciaMapa() {
 
