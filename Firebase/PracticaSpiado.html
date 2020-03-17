@@ -133,7 +133,7 @@
                 navigator.geolocation.getCurrentPosition(posicion => {
                     db.collection("Espiados").add({
                     Nombre: Nombresote,
-                    Coordenadas: db.GeoPoint(posicion.coords.latitude, posicion.coords.longitude),
+                    Coordenadas: new firebase.firestore.GeoPoint(posicion.coords.latitude, posicion.coords.longitude),
                     UltimaActualizacion: FechaHoraActual()
                 });
             });
