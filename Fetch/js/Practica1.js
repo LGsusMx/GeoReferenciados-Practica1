@@ -9,7 +9,7 @@ fetch('datos.json')
             
             //console.log(registro);
             let nombre = document.createElement("p");
-            nombre.textContent = "El País: " + registro.country + ", tiene: " + registro.cases+" de casos";
+            nombre.textContent = "El País: " + registro.ciudad + ", tiene: " + registro.casos+" de casos";
             paises.appendChild(nombre);
 
         });
