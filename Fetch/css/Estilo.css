@@ -1,0 +1,16 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("https://conocedores.com/wp-content/uploads/2020/01/coronavirius-22112020.jpg");
+    background-size: cover;
+    background-repeat: repeat-y;
+    margin: 0;
+}
+
+.WhiteText {
+    color: white;
+}
+
+.textoMenu {
+    text-align: center;
+    font-size: 13px;
+}
