@@ -1,10 +1,10 @@
 [{
-	"country": "Mexico",
-	"cases": 203
+	"ciudad": "Mexico",
+	"casos": 203
 }, {
-	"country": "Panama",
-	"cases": 200
+	"ciudad": "Japon",
+	"casos": 2000
 }, {
-	"country": "Colombia",
-	"cases": 196
+	"ciudad": "Peru",
+	"casos": 196
 }]
