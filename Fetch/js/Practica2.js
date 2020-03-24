@@ -16,7 +16,7 @@ fetch('https://corona.lmao.ninja/countries')
                     renglon.appendChild(columna);
 
                     let nombre = document.createElement("p");
-                    nombre.textContent = "País: " + registro.country + ", casos: " + registro.cases;
+                    nombre.textContent = "El País: " + registro.country + ",tiene: " + registro.cases + " casos.";
                     columna.appendChild(nombre);
 
                 });
