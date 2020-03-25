@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casos Coronavirus</title>
+    <title>Mapa Coronavairus</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://kit.fontawesome.com/2fda2af1d6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/Estilo.css">
-    <script src="./js/Practica2.js"></script>
+    <script src="./js/Practica4.js"></script>
 </head>
 <body>
     <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:60px;">
@@ -33,17 +33,14 @@
                 <h1 class="textoMenu">Menu</h1>
             </i></a>
     </div>
-    <div style="margin-left: 100px; margin-bottom: 50px;" class="container" id="paises">
-        <div class="row">
-            <div class="col">
-            </div>
-        </div>
-    </div>
 
+    <div id="map"></div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADjOfdGIg-7JiqjoTstMN9el4g-nLhxxA&callback=iniciaMapa">
+    </script>
 </body>
 </html>
