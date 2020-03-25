@@ -41,9 +41,16 @@ function iniciaMapa() {
                                 var infowindow = new google.maps.InfoWindow({
                                     content: información
                                 });
+                                var icono={
+                                    url:"https://cdn3.iconfinder.com/data/icons/map-markers-1/512/biohazard-512.png",
+                                    scaledSize: new google.maps.Size(70,70),
+                                    origin: new google.maps.Point(0,0),
+                                    anchor: new google.maps.Point(0,0),
+                                };
 
                                 let marker = new google.maps.Marker({
                                     map: map,
+                                    icon:icono,
                                     position: new google.maps.LatLng(marcador.CapitalLatitude, marcador.CapitalLongitude),
                                     title: marcador.CountryName + registro.cases
                                 });
