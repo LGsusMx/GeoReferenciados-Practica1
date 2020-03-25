@@ -43,7 +43,7 @@ function iniciaMapa() {
                                 });
                                 var icono={
                                     url:"https://cdn3.iconfinder.com/data/icons/map-markers-1/512/biohazard-512.png",
-                                    scaledSize: new google.maps.Size(70,70),
+                                    scaledSize: new google.maps.Size(20,40),
                                     origin: new google.maps.Point(0,0),
                                     anchor: new google.maps.Point(0,0),
                                 };
