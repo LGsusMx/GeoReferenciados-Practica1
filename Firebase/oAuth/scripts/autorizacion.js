@@ -145,7 +145,7 @@ entrarGoogle = () => {
 entrarFacebook = () => {
  
     var provider = new firebase.auth.FacebookAuthProvider();
-    
+
     firebase.auth().signInWithPopup(provider).then(function(result) {
 
         var token = result.credential.accessToken;
@@ -155,9 +155,10 @@ entrarFacebook = () => {
 
             console.log(user);
             const html = `
+            <img src="${ user.photoURL }" width="50px" height="50px" >
                 <p>Nombre: ${ user.displayName }</p>
                 <p>Correo: ${ user.email}</p>
-                <img src="${ user.photoURL }" width="50px">
+                
             `;
             datosdelacuenta.innerHTML = html;
 
