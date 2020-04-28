@@ -155,7 +155,7 @@ entrarFacebook = () => {
 
             console.log(user);
             const html = `
-            <img src="${ user.photoURL }" width="50px" height="50px" >
+            <img src="${ user.photoURL }" width="50px"  >
                 <p>Nombre: ${ user.displayName }</p>
                 <p>Correo: ${ user.email}</p>
                 
