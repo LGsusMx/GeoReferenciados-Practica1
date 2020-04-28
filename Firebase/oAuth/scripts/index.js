@@ -44,7 +44,7 @@ const listaloggedout = document.querySelectorAll('.logged-out');
                     <img src="Img/${platillo.imagen}" alt="${platillo.nombre}">
                     <p>${platillo.nombre}</p>
                     <p class="text-danger">$${platillo.precio}.00 pesos</p>
-                    <a href="https://www.paypal.me/grupohernandezalba/${platillo.precio}" target="_blank">
+                    <a href="https://www.paypal.me/LgsusRMZ/${platillo.precio}" target="_blank">
                         <button class="btn btn-primary">Pagar Ahora</button>
                     </a>
                 </div>
