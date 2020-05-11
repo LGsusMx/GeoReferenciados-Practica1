@@ -2,8 +2,32 @@ auth.onAuthStateChanged( user =>{
  
     if(user){
         console.log('Usuario entró');
-        db.collection('platillos').onSnapshot(snapshot =>{
-            obtienePlatillos(snapshot.docs);
+
+
+        if(navigator.geolocation){
+
+            navigator.geolocation.getCurrentPosition( position => {
+                
+                var pos = { 
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+    
+                db.collection('usuarios').doc(uid).update({
+                    coordenadas : {
+                        latitude :  position.coords.latitude,
+                        longitude : position.coords.longitude
+                    }
+                });
+    
+    
+            });
+    
+        }
+
+
+        db.collection('usuarios').onSnapshot(snapshot =>{
+            obtieneAmigos(snapshot.docs);
             configuraMenu(user);
         }, err => {
             console.log(err.message);
@@ -18,12 +42,12 @@ auth.onAuthStateChanged( user =>{
         emailVerified = user.emailVerified;
         uid = user.uid;  
         
-        console.log(name,email,photoUrl,emailVerified,uid);
+        console.log('UID:',uid);
 
     }
     else{
         console.log('Usuario salió');
-        obtienePlatillos([]);
+        obtieneAmigos([]);
         configuraMenu();
     }
 
