@@ -156,13 +156,13 @@
                         `;
                             const datos = document.getElementById('datos');
                             datos.innerHTML = html;
-                            infowindow.setContent(`
+                            infoWindow.setContent(`
                             Coordenadas: ${ coordenadas}
                         `);
                             marker.setPosition(new google.maps.LatLng(lat, lng));
                             map.panTo(new google.maps.LatLng(lat, lng));
                             
-                            infowindow.open(map, marker);
+                            infoWindow.open(map, marker);
                         }, error, positionOptions);
                     });
 
