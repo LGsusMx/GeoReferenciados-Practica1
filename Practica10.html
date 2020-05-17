@@ -118,13 +118,16 @@
                             const datos = document.getElementById('datos');
                             datos.innerHTML = html;
                             //marker.setLabel
-                            marker.setLabel( `
-                            Coordenadas: ${ coordenadas} \n
-                            
-                        `);
+                            var infowindow = new google.maps.InfoWindow({content: `
+                            Coordenadas: ${ coordenadas} /n
+                            Exactitud: ${ exactitud} /n
+                            Altitud: ${ altitud} /n
+                            Velocidad: ${ velocidad} /n
+                            Fecha y hora: ${ fechayhora}
+                        `});
                             marker.setPosition(new google.maps.LatLng(lat, lng));
                             map.panTo(new google.maps.LatLng(lat, lng));
-
+                            infowindow.open(map, marker);
                         }, error, positionOptions);
                     });
 
