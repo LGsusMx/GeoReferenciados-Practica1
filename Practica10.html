@@ -45,17 +45,19 @@
     <script>
 
         function iniciaMapa() {
-            var propiedades = {
+            var propiedades = {};
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+                console.log('Mostrar tu ubicacion');
+            } else {
+                x.innerHTML = "El navegador no tiene geolocalización";
+                propiedades=  = {
                 center: {
                     lat: 21.152639, lng: -101.711598
                 },
                 zoom: 12
 
             };
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                x.innerHTML = "El navegador no tiene geolocalización";
             }
             
             function showPosition(position) {
