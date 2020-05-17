@@ -27,11 +27,12 @@
 
 <body>
     <div style="text-align: center;">
-        <canvas id="tacometro"></canvas>
+        
     </div>
 
 
     <div class="container text-center small">
+        <canvas style="margin-bottom: -100px;" id="tacometro"></canvas>
         <div class="row m-2">
             <div class="col-6">
                 <button class="btn btn-sm btn-primary" id="boton">Rastrear</button>
@@ -40,12 +41,13 @@
                 <button class="btn btn-sm btn-danger" id="botondetener">Dejar de rastrear</button>
             </div>
         </div>
-        <div class="row m-2">
-            <div class="col-12" id="datos"></div>
-        </div>
+        
     </div>
 
     <div id="map"></div>
+    <div class="row m-2">
+        <div class="col-12" id="datos"></div>
+    </div>
     <script src="https://cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js"></script>
     <script>
 
@@ -64,22 +66,21 @@
                     minValue: 0,
                     startAngle: 90,
                     ticksAngle: 180,
-                    valueBox: true,
-                    maxValue: 80,
+                    valueBox: false,
+                    maxValue: 50,
                     majorTicks: [
                         "0",
                         "10",
                         "20",
                         "30",
                         "40",
-                        "50",
-                        "60"],
+                        "50"],
                     minorTicks: 2,
                     strokeTicks: true,
                     highlights: [
                         {
-                            "from": 60,
-                            "to": 80,
+                            "from": 40,
+                            "to": 50,
                             "color": "rgba(200, 50, 50, .75)"
                         }
                     ],
@@ -147,7 +148,7 @@
                             var velocidad = position.coords.speed ? position.coords.speed : 'no disponible';
                             var fechayhora = (new Date(position.timestamp)).toString();
 
-                            gauge.value = velocidad*100 ;
+                            gauge.value = velocidad ;
                             const html = `
                             <p>Exactitud: ${ exactitud}</p>
                             <p>Altitud: ${ altitud}</p>
