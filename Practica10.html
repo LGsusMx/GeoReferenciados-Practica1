@@ -26,6 +26,10 @@
 </head>
 
 <body>
+    <div style="text-align: center;">
+        <canvas id="tacometro"></canvas>
+    </div>
+
 
     <div class="container text-center small">
         <div class="row m-2">
@@ -42,7 +46,7 @@
     </div>
 
     <div id="map"></div>
-
+    <script src="https://cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js"></script>
     <script>
 
         function iniciaMapa() {
@@ -52,6 +56,44 @@
                 console.log("El navegador no tiene geolocalización");
             }
             function nuestraPosicion(posicion) {
+                var gauge = new RadialGauge({
+                    renderTo: 'tacometro',
+                    width: 300,
+                    height: 300,
+                    units: "m/s",
+                    minValue: 0,
+                    startAngle: 90,
+                    ticksAngle: 180,
+                    valueBox: false,
+                    maxValue: 80,
+                    majorTicks: [
+                        "0",
+                        "10",
+                        "20",
+                        "30",
+                        "40",
+                        "50",
+                        "60"],
+                    minorTicks: 2,
+                    strokeTicks: true,
+                    highlights: [
+                        {
+                            "from": 60,
+                            "to": 80,
+                            "color": "rgba(200, 50, 50, .75)"
+                        }
+                    ],
+                    colorPlate: "#fff",
+                    borderShadowWidth: 0,
+                    borders: false,
+                    needleType: "arrow",
+                    needleWidth: 2,
+                    needleCircleSize: 7,
+                    needleCircleOuter: true,
+                    needleCircleInner: false,
+                    animationDuration: 1500,
+                    animationRule: "linear"
+                }).draw();
                 var propiedades = {
                     center: {
                         lat: posicion.coords.latitude, lng: posicion.coords.longitude
@@ -106,7 +148,7 @@
                             var velocidad = position.coords.speed ? position.coords.speed : 'no disponible';
                             var fechayhora = (new Date(position.timestamp)).toString();
 
-
+                            gauge.update({ 'data-value' : velocidad });
                             const html = `
                             <p>Exactitud: ${ exactitud}</p>
                             <p>Altitud: ${ altitud}</p>
@@ -116,7 +158,8 @@
                             const datos = document.getElementById('datos');
                             datos.innerHTML = html;
                             //marker.setLabel
-                            var infowindow = new google.maps.InfoWindow({content: `
+                            var infowindow = new google.maps.InfoWindow({
+                                content: `
                             Coordenadas: ${ coordenadas}
                         `});
                             marker.setPosition(new google.maps.LatLng(lat, lng));
