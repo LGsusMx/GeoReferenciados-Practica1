@@ -158,7 +158,13 @@
                             const datos = document.getElementById('datos');
                             datos.innerHTML = html;
                             //marker.setLabel
-                            infowindow.close();
+                            if (infowindow != undefined) {
+                                infowindow.close();
+                                console.log('limpieza');
+
+                            }else{
+                                console.log('testinguwu');
+                            }
                             var infowindow = new google.maps.InfoWindow({
                                 content: `
                             Coordenadas: ${ coordenadas}
