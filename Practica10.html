@@ -64,7 +64,7 @@
                     minValue: 0,
                     startAngle: 90,
                     ticksAngle: 180,
-                    valueBox: false,
+                    valueBox: true,
                     maxValue: 80,
                     majorTicks: [
                         "0",
@@ -147,7 +147,7 @@
                             var velocidad = position.coords.speed ? position.coords.speed : 'no disponible';
                             var fechayhora = (new Date(position.timestamp)).toString();
 
-                            gauge.value = 15+velocidad ;
+                            gauge.value = velocidad*100 ;
                             const html = `
                             <p>Exactitud: ${ exactitud}</p>
                             <p>Altitud: ${ altitud}</p>
