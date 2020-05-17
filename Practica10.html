@@ -97,7 +97,7 @@
                             var lat = position.coords.latitude;
                             var lng = position.coords.longitude;
 
-                            console.log(position);
+                            //console.log(position);
 
                             var coordenadas = lat + ',' + lng;
 
@@ -117,8 +117,8 @@
 
                             const datos = document.getElementById('datos');
                             datos.innerHTML = html;
-                            marker.setLabel
-                            marker.set('labelContent', `
+                            //marker.setLabel
+                            marker.setLabel('text', `
                             Coordenadas: ${ coordenadas} \n
                             Exactitud: ${ exactitud} \n
                             Altitud: ${ altitud} \n
