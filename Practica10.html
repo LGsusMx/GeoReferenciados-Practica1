@@ -65,7 +65,7 @@
                 var map = new google.maps.Map(mapa, propiedades);
 
                 var icono = {
-                    url: "https://media.giphy.com/media/1ZweHMlSaxcc32mSSu/giphy.gif",
+                    url: "https://cdn.iconscout.com/icon/free/png-512/car-location-find-navigate-gps-location-29571.png",
                     scaledSize: new google.maps.Size(25, 25),
                     origin: new google.maps.Point(0, 0),
                     anchor: new google.maps.Point(0, 0)
@@ -108,22 +108,16 @@
 
 
                             const html = `
-                            <p>Coordenadas: ${ coordenadas}</p>
                             <p>Exactitud: ${ exactitud}</p>
                             <p>Altitud: ${ altitud}</p>
                             <p>Velocidad: ${ velocidad}</p>
                             <p>Fecha y hora: ${ fechayhora}</p>
                         `;
-
                             const datos = document.getElementById('datos');
                             datos.innerHTML = html;
                             //marker.setLabel
                             var infowindow = new google.maps.InfoWindow({content: `
-                            Coordenadas: ${ coordenadas} /n
-                            Exactitud: ${ exactitud} /n
-                            Altitud: ${ altitud} /n
-                            Velocidad: ${ velocidad} /n
-                            Fecha y hora: ${ fechayhora}
+                            Coordenadas: ${ coordenadas}
                         `});
                             marker.setPosition(new google.maps.LatLng(lat, lng));
                             map.panTo(new google.maps.LatLng(lat, lng));
