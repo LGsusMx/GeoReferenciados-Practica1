@@ -147,7 +147,7 @@
                             var velocidad = position.coords.speed ? position.coords.speed : 'no disponible';
                             var fechayhora = (new Date(position.timestamp)).toString();
 
-                            gauge.update({ 'data-value' : velocidad });
+                            gauge.value = 15+velocidad ;
                             const html = `
                             <p>Exactitud: ${ exactitud}</p>
                             <p>Altitud: ${ altitud}</p>
