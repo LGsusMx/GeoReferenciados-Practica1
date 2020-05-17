@@ -133,8 +133,7 @@
                 if (navigator.geolocation) {
 
                     boton.addEventListener('click', function () {
-
-
+                        var infoWindow = new google.maps.InfoWindow();
                         watchId = navigator.geolocation.watchPosition(function (position) {
                             var lat = position.coords.latitude;
                             var lng = position.coords.longitude;
@@ -157,18 +156,9 @@
                         `;
                             const datos = document.getElementById('datos');
                             datos.innerHTML = html;
-                            //marker.setLabel
-                            if (infowindow != undefined) {
-                                infowindow.close();
-                                console.log('limpieza');
-
-                            }else{
-                                console.log('testinguwu');
-                            }
-                            var infowindow = new google.maps.InfoWindow({
-                                content: `
+                            infowindow.setContent(`
                             Coordenadas: ${ coordenadas}
-                        `});
+                        `);
                             marker.setPosition(new google.maps.LatLng(lat, lng));
                             map.panTo(new google.maps.LatLng(lat, lng));
                             
