@@ -86,7 +86,8 @@
                     zoom: 12
                 };
                 var mapa1 = new google.maps.Map(document.getElementById("mapa1"), propiedades1);
-
+                mapa1.mapTypes.set("estilo_Creado", styledMapType);
+                mapa1.setMapTypeId("estilo_Creado");
 
                 var propiedades2 = {
                     center: coordenadas,
@@ -94,7 +95,8 @@
                     disableDefaultUI: true
                 };
                 var mapa2 = new google.maps.Map(document.getElementById("mapa2"), propiedades2);
-
+                mapa2.mapTypes.set("estilo_Creado", styledMapType);
+                mapa2.setMapTypeId("estilo_Creado");
                 var propiedades3 = {
                     center: coordenadas,
                     zoom: 12,
@@ -102,18 +104,21 @@
                     scaleControl: true
                 };
                 var mapa3 = new google.maps.Map(document.getElementById("mapa3"), propiedades3);
-
+                mapa3.mapTypes.set("estilo_Creado", styledMapType);
+                mapa3.setMapTypeId("estilo_Creado");
                 var propiedades4 = {
                     center: coordenadas,
                     zoom: 12,
                     mapTypeControl: true,
+
                     mapTypeControlOptions: {
                         style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
                         mapTypeIds: ['roadmap', 'satellite', 'terrain']
                     }
                 };
                 var mapa4 = new google.maps.Map(document.getElementById("mapa4"), propiedades4);
-
+                mapa4.mapTypes.set("estilo_Creado", styledMapType);
+                mapa4.setMapTypeId("estilo_Creado");
                 var propiedades5 = {
                     center: coordenadas,
                     zoom: 12,
@@ -137,8 +142,8 @@
 
 
                 var limites = {
-                    north: posicion.coords.latitude +0.2374,
-                    south: posicion.coords.latitude -0.294225,
+                    north: posicion.coords.latitude + 0.2374,
+                    south: posicion.coords.latitude - 0.294225,
                     west: posicion.coords.longitude - 0.438033,
                     east: posicion.coords.longitude + 0.618608
                 }
@@ -151,6 +156,274 @@
                     }
                 };
                 var mapa6 = new google.maps.Map(document.getElementById("mapa6"), propiedades6);
+                var styledMapType = new google.maps.StyledMapType(
+                    [
+                        {
+                            elementType: "labels",
+                            stylers: [
+                                {
+                                    visibility: "on",
+                                },
+                            ],
+                        },
+                        {
+                            elementType: "labels.icon",
+                            stylers: [
+                                {
+                                    visibility: "off",
+                                },
+                            ],
+                        },
+                        {
+                            elementType: "labels.text.fill",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    saturation: 36,
+                                },
+                                {
+                                    lightness: 40,
+                                },
+                            ],
+                        },
+                        {
+                            elementType: "labels.text.stroke",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 16,
+                                },
+                                {
+                                    visibility: "on",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "administrative",
+                            elementType: "geometry.fill",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 20,
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "administrative",
+                            elementType: "geometry.stroke",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 17,
+                                },
+                                {
+                                    weight: 1.2,
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "administrative.locality",
+                            elementType: "labels.text.fill",
+                            stylers: [
+                                {
+                                    color: "#c4c4c4",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "administrative.neighborhood",
+                            elementType: "labels.text.fill",
+                            stylers: [
+                                {
+                                    color: "#707070",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "landscape",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 20,
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "poi",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 21,
+                                },
+                                {
+                                    visibility: "on",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "poi.business",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    visibility: "on",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.arterial",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 18,
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.arterial",
+                            elementType: "geometry.fill",
+                            stylers: [
+                                {
+                                    color: "#575757",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.arterial",
+                            elementType: "labels.text.fill",
+                            stylers: [
+                                {
+                                    color: "#ffffff",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.arterial",
+                            elementType: "labels.text.stroke",
+                            stylers: [
+                                {
+                                    color: "#2c2c2c",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.highway",
+                            elementType: "geometry.fill",
+                            stylers: [
+                                {
+                                    color: "#be2026",
+                                },
+                                {
+                                    lightness: "0",
+                                },
+                                {
+                                    visibility: "on",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.highway",
+                            elementType: "geometry.stroke",
+                            stylers: [
+                                {
+                                    visibility: "off",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.highway",
+                            elementType: "labels.text.fill",
+                            stylers: [
+                                {
+                                    visibility: "off",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.highway",
+                            elementType: "labels.text.stroke",
+                            stylers: [
+                                {
+                                    hue: "#ff000a",
+                                },
+                                {
+                                    visibility: "off",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.local",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 16,
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.local",
+                            elementType: "labels.text.fill",
+                            stylers: [
+                                {
+                                    color: "#999999",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.local",
+                            elementType: "labels.text.stroke",
+                            stylers: [
+                                {
+                                    saturation: "-52",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "transit",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 19,
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "water",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 17,
+                                },
+                            ],
+                        },
+                    ],
+                    { name: "Red Night" }
+                );
             }
 
 
