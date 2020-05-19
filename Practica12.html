@@ -1,0 +1,490 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mapas con eventos</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        html,
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: #000000;
+        }
+
+        #mapa1,
+        #mapa2,
+        #mapa3,
+        #mapa4,
+        #mapa5,
+        #mapa6 {
+            width: 100%;
+            height: 340px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid m-2 text-center">
+        <div class="row">
+            <div class="col-12">
+                <h1 style="color:whitesmoke;">Eventos en Mapas</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div id="mapa1"></div>
+                <p style="color:whitesmoke;">Evento Click en Mapa</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <div id="mapa2"></div>
+                <p style="color:whitesmoke;">Regresa al centro</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div id="mapa3"></div>
+                <p style="color:whitesmoke;">Obtiene nivel de Zoom</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <div id="mapa4"></div>
+                <p style="color:whitesmoke;">Coloca marcador y mueve al centro</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div id="mapa5"></div>
+                <p style="color:whitesmoke;">Obtiene coordenadas con mapsMouseEvent</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <div id="mapa6"></div>
+                <p style="color:whitesmoke;">addDomListener</p>
+                <button class="btn btn-success" id="btnCentrar">Centrar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        function iniciaMapa() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(nuestraPosicion);
+            } else {
+                console.log("El navegador no tiene geolocalización");
+            }
+            function nuestraPosicion(posicion) {
+                var styledMapType = new google.maps.StyledMapType(
+                    [
+                        {
+                            elementType: "labels",
+                            stylers: [
+                                {
+                                    visibility: "on",
+                                },
+                            ],
+                        },
+                        {
+                            elementType: "labels.icon",
+                            stylers: [
+                                {
+                                    visibility: "off",
+                                },
+                            ],
+                        },
+                        {
+                            elementType: "labels.text.fill",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    saturation: 36,
+                                },
+                                {
+                                    lightness: 40,
+                                },
+                            ],
+                        },
+                        {
+                            elementType: "labels.text.stroke",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 16,
+                                },
+                                {
+                                    visibility: "on",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "administrative",
+                            elementType: "geometry.fill",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 20,
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "administrative",
+                            elementType: "geometry.stroke",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 17,
+                                },
+                                {
+                                    weight: 1.2,
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "administrative.locality",
+                            elementType: "labels.text.fill",
+                            stylers: [
+                                {
+                                    color: "#c4c4c4",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "administrative.neighborhood",
+                            elementType: "labels.text.fill",
+                            stylers: [
+                                {
+                                    color: "#707070",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "landscape",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 20,
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "poi",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 21,
+                                },
+                                {
+                                    visibility: "on",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "poi.business",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    visibility: "on",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.arterial",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 18,
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.arterial",
+                            elementType: "geometry.fill",
+                            stylers: [
+                                {
+                                    color: "#575757",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.arterial",
+                            elementType: "labels.text.fill",
+                            stylers: [
+                                {
+                                    color: "#ffffff",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.arterial",
+                            elementType: "labels.text.stroke",
+                            stylers: [
+                                {
+                                    color: "#2c2c2c",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.highway",
+                            elementType: "geometry.fill",
+                            stylers: [
+                                {
+                                    color: "#be2026",
+                                },
+                                {
+                                    lightness: "0",
+                                },
+                                {
+                                    visibility: "on",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.highway",
+                            elementType: "geometry.stroke",
+                            stylers: [
+                                {
+                                    visibility: "off",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.highway",
+                            elementType: "labels.text.fill",
+                            stylers: [
+                                {
+                                    visibility: "off",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.highway",
+                            elementType: "labels.text.stroke",
+                            stylers: [
+                                {
+                                    hue: "#ff000a",
+                                },
+                                {
+                                    visibility: "off",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.local",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 16,
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.local",
+                            elementType: "labels.text.fill",
+                            stylers: [
+                                {
+                                    color: "#999999",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "road.local",
+                            elementType: "labels.text.stroke",
+                            stylers: [
+                                {
+                                    saturation: "-52",
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "transit",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 19,
+                                },
+                            ],
+                        },
+                        {
+                            featureType: "water",
+                            elementType: "geometry",
+                            stylers: [
+                                {
+                                    color: "#000000",
+                                },
+                                {
+                                    lightness: 17,
+                                },
+                            ],
+                        },
+                    ],
+                    { name: "Red Night" }
+                );
+
+                var coordenadas = { lat: posicion.coords.latitude, lng: posicion.coords.longitude };
+
+                var propiedades = {
+                    center: coordenadas,
+                    zoom: 12
+                };
+
+                var mapa1 = new google.maps.Map(document.getElementById('mapa1'), propiedades);
+                mapa1.mapTypes.set("estilo_Creado", styledMapType);
+                mapa1.setMapTypeId("estilo_Creado");
+                var marker = new google.maps.Marker({
+                    position: coordenadas,
+                    map: mapa1
+                });
+
+                marker.addListener('click', function () {
+                    mapa1.setZoom(8);
+                    mapa1.setCenter(marker.getPosition());
+                });
+
+
+                /*     MAPA2       */
+
+                var mapa2 = new google.maps.Map(document.getElementById('mapa2'), propiedades);
+                mapa2.mapTypes.set("estilo_Creado", styledMapType);
+                mapa2.setMapTypeId("estilo_Creado");
+                var marker2 = new google.maps.Marker({
+                    position: coordenadas,
+                    map: mapa2
+                });
+
+                mapa2.addListener('center_changed', function () {
+
+                    window.setTimeout(function () {
+                        mapa2.panTo(marker2.getPosition());
+                    }, 3000);
+
+                });
+
+
+
+                /*     MAPA3       */
+
+                var mapa3 = new google.maps.Map(document.getElementById('mapa3'), propiedades);
+                mapa3.mapTypes.set("estilo_Creado", styledMapType);
+                mapa3.setMapTypeId("estilo_Creado");
+                var infowindow = new google.maps.InfoWindow({
+                    content: 'Cambia el zoom',
+                    position: coordenadas
+                });
+
+                infowindow.open(mapa3);
+
+                mapa3.addListener('zoom_changed', function () {
+                    infowindow.setContent('Zoom' + mapa3.getZoom());
+                });
+
+
+                /*     MAPA4      */
+
+                var mapa4 = new google.maps.Map(document.getElementById('mapa4'), propiedades);
+                mapa4.mapTypes.set("estilo_Creado", styledMapType);
+                mapa4.setMapTypeId("estilo_Creado");
+                mapa4.addListener('click', function (e) {
+                    console.log(e.latLng);
+
+                    estableceMarcador(e.latLng);
+                });
+
+                function estableceMarcador(latLng) {
+
+                    var marker = new google.maps.Marker({
+                        position: latLng,
+                        map: mapa4
+                    });
+
+                    mapa4.panTo(latLng);
+
+                }
+
+                /*     MAPA5      */
+
+                var mapa5 = new google.maps.Map(document.getElementById('mapa5'), propiedades);
+                mapa5.mapTypes.set("estilo_Creado", styledMapType);
+                mapa5.setMapTypeId("estilo_Creado");
+                var infowindow = new google.maps.InfoWindow({
+                    content: 'Click para saber coordenadas',
+                    position: coordenadas
+                });
+
+                infowindow.open(mapa5);
+
+                mapa5.addListener('click', function (evento) {
+                    infowindow.close();
+
+                    infowindow = new google.maps.InfoWindow({ position: evento.latLng });
+                    infowindow.setContent(evento.latLng.toString());
+                    infowindow.open(mapa5);
+
+                });
+
+                /*     MAPA6   */
+
+                var mapa6 = new google.maps.Map(document.getElementById('mapa6'), propiedades);
+                mapa6.mapTypes.set("estilo_Creado", styledMapType);
+                mapa6.setMapTypeId("estilo_Creado");
+                google.maps.event.addDomListener(mapa6, 'click', function () {
+                    window.alert(' Se hizo click en el mapa');
+                });
+
+                var boton = document.getElementById('btnCentrar');
+                google.maps.event.addDomListener(boton, 'click', function () {
+                    mapa6.panTo(coordenadas);
+                });
+
+
+            }
+        }
+
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADjOfdGIg-7JiqjoTstMN9el4g-nLhxxA&callback=iniciaMapa"
+        async defer></script>
+
+</body>
+
+</html>
