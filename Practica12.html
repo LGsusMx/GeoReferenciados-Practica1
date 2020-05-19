@@ -369,9 +369,6 @@
                     mapa1.setCenter(marker.getPosition());
                 });
 
-
-                /*     MAPA2       */
-
                 var mapa2 = new google.maps.Map(document.getElementById('mapa2'), propiedades);
                 mapa2.mapTypes.set("estilo_Creado", styledMapType);
                 mapa2.setMapTypeId("estilo_Creado");
@@ -390,24 +387,23 @@
 
 
 
-                /*     MAPA3       */
+
 
                 var mapa3 = new google.maps.Map(document.getElementById('mapa3'), propiedades);
                 mapa3.mapTypes.set("estilo_Creado", styledMapType);
                 mapa3.setMapTypeId("estilo_Creado");
-                var infowindow = new google.maps.InfoWindow({
+                var infowindow2 = new google.maps.InfoWindow({
                     content: 'Cambia el zoom',
                     position: coordenadas
                 });
 
-                infowindow.open(mapa3);
+                infowindow2.open(mapa3);
 
                 mapa3.addListener('zoom_changed', function () {
-                    infowindow.setContent('Zoom' + mapa3.getZoom());
+                    infowindow2.setContent('Zoom' + mapa3.getZoom());
                 });
 
 
-                /*     MAPA4      */
 
                 var mapa4 = new google.maps.Map(document.getElementById('mapa4'), propiedades);
                 mapa4.mapTypes.set("estilo_Creado", styledMapType);
@@ -429,7 +425,6 @@
 
                 }
 
-                /*     MAPA5      */
 
                 var mapa5 = new google.maps.Map(document.getElementById('mapa5'), propiedades);
                 mapa5.mapTypes.set("estilo_Creado", styledMapType);
