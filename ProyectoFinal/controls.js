@@ -102,5 +102,5 @@ function iniciaAutoCompletado(posicion){
 }
 
 function agregarLugarcito(){
-    console.log(current);
+    console.log(JSON.stringify(current));
 }
