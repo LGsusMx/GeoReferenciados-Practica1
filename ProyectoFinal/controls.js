@@ -31,6 +31,7 @@ function iniciaMapa() {
     }
 }
 var current ; 
+var locationsF = [];
 function iniciaAutoCompletado(posicion){
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: posicion.coords.latitude, lng: posicion.coords.longitude},
@@ -88,7 +89,7 @@ function iniciaAutoCompletado(posicion){
             title: place.name,
             position: place.geometry.location
           }));
-          current = place.geometry.location;
+          current = place;
           if (place.geometry.viewport) {
             // Only geocodes have viewport.
             bounds.union(place.geometry.viewport);
@@ -102,5 +103,6 @@ function iniciaAutoCompletado(posicion){
 }
 
 function agregarLugarcito(){
-    console.log(JSON.stringify(current));
+    locationsF.push({"address":current.name,"lat":current.geometry.location.lat,"lng":current.geometry.location.lng});
+    console.log(JSON.stringify(locationsF));
 }
