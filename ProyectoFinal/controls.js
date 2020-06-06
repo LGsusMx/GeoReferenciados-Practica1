@@ -103,8 +103,6 @@ function iniciaAutoCompletado(posicion){
 }
 
 function agregarLugarcito(){
-    locationsF.push({"address":current.name,"lat":current.geometry.location.lat,"lng":current.geometry.location.lng});
-    console.log(current.geometry.location.lat);
-    console.log(current.geometry.location.lat());
+    locationsF.push({"address":current.name,"lat":current.geometry.location.lat(),"lng":current.geometry.location.lng()});
     console.log(JSON.stringify(locationsF));
 }
