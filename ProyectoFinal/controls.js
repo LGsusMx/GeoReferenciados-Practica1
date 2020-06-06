@@ -1,6 +1,6 @@
 function iniciaMapa() {
     if (navigator.geolocation) {
-        iniciaAutoCompletado();
+        navigator.geolocation.getCurrentPosition(iniciaAutoCompletado);
         navigator.geolocation.getCurrentPosition(nuestraPosicion);
     } else {
         console.log("El navegador no tiene geolocalización");
@@ -30,9 +30,9 @@ function iniciaMapa() {
 		});
     }
 }
-function iniciaAutoCompletado(){
+function iniciaAutoCompletado(posicion){
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -33.8688, lng: 151.2195},
+        center: {lat: posicion.coords.latitude, lng: posicion.coords.longitude},
         zoom: 13,
         mapTypeId: 'roadmap'
       });
