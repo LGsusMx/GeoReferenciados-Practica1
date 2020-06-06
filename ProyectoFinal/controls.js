@@ -1,34 +1,10 @@
 function iniciaMapa() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(iniciaAutoCompletado);
-        navigator.geolocation.getCurrentPosition(nuestraPosicion);
     } else {
         console.log("El navegador no tiene geolocalización");
     }
-    function nuestraPosicion(posicion) {
-        var locations=[{"address":"Aqui tas tu wey","lat":"19.432764","lng":"-99.041974"},{"address":"Universidad La Salle Nezahualcóyotl","lat":"19.423820","lng":"-99.016544"},{"address":"Mercado Municipal No. 15 'El Sol'","lat":"19.434061","lng":"-99.044454"},{"address":"Tacos El Güero","lat":"19.439309","lng":"-99.164815"}];
-        var request = jQuery.ajax({
 
-			beforeSend: function (xhr) {
-			    xhr.setRequestHeader ("Authorization", "Basic " + btoa("RedMx14:Tofis123"));
-			},
-
-			url: "https://api.routexl.nl/tour",
-			method: "POST",
-			dataType: "json",
-
-			data: { locations: locations },
-						
-		});
-		
-		request.done(function( msg ) {
-			console.log(msg);
-		});
-			 
-		request.fail(function( jqXHR, textStatus ) {
-			console.log(textStatus);
-		});
-    }
 }
 var current ; 
 var locationsF = [];
@@ -105,4 +81,28 @@ function iniciaAutoCompletado(posicion){
 function agregarLugarcito(){
     locationsF.push({"address":current.name,"lat":current.geometry.location.lat(),"lng":current.geometry.location.lng()});
     console.log(JSON.stringify(locationsF));
+}
+
+function hacerLaTrazacion(){
+    var request = jQuery.ajax({
+
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader ("Authorization", "Basic " + btoa("RedMx14:Tofis123"));
+        },
+
+        url: "https://api.routexl.nl/tour",
+        method: "POST",
+        dataType: "json",
+
+        data: { locations: locationsF },
+                    
+    });
+    
+    request.done(function( msg ) {
+        console.log(msg);
+    });
+         
+    request.fail(function( jqXHR, textStatus ) {
+        console.log(textStatus);
+    });
 }
