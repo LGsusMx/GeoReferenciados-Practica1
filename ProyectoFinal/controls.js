@@ -149,7 +149,7 @@ function trazarRuta(rutas){
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix({
         origins: [{lat:posicionex[0].lat,lng:posicionex[0].lng}],
-        destinations: posicionex,
+        destinations:[posicionex],
         travelMode: google.maps.TravelMode.DRIVING,
         unitSystem: google.maps.UnitSystem.METRIC,
         avoidHighways: false,
