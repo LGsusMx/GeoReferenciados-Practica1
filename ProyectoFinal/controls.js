@@ -117,7 +117,7 @@ function trazarRuta(rutas){
     for (let index = 0; index < locationsF.length; index++) {
         for (let index2 = 0; index2 < locationsF.length; index2++) {
             if (rutas.route[index].name === locationsF[index2].address) {
-                posicionex.push(locationsF[index]);
+                posicionex.push({lat:locationsF[index].lat,lng:locationsF[index].lng});
                 if (index != 0 || index != locationsF.length) {
                     wayputos.push({
                         location: {lat: locationsF[index].lat, lng: locationsF[index].lng},
@@ -149,8 +149,7 @@ function trazarRuta(rutas){
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix({
         origins: [{lat:posicionex[0].lat,lng:posicionex[0].lng}],
-        destinations: [{lat:posicionex[posicionex.length-1].lat, lng:posicionex[posicionex.length-1].lng}],
-        waypoints: wayputos,
+        destinations: posicionex,
         travelMode: google.maps.TravelMode.DRIVING,
         unitSystem: google.maps.UnitSystem.METRIC,
         avoidHighways: false,
