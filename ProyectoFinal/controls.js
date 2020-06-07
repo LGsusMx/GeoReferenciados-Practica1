@@ -121,7 +121,7 @@ function trazarRuta(rutas){
         
     }
     console.log(posicionex[0].lat);
-    console.log(posicionex[posicionex.length].lng);
+    console.log(posicionex);
     var directionsService = new google.maps.DirectionsService();
     var request = {
         origin: {lat:posicionex[0].lat,lng:posicionex[0].lng},
