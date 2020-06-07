@@ -150,7 +150,7 @@ function trazarRuta(rutas){
     service.getDistanceMatrix({
         origins: [{lat:posicionex[0].lat,lng:posicionex[0].lng}],
         destinations: [{lat:posicionex[posicionex.length-1].lat, lng:posicionex[posicionex.length-1].lng}],
-        waypoints: waypoints,
+        waypoints: wayputos,
         travelMode: google.maps.TravelMode.DRIVING,
         unitSystem: google.maps.UnitSystem.METRIC,
         avoidHighways: false,
