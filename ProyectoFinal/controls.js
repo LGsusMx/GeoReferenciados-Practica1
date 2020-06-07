@@ -113,10 +113,19 @@ function hacerLaTrazacion(){
 
 function trazarRuta(rutas){
     var posicionex = [];
+    var wayputos = [];
     for (let index = 0; index < locationsF.length; index++) {
         for (let index2 = 0; index2 < locationsF.length; index2++) {
             if (rutas.route[index].name === locationsF[index2].address) {
                 posicionex.push(locationsF[index]);
+                if (index != 0 || index != locationsF.length) {
+                    wayputos.push({
+                        location: {lat: locationsF[index].lat, lng: locationsF[index].lng},
+                        stopover: true
+                      });
+                }
+                
+      
             }
         }
     }
@@ -124,7 +133,7 @@ function trazarRuta(rutas){
     var request = {
         origin: {lat:posicionex[0].lat,lng:posicionex[0].lng},
         destination: {lat:posicionex[posicionex.length-1].lat, lng:posicionex[posicionex.length-1].lng},
-        waypoints: posicionex,
+        waypoints: wayputos,
         travelMode: google.maps.TravelMode.DRIVING
     };
     directionsService.route(request, function (response, status) {
