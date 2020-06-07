@@ -8,16 +8,16 @@ function iniciaMapa() {
 }
 var current ; 
 var locationsF = [];
-var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: posicion.coords.latitude, lng: posicion.coords.longitude},
-    zoom: 13,
-    mapTypeId: 'roadmap'
-  });
-google.maps.event.addDomListener(window, 'load', function () {
-    directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
-});
+var map;
+
 
 function iniciaAutoCompletado(posicion){
+     map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: posicion.coords.latitude, lng: posicion.coords.longitude},
+        zoom: 13,
+        mapTypeId: 'roadmap'
+      });
+
       // Create the search box and link it to the UI element.
       var input = document.getElementById('pac-input');
       var input2 = document.getElementById('pac-input2');
