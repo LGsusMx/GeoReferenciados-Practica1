@@ -100,9 +100,48 @@ function hacerLaTrazacion(){
     
     request.done(function( msg ) {
         console.log(msg);
+        trazarRuta(msg);
     });
          
     request.fail(function( jqXHR, textStatus ) {
         console.log(textStatus);
+    });
+}
+
+function trazarRuta(rutas){
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+        origin:rutas.route[0],
+        destination: rutas.route[rutas.route.length],
+        //waypoints:rutas.route[rutas.route.length],
+        travelMode: google.maps.TravelMode.DRIVING
+    };
+    directionsService.route(request, function (response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            console.log(response);
+        }
+    });
+ 
+    //*********DISTANCE AND DURATION**********************//
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix({
+        origins: [source],
+        destinations: [destination],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false
+    }, function (response, status) {
+        if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+            var distance = response.rows[0].elements[0].distance.text;
+            var duration = response.rows[0].elements[0].duration.text;
+            var dvDistance = document.getElementById("dvDistance");
+           dvDistance.innerHTML = "";
+            dvDistance.innerHTML += "Distance: " + distance + "<br />";
+            dvDistance.innerHTML += "Duration:" + duration;
+ 
+        } else {
+            alert("Unable to find the distance via road.");
+        }
     });
 }
