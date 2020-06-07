@@ -113,8 +113,8 @@ function trazarRuta(rutas){
     for (let index = 0; index < locationsF.length; index++) {
         for (let index2 = 0; index2 < locationsF.length; index2++) {
             
-            if (rutas.route[index].name === posicionex[index2].address) {
-                posicionex.push(rutas.route[index]);
+            if (rutas.route[index].name === locationsF[index2].address) {
+                posicionex.push(locationsF[index]);
             }
         }
         
