@@ -121,11 +121,11 @@ function trazarRuta(rutas){
         
     }
     console.log(posicionex[0].lat);
-    console.log(posicionex);
+    console.log(posicionex[posicionex.length-1].lng);
     var directionsService = new google.maps.DirectionsService();
     var request = {
         origin: {lat:posicionex[0].lat,lng:posicionex[0].lng},
-        destination: {lat:posicionex[posicionex.length].lat, lng:posicionex[posicionex.length].lng},
+        destination: {lat:posicionex[posicionex.length-1].lat, lng:posicionex[posicionex.length-1].lng},
         //waypoints:rutas.route[rutas.route.length],
         travelMode: google.maps.TravelMode.DRIVING
     };
@@ -138,8 +138,8 @@ function trazarRuta(rutas){
     //*********DISTANCE AND DURATION**********************//
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix({
-        origins: [{lat:rutas.route[0],lng:rutas.route[0].lng}],
-        destinations: [{lat:rutas.route[rutas.route.length].lat, lng:rutas.route[rutas.route.length].lng}],
+        origins: [{lat:posicionex[0].lat,lng:posicionex[0].lng}],
+        destinations: [{lat:posicionex[posicionex.length-1].lat, lng:posicionex[posicionex.length-1].lng}],
         travelMode: google.maps.TravelMode.DRIVING,
         unitSystem: google.maps.UnitSystem.METRIC,
         avoidHighways: false,
