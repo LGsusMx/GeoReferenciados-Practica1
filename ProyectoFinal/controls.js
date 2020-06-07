@@ -109,12 +109,23 @@ function hacerLaTrazacion(){
 }
 
 function trazarRuta(rutas){
-    console.log(rutas.route[0].lat);
-    console.log(rutas.route[rutas.route.length].lng);
+    var posicionex = [];
+    for (let index = 0; index < locationsF.length; index++) {
+        for (let index2 = 0; index2 < locationsF.length; index2++) {
+            
+            if (rutas.route[index].name === posicionex[index2].address) {
+                posicionex.push(rutas.route[index]);
+            }
+        }
+        
+        
+    }
+    console.log(posicionex[0].lat);
+    console.log(posicionex[rutas.route.length].lng);
     var directionsService = new google.maps.DirectionsService();
     var request = {
-        origin: {lat:rutas.route[0],lng:rutas.route[0].lng},
-        destination: {lat:rutas.route[rutas.route.length].lat, lng:rutas.route[rutas.route.length].lng},
+        origin: {lat:posicionex[0].lat,lng:posicionex[0].lng},
+        destination: {lat:posicionex[posicionex.length].lat, lng:posicionex[posicionex.length].lng},
         //waypoints:rutas.route[rutas.route.length],
         travelMode: google.maps.TravelMode.DRIVING
     };
