@@ -125,8 +125,8 @@ function trazarRuta(rutas){
     //*********DISTANCE AND DURATION**********************//
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix({
-        origins: [source],
-        destinations: [destination],
+        origins: [rutas.route[0]],
+        destinations: [rutas.route[rutas.route.length]],
         travelMode: google.maps.TravelMode.DRIVING,
         unitSystem: google.maps.UnitSystem.METRIC,
         avoidHighways: false,
