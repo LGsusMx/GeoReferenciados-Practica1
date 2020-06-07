@@ -8,13 +8,16 @@ function iniciaMapa() {
 }
 var current ; 
 var locationsF = [];
-function iniciaAutoCompletado(posicion){
-    var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: posicion.coords.latitude, lng: posicion.coords.longitude},
-        zoom: 13,
-        mapTypeId: 'roadmap'
-      });
+var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: posicion.coords.latitude, lng: posicion.coords.longitude},
+    zoom: 13,
+    mapTypeId: 'roadmap'
+  });
+google.maps.event.addDomListener(window, 'load', function () {
+    directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
+});
 
+function iniciaAutoCompletado(posicion){
       // Create the search box and link it to the UI element.
       var input = document.getElementById('pac-input');
       var input2 = document.getElementById('pac-input2');
@@ -112,13 +115,10 @@ function trazarRuta(rutas){
     var posicionex = [];
     for (let index = 0; index < locationsF.length; index++) {
         for (let index2 = 0; index2 < locationsF.length; index2++) {
-            
             if (rutas.route[index].name === locationsF[index2].address) {
                 posicionex.push(locationsF[index]);
             }
         }
-        
-        
     }
     console.log(posicionex[0].lat);
     console.log(posicionex[posicionex.length-1].lng);
@@ -131,7 +131,10 @@ function trazarRuta(rutas){
     };
     directionsService.route(request, function (response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
-            console.log(response);
+            new google.maps.DirectionsRenderer({
+                map: map,
+                directions: response
+              });
         }
     });
  
