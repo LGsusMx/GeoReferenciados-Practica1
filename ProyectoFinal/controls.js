@@ -86,9 +86,9 @@ function agregarLugarcito() {
   console.log(JSON.stringify(locationsF));
   var paradas = document.getElementById('paradasList');
 
-for (let index = 0; index < locationsF.length; index++) {
-  paradas.innerHTML += '<a class="dropdown-item" href="#">' + locationsF.address[index] + '</a>';
-}
+
+  paradas.innerHTML += '<a class="dropdown-item" href="#">' + current.name + '</a>';
+
 
 
 
