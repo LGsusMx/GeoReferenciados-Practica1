@@ -84,6 +84,14 @@ function iniciaAutoCompletado(posicion) {
 function agregarLugarcito() {
   locationsF.push({ "address": current.name, "lat": current.geometry.location.lat(), "lng": current.geometry.location.lng() });
   console.log(JSON.stringify(locationsF));
+  var paradas = document.getElementById('paradasList');
+
+for (let index = 0; index < locationsF.length; index++) {
+  paradas.innerHTML += '<a class="dropdown-item" href="#">' + locationsF.address[index] + '</a>';
+}
+
+
+
 }
 
 function hacerLaTrazacion() {
@@ -167,7 +175,7 @@ function trazarRuta(rutas) {
       var dumration = document.getElementById('duration');
 
       distamce.innerHTML += 'Distancia: ' + distance;
-      dumration.innerHTML += 'Duración: ' +duration;
+      dumration.innerHTML += 'Duración: ' + duration;
 
     } else {
       alert("Unable to find the distance via road.");
