@@ -170,8 +170,8 @@ function trazarRuta(rutas) {
       var distamce = document.getElementById('distance');
       var dumration = document.getElementById('duration');
 
-      distamce.innerHTML += 'Distancia: ' + distance;
-      dumration.innerHTML += 'Duración: ' + duration;
+      distamce.innerHTML = 'Distancia: ' + distance;
+      dumration.innerHTML = 'Duración: ' + duration;
 
     } else {
       alert("Unable to find the distance via road.");
