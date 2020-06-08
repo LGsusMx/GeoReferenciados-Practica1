@@ -129,14 +129,16 @@
           <li class="nav-item">
             <a class="nav-link" href="#" id="duration"></a>
           </li>
+          <li class="nav-item">
+            <form class="form-inline navbar-item my-2 my-lg-0">
+              <input id="pac-input" class="form-control mr-sm-2 controls" type="text" placeholder="Escriba una parada" aria-label="Search" />
+              <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2">Agregar parada</button>
+              <button onclick="agregarLugarcito()" id="pac-input2" class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">
+                Trazar ruta
+              </button>
+            </form>
+          </li>
         </ul>
-        <form class="form-inline navbar-item my-2 my-lg-0">
-          <input id="pac-input" class="form-control mr-sm-2 controls" type="text" placeholder="Escriba una parada" aria-label="Search" />
-          <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2">Agregar parada</button>
-          <button onclick="agregarLugarcito()" id="pac-input2" class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">
-            Trazar ruta
-          </button>
-        </form>
       </div>
     </nav>
     <!-- <div id="dvDistance">
