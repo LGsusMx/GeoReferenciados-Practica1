@@ -205,9 +205,8 @@ function borrarRutas() {
 }
 
 function borrarUnaParada(parada) {
-  console.log('Se borrará ' + parada);
-  console.log('Al entrar la lista tenia los datos:');
-  console.log(JSON.stringify(locationsF));
+  
+  alert('Se borró ' + parada + ' de la lista de paradas');
   var paradaABorrar = document.getElementById(parada);
   paradaABorrar.remove();
 
@@ -216,6 +215,5 @@ function borrarUnaParada(parada) {
       locationsF.splice(i, 1);
     }
   }
-  console.log('Al salir la lista tiene los datos:');
-  console.log(JSON.stringify(locationsF));
+  
 }
