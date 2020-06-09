@@ -22,8 +22,6 @@ function iniciaAutoCompletado(posicion) {
   var input = document.getElementById('pac-input');
   var input2 = document.getElementById('pac-input2');
   var searchBox = new google.maps.places.SearchBox(input);
-  //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-  //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input2);
 
   // Bias the SearchBox results towards current map's viewport.
   map.addListener('bounds_changed', function () {
@@ -82,13 +80,10 @@ function iniciaAutoCompletado(posicion) {
 }
 
 function agregarLugarcito() {
-  google.maps.event.trigger(map, 'resize');
   locationsF.push({ "address": current.name, "lat": current.geometry.location.lat(), "lng": current.geometry.location.lng() });
   console.log(JSON.stringify(locationsF));
   var paradas = document.getElementById('paradasList');
-
   paradas.innerHTML += '<a class="dropdown-item" href="#">' + current.name + '</a>';
-
 }
 
 function hacerLaTrazacion() {
@@ -164,6 +159,12 @@ function trazarRuta(rutas) {
 
       var distamce = document.getElementById('distance');
       var dumration = document.getElementById('duration');
+      var navbar = document.getElementById('navbar');
+
+      navbar.innerHTML = '<a class="navbar-brand" href="#">RutaEficiente</a>';
+      navbar.innerHTML += '<li class="nav-item"><a class="nav-link" href="#" id="distance"></a></li>';
+      navbar.innerHTML += '<li class="nav-item"><a class="nav-link" href="#" id="duration"></a></li>';
+      navbar.innerHTML += '<li class="nav-item"><button onclick="recargarPagina()" class="btn btn-outline-danger my-2 my-sm-0 mr-sm-2">Trazar una nueva ruta</button></li>';
 
       distamce.innerHTML = 'Distancia: ' + distance;
       dumration.innerHTML = 'Duración: ' + duration;
@@ -172,4 +173,8 @@ function trazarRuta(rutas) {
       alert("Unable to find the distance via road.");
     }
   });
+}
+
+function recargarPagina() { 
+  window.location.reload(false);
 }
