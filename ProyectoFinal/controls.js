@@ -204,8 +204,9 @@ function borrarRutas() {
     'class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">Trazar ruta</button></li>';
 }
 
-function borrarUnaParada(parada){
- console.log('Se borrará ' + parada);
- var paradaABorrar = document.getElementById(parada);
- paradaABorrar.remove();
+function borrarUnaParada(parada) {
+  console.log('Se borrará ' + parada);
+  var paradaABorrar = document.getElementById(parada);
+  paradaABorrar.remove();
+  console.log(locationsF.findIndex(parada));
 }
