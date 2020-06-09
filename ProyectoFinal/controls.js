@@ -82,6 +82,7 @@ function iniciaAutoCompletado(posicion) {
 }
 
 function agregarLugarcito() {
+  google.maps.event.trigger(map, 'resize');
   locationsF.push({ "address": current.name, "lat": current.geometry.location.lat(), "lng": current.geometry.location.lng() });
   console.log(JSON.stringify(locationsF));
   var paradas = document.getElementById('paradasList');
@@ -118,7 +119,6 @@ function hacerLaTrazacion() {
 function trazarRuta(rutas) {
   var posicionex = [];
   var wayputos = [];
-  google.maps.event.trigger(map, 'resize');
   for (let index = 0; index < locationsF.length; index++) {
     for (let index2 = 0; index2 < locationsF.length; index2++) {
       if (rutas.route[index].name === locationsF[index2].address) {
