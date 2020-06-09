@@ -213,7 +213,7 @@ function borrarUnaParada(parada) {
 
   for (var i = 0; i < locationsF.length; i++) {
     if (locationsF[i].address === parada) {
-      arr.splice(i, 1);
+      locationsF.splice(i, 1);
     }
   }
   console.log('Al salir la lista tiene los datos:');
