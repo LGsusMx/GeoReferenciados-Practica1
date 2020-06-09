@@ -206,4 +206,6 @@ function borrarRutas() {
 
 function borrarUnaParada(parada){
  console.log('Se borrará ' + parada);
+ var paradaABorrar = document.getElementById(parada);
+ paradaABorrar.remove();
 }
