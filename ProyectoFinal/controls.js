@@ -208,5 +208,12 @@ function borrarUnaParada(parada) {
   console.log('Se borrará ' + parada);
   var paradaABorrar = document.getElementById(parada);
   paradaABorrar.remove();
-  console.log(locationsF.findIndex(parada));
+  console.log(locationsF.findIndex('' + parada));
+
+  locationsF.forEach(parada => {
+    if (parada === paradaABorrar) {
+      console.log('Se borro la parada ' + parada + ' de la lista');
+      locationsF.splice(parada.index);
+    }
+  });
 }
