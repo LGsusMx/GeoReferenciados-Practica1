@@ -185,4 +185,22 @@ function quitarParadas() {
 function borrarRutas() {
   quitarParadas();
   directionx.setMap(null);
+
+  var distamce = document.getElementById('distance');
+  var dumration = document.getElementById('duration');
+  var searchbar = document.getElementById('searchbar');
+  var btnParada = document.getElementById('botonParada');
+  var btnRuta = document.getElementById('botonRuta');
+
+  distamce.innerHTML = '';
+  dumration.innerHTML = '';
+
+  searchbar.innerHTML = '<li class="nav-item" id="searchbar"><input id="pac-input" ' +
+    'class="form-control mr-sm-2 controls" type="text" placeholder="Escriba una parada" aria-label="Search" /></li>'
+
+  btnParada.innerHTML = '<li class="nav-item" id="botonParada"><button onclick="agregarLugarcito()"' +
+    'class="btn btn-outline-success my-2 my-sm-0 mr-sm-2">Agregar parada</button></li>'
+
+  btnRuta.innerHTML = '<li class="nav-item mr-sm-2 form-inline" id="botonRuta"><button id="pac-input2"' +
+    'class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">Trazar ruta</button></li>';
 }
