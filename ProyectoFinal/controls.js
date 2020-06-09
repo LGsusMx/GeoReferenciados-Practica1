@@ -206,14 +206,16 @@ function borrarRutas() {
 
 function borrarUnaParada(parada) {
   console.log('Se borrará ' + parada);
+  console.log('Al entrar la lista tenia los datos:');
+  console.log(JSON.stringify(locationsF));
   var paradaABorrar = document.getElementById(parada);
   paradaABorrar.remove();
 
   for (var i = 0; i < locationsF.length; i++) {
-    // if (locationsF[i].address === parada) {
-    //   arr.splice(i, 1);
-    // }
-    console.log(locationsF[i].address);
+    if (locationsF[i].address === parada) {
+      arr.splice(i, 1);
+    }
   }
-  
+  console.log('Al salir la lista tiene los datos:');
+  console.log(JSON.stringify(locationsF));
 }
