@@ -107,6 +107,7 @@ function hacerLaTrazacion() {
 
   request.fail(function (jqXHR, textStatus) {
     console.log(textStatus);
+    alert('Asegurese que agregó al menos dos paradas a su ruta');
   });
 }
 
