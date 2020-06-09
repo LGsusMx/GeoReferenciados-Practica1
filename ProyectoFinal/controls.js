@@ -162,7 +162,6 @@ function trazarRuta(rutas) {
       var searchbar = document.getElementById('searchbar');
       var btnParada = document.getElementById('botonParada');
       var btnRuta = document.getElementById('botonRuta');
-      var listaDeParadas = document.getElementById('paradasList');
 
       searchbar.innerHTML = '';
       btnParada.innerHTML = '';
@@ -171,7 +170,6 @@ function trazarRuta(rutas) {
       distamce.innerHTML = 'Distancia: ' + distance;
       dumration.innerHTML = 'Duración: ' + duration;
 
-      listaDeParadas.className = 'disabled dropdown-menu show';
     } else {
       alert("Unable to find the distance via road.");
     }
