@@ -203,3 +203,7 @@ function borrarRutas() {
   btnRuta.innerHTML = '<li class="nav-item mr-sm-2 form-inline" id="botonRuta"><button id="pac-input2"' +
     'class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">Trazar ruta</button></li>';
 }
+
+function borrarUnaParada(parada){
+ console.log('Se borrará ' + parada);
+}
