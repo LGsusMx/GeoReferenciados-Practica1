@@ -209,11 +209,11 @@ function borrarUnaParada(parada) {
   var paradaABorrar = document.getElementById(parada);
   paradaABorrar.remove();
 
-  locationsF.forEach(parada => {
-    if (parada === paradaABorrar) {
-      console.log('Se borro la parada ' + parada + ' de la lista');
-      locationsF.splice(parada.index);
-    }
-  });
-  console.log(JSON.stringify(locationsF));
+  for (var i = 0; i < locationsF.length; i++) {
+    // if (locationsF[i].address === parada) {
+    //   arr.splice(i, 1);
+    // }
+    console.log(locationsF[i].address);
+  }
+  
 }
