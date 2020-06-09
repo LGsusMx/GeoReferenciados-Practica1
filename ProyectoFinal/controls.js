@@ -118,18 +118,17 @@ function hacerLaTrazacion() {
 function trazarRuta(rutas) {
   var posicionex = [];
   var wayputos = [];
+  google.maps.event.trigger(map, 'resize');
   for (let index = 0; index < locationsF.length; index++) {
     for (let index2 = 0; index2 < locationsF.length; index2++) {
       if (rutas.route[index].name === locationsF[index2].address) {
         posicionex.push({ lat: locationsF[index].lat, lng: locationsF[index].lng });
-        if (index != 0 || index != locationsF.length) {
+        if (index != 0 || index != locationsF.length - 1) {
           wayputos.push({
             location: { lat: locationsF[index].lat, lng: locationsF[index].lng },
             stopover: true
           });
         }
-
-
       }
     }
   }
@@ -163,10 +162,6 @@ function trazarRuta(rutas) {
       var distance = response.rows[0].elements[0].distance.text;
       var duration = response.rows[0].elements[0].duration.text;
 
-      // var dvDistance = document.getElementById("dvDistance");
-      // dvDistance.innerHTML = "";
-      // dvDistance.innerHTML += "Distance: " + distance + "<br />";
-      // dvDistance.innerHTML += "Duration:" + duration;
       var distamce = document.getElementById('distance');
       var dumration = document.getElementById('duration');
 
