@@ -9,7 +9,7 @@ function iniciaMapa() {
 var current;
 var locationsF = [];
 var map;
-
+var directionx;
 
 function iniciaAutoCompletado(posicion) {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -136,7 +136,7 @@ function trazarRuta(rutas) {
   };
   directionsService.route(request, function (response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
-      new google.maps.DirectionsRenderer({
+      directionx = new google.maps.DirectionsRenderer({
         map: map,
         directions: response
       });
@@ -178,4 +178,8 @@ function trazarRuta(rutas) {
 
 function recargarPagina() { 
   window.location.reload(false);
+}
+
+function borrarRutas() {
+  directionx.map = null;
 }
