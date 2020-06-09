@@ -179,7 +179,7 @@ function trazarRuta(rutas) {
 function quitarParadas() {
   var paradas = document.getElementById('paradasList');
   paradas.innerHTML = '<a class="dropdown-item" style="color: red;" href="#" onclick="quitarParadas()">Borrar todas las paradas</a><div class="dropdown-divider"></div>';
-  paradas.innerHTML = '<a class="dropdown-item disabled" style="color: orange;" href="#">Seleccione un elemento de la lista para borrarlo</a><div class="dropdown-divider"></div>'
+  paradas.innerHTML += '<a class="dropdown-item disabled" style="color: orange;" href="#">Seleccione un elemento de la lista para borrarlo</a><div class="dropdown-divider"></div>'
   locationsF = [];
 }
 
