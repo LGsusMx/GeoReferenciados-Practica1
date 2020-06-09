@@ -208,7 +208,6 @@ function borrarUnaParada(parada) {
   console.log('Se borrará ' + parada);
   var paradaABorrar = document.getElementById(parada);
   paradaABorrar.remove();
-  console.log(locationsF.findIndex('' + parada));
 
   locationsF.forEach(parada => {
     if (parada === paradaABorrar) {
