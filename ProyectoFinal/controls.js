@@ -83,7 +83,7 @@ function agregarLugarcito() {
   locationsF.push({ "address": current.name, "lat": current.geometry.location.lat(), "lng": current.geometry.location.lng() });
   console.log(JSON.stringify(locationsF));
   var paradas = document.getElementById('paradasList');
-  paradas.innerHTML += '<a class="dropdown-item" href="#" onclick="borrarUnaParada(&apos;' + current.name + '&apos;)">' + current.name + '</a>';
+  paradas.innerHTML += '<a class="dropdown-item" href="#" onclick="borrarUnaParada(&apos;' + current.name + '&apos;)" id="' + current.name + '">' + current.name + '</a>';
 
   alert('Se agregó ' + current.name + ' a la lista de paradas');
 }
