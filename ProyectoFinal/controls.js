@@ -181,5 +181,5 @@ function recargarPagina() {
 }
 
 function borrarRutas() {
-  directionx.map = null;
+  directionx.setMap(null);
 }
