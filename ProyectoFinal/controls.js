@@ -159,12 +159,13 @@ function trazarRuta(rutas) {
 
       var distamce = document.getElementById('distance');
       var dumration = document.getElementById('duration');
-      var navbar = document.getElementById('navbar');
+      var searchbar = document.getElementById('searchbar');
+      var btnParada = document.getElementById('botonParada');
+      var btnRuta = document.getElementById('botonRuta');
 
-      navbar.innerHTML = '<a class="navbar-brand" href="#">RutaEficiente</a>';
-      navbar.innerHTML += '<li class="nav-item"><a class="nav-link" href="#" id="distance"></a></li>';
-      navbar.innerHTML += '<li class="nav-item"><a class="nav-link" href="#" id="duration"></a></li>';
-      navbar.innerHTML += '<li class="nav-item"><button onclick="recargarPagina()" class="btn btn-outline-danger my-2 my-sm-0 mr-sm-2">Trazar una nueva ruta</button></li>';
+      searchbar.innerHTML = '';
+      btnParada.innerHTML = '';
+      btnRuta.innerHTML = '';
 
       distamce.innerHTML = 'Distancia: ' + distance;
       dumration.innerHTML = 'Duración: ' + duration;
