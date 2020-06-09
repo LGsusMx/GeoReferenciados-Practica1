@@ -83,7 +83,7 @@ function agregarLugarcito() {
   locationsF.push({ "address": current.name, "lat": current.geometry.location.lat(), "lng": current.geometry.location.lng() });
   console.log(JSON.stringify(locationsF));
   var paradas = document.getElementById('paradasList');
-  paradas.innerHTML += '<a class="dropdown-item" href="#" id="' + current.name + '">' + current.name + '</a>';
+  paradas.innerHTML += '<a class="dropdown-item" href="#" onclick="borrarUnaParada(&apos;' + current.name + '&apos;)">' + current.name + '</a>';
 
   alert('Se agregó ' + current.name + ' a la lista de paradas');
 }
@@ -94,13 +94,10 @@ function hacerLaTrazacion() {
     beforeSend: function (xhr) {
       xhr.setRequestHeader("Authorization", "Basic " + btoa("RedMx14:Tofis123"));
     },
-
     url: "https://api.routexl.nl/tour",
     method: "POST",
     dataType: "json",
-
     data: { locations: locationsF },
-
   });
 
   request.done(function (msg) {
