@@ -183,5 +183,6 @@ function quitarParadas() {
 }
 
 function borrarRutas() {
+  quitarParadas();
   directionx.setMap(null);
 }
