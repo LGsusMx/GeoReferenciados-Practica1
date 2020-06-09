@@ -10,7 +10,6 @@ var current;
 var locationsF = [];
 var map;
 var directionx;
-var markers = [];
 
 function iniciaAutoCompletado(posicion) {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -29,6 +28,7 @@ function iniciaAutoCompletado(posicion) {
     searchBox.setBounds(map.getBounds());
   });
 
+  var markers = [];
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
   searchBox.addListener('places_changed', function () {
@@ -178,12 +178,10 @@ function trazarRuta(rutas) {
 
 function quitarParadas() { 
   var paradas = document.getElementById('paradasList');
-  paradas.innerHTML = '<a class="dropdown-item" href="#">' + current.name + '</a>';
+  paradas.innerHTML = '<a class="dropdown-item" style="color: red;" href="#" onclick="quitarParadas()">Borrar todas las paradas</a>';
   locationsF = [];
-
 }
 
 function borrarRutas() {
-  markers = [];
   directionx.setMap(null);
 }
