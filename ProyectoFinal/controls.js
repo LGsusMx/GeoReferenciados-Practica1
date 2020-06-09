@@ -85,7 +85,7 @@ function agregarLugarcito() {
   var paradas = document.getElementById('paradasList');
   paradas.innerHTML += '<a class="dropdown-item" href="#">' + current.name + '</a>';
 
-  $('.toast').toast('show');
+  $('#toast').toast('show');
 }
 
 function hacerLaTrazacion() {
