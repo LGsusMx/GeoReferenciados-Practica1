@@ -165,7 +165,7 @@ function trazarRuta(rutas) {
 
       searchbar.innerHTML = '';
       btnParada.innerHTML = '';
-      btnRuta.innerHTML = '';
+      btnRuta.innerHTML = '<button id="pac-input2" class="controls btn btn-outline-danger my-2 my-sm-0" onclick="recargarPagina()">Trazar una nueva ruta</button>';
 
       distamce.innerHTML = 'Distancia: ' + distance;
       dumration.innerHTML = 'Duración: ' + duration;
