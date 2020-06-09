@@ -10,6 +10,7 @@ var current;
 var locationsF = [];
 var map;
 var directionx;
+var markers = [];
 
 function iniciaAutoCompletado(posicion) {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -28,7 +29,6 @@ function iniciaAutoCompletado(posicion) {
     searchBox.setBounds(map.getBounds());
   });
 
-  var markers = [];
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
   searchBox.addListener('places_changed', function () {
@@ -165,7 +165,7 @@ function trazarRuta(rutas) {
 
       searchbar.innerHTML = '';
       btnParada.innerHTML = '';
-      btnRuta.innerHTML = '<button id="pac-input2" class="controls btn btn-outline-danger my-2 my-sm-0" onclick="recargarPagina()">Trazar una nueva ruta</button>';
+      btnRuta.innerHTML = '<button id="pac-input2" class="controls btn btn-outline-danger my-2 my-sm-0" onclick="borrarRutas()">Trazar una nueva ruta</button>';
 
       distamce.innerHTML = 'Distancia: ' + distance;
       dumration.innerHTML = 'Duración: ' + duration;
@@ -176,10 +176,14 @@ function trazarRuta(rutas) {
   });
 }
 
-function recargarPagina() { 
-  window.location.reload(false);
+function quitarParadas() { 
+  var paradas = document.getElementById('paradasList');
+  paradas.innerHTML = '<a class="dropdown-item" href="#">' + current.name + '</a>';
+  locationsF = [];
+
 }
 
 function borrarRutas() {
+  markers = [];
   directionx.setMap(null);
 }
