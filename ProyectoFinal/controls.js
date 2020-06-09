@@ -215,4 +215,5 @@ function borrarUnaParada(parada) {
       locationsF.splice(parada.index);
     }
   });
+  console.log(JSON.stringify(locationsF));
 }
