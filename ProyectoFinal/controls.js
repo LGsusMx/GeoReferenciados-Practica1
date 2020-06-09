@@ -171,7 +171,7 @@ function trazarRuta(rutas) {
       distamce.innerHTML = 'Distancia: ' + distance;
       dumration.innerHTML = 'Duración: ' + duration;
 
-      listaDeParadas.className = 'disabled';
+      listaDeParadas.className = 'disabled dropdown-menu show';
     } else {
       alert("Unable to find the distance via road.");
     }
