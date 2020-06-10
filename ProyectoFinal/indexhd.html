@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     <style>
-        
         img {
             width: 80%;
         }
@@ -32,6 +31,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
+            <a class="nav-item nav-link logged-in" href="#" data-toggle="modal" data-target="#micuentamodal">Mi Cuenta</a>
             <a class="nav-item nav-link logged-in" href="#" id="salir">Salir</a>
             <a class="nav-item nav-link logged-out" href="#" data-toggle="modal" data-target="#ingresarmodal">Ingresar</a>
             <a class="nav-item nav-link logged-out" href="#" data-toggle="modal" data-target="#registratemodal">Regístrate</a>
@@ -134,8 +134,33 @@
         </div>
     </div>
 
+    <!-- Modal MiCuenta -->
+    <div class="modal fade" id="micuentamodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="micuentaModalLabel">Mi Cuenta</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="row m-2">
+                    <div class="col-12 datosdelacuenta" >
+                        Aquí va la info de su cuenta
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row text-center" id="listadeplatillos">
+            
         </div>
     </div>
 
@@ -171,7 +196,9 @@
 
     </script>
 
-    <script src="autorizacion.js"></script>
+    <script src="Scripts/autorizacion.js"></script>
+    <script src="Scripts/index.js"></script>
+    <script src="Scripts/micuenta.js"></script>
 
 </body>
 </html>
