@@ -1,25 +1,26 @@
-function cambioIdioma() {
-    d = document.getElementById('idioma');
-    idioma = d.value;
+d = document.getElementById('idioma');
+idioma = d.value;
 
-    
-    var script = document.createElement('script');
-    var titulo = document.getElementById('title');
-    var añadir = document.getElementById('Add');
-    var ruta = document.getElementById('pac-input');
-    var paradas = document.getElementById('navbarDropdown');
-    var borrar = document.getElementById('borraParadas');
-    var advertencia = document.getElementById('labelAdvertencia');
-    var trazar = document.getElementById('pac-input2');
-    var español = document.getElementById('español');
-    var ingles = document.getElementById('ingles');
-    var italiano = document.getElementById('italiano');
-    var chino = document.getElementById('chino');
-    var japones = document.getElementById('japones');
-    var ruso = document.getElementById('ruso');
-    var aleman = document.getElementById('aleman');
-    console.log(idioma);
-    
+
+var script = document.createElement('script');
+var titulo = document.getElementById('title');
+var añadir = document.getElementById('Add');
+var ruta = document.getElementById('pac-input');
+var paradas = document.getElementById('navbarDropdown');
+var borrar = document.getElementById('borraParadas');
+var advertencia = document.getElementById('labelAdvertencia');
+var trazar = document.getElementById('pac-input2');
+var español = document.getElementById('español');
+var ingles = document.getElementById('ingles');
+var italiano = document.getElementById('italiano');
+var chino = document.getElementById('chino');
+var japones = document.getElementById('japones');
+var ruso = document.getElementById('ruso');
+var aleman = document.getElementById('aleman');
+console.log(idioma);
+
+function cambioIdioma() {
+
     if (idioma == 'es'){
         titulo.textContent = "Traza tu ruta";
         añadir.textContent = "Agregar parada";
@@ -126,7 +127,8 @@ function cambioIdioma() {
         ruso.textContent = "Russisch";
         aleman.textContent = "Deutsche";
     }
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM&libraries=places&callback=iniciaMapa&language=' + idioma;
-    document.head.appendChild(script);
 }
+
+script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM&libraries=places&callback=iniciaMapa&language=' + idioma;
+document.head.appendChild(script);
 
