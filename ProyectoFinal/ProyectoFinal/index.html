@@ -1,0 +1,96 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="title">Traza tu ruta</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="diseño.css">
+</head>
+
+<body>
+  <form action="">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #202044;" id="navbar">
+      <a class="navbar-brand" href="#">RutaEficiente</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" id="searchbar">
+            <input id="pac-input" class="form-control mr-sm-2 controls" type="text" placeholder="Escriba una parada"
+              aria-label="Search" />
+          </li>
+          <li class="nav-item" id="botonParada">
+            <button onclick="agregarLugarcito()" id="Add" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2">Agregar
+              parada</button>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Paradas
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="paradasList">
+              <a class="dropdown-item" style="color: red;" href="#" onclick="quitarParadas()" id="borraParadas">Borrar
+                todas las paradas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item disabled" style="color: orange;" href="#" id="labelAdvertencia">Seleccione un
+                elemento de la lista para borrarlo</a>
+              <div class="dropdown-divider"></div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="distance"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="duration"></a>
+          </li>
+        </ul>
+        <li class="nav-item mr-sm-2 form-inline" id="botonRuta">
+          <button id="pac-input2" class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">Trazar
+            ruta</button>
+        </li>
+        <li class="nav-item mr-sm-2 form-inline">
+          <div class="col-6 text-center">
+            <select name="idioma" id="idioma" class="theme-pink" onchange="this.form.submit()">
+              <option value="es" id="español">Español</option>
+              <option value="en" id="ingles">Inglés</option>
+              <option value="it" id="italiano">Italiano</option>
+              <option value="zh" id="chino">Chino</option>
+              <option value="ja" id="japones">Japonés</option>
+              <option value="ru" id="ruso">Ruso</option>
+              <option value="de" id="aleman">Alemán</option>
+            </select>
+          </div>
+        </li>
+      </div>
+    </nav>
+    <!-- <div id="dvDistance">
+      <button onclick="hacerLaTrazacion()">Trazar ruta</button>
+    </div> 
+      <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
+      
+    <button onclick="agregarLugarcito()" id="pac-input2" class="controls">Agregar</button>
+  -->
+    <div id="map"></div>
+  </form>
+  <!-- BOOTSTRAP -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <script src="controls.js"></script>
+  <script src="idiomas.js"></script>
+</body>
+
+</html>
