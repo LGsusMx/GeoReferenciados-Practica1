@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <form action="">
+
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #202044;" id="navbar">
       <a class="navbar-brand" href="#">RutaEficiente</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -53,18 +53,20 @@
           <button id="pac-input2" class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">Trazar
             ruta</button>
         </li>
-        <li class="nav-item mr-sm-2 form-inline">
-          <div class="col-6 text-center">
-            <select name="idioma" id="idioma" class="theme-pink" onchange="this.form.submit()">
-              <option value="es" id="español">Español</option>
-              <option value="en" id="ingles">Inglés</option>
-              <option value="it" id="italiano">Italiano</option>
-              <option value="zh" id="chino">Chino</option>
-              <option value="ja" id="japones">Japonés</option>
-              <option value="ru" id="ruso">Ruso</option>
-              <option value="de" id="aleman">Alemán</option>
-            </select>
-          </div>
+        <form action="">
+          <li class="nav-item mr-sm-2 form-inline">
+            <div class="col-6 text-center">
+              <select name="idioma" id="idioma" class="theme-pink" onchange="this.form.submit()">
+                <option value="es" id="español">Español</option>
+                <option value="en" id="ingles">Inglés</option>
+                <option value="it" id="italiano">Italiano</option>
+                <option value="zh" id="chino">Chino</option>
+                <option value="ja" id="japones">Japonés</option>
+                <option value="ru" id="ruso">Ruso</option>
+                <option value="de" id="aleman">Alemán</option>
+              </select>
+            </div>
+          </form>
         </li>
       </div>
     </nav>
@@ -76,7 +78,7 @@
     <button onclick="agregarLugarcito()" id="pac-input2" class="controls">Agregar</button>
   -->
     <div id="map"></div>
-  </form>
+
   <!-- BOOTSTRAP -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
