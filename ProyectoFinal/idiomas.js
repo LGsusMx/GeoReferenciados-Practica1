@@ -1,10 +1,7 @@
-
 function cambioIdioma() {
 
     d = document.getElementById('idioma');
     idioma = d.value;
-
-
 
     var titulo = document.getElementById('title');
     var añadir = document.getElementById('Add');
@@ -21,7 +18,6 @@ function cambioIdioma() {
     var ruso = document.getElementById('ruso');
     var aleman = document.getElementById('aleman');
     console.log(idioma);
-
 
     if (idioma == 'es'){
         titulo.textContent = "Traza tu ruta";
