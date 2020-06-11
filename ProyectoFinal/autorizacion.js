@@ -4,7 +4,9 @@ auth.onAuthStateChanged( user =>{
     if(user){
         console.log('Usuario entró');
         
-        
+        auth.signOut().then(()=>{
+            alert("El usuario ha salido del sistema");
+        });
         window.open('https://maniakevin.github.io/GeoReferenciados-Practica1/ProyectoFinal/index.html','_self')
     }
     else{
