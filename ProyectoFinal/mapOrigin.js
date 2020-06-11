@@ -29,7 +29,7 @@ auth.onAuthStateChanged( user =>{
     }
     else{
         console.log('Usuario salio');
-        //window.open('https://maniakevin.github.io/GeoReferenciados-Practica1/ProyectoFinal/indexhd.html','_self');
+        window.open('https://lgsusmx.github.io/GeoReferenciados-Practica1/ProyectoFinal/indexhd.html','_self');
     }
 
 });
@@ -40,7 +40,7 @@ salir.addEventListener('click', (e)=>{
     e.preventDefault();
     auth.signOut().then(()=>{
         alert("El usuario ha salido del sistema");
-        window.open('https://maniakevin.github.io/GeoReferenciados-Practica1/ProyectoFinal/indexhd.html','_self');
+        window.open('https://lgsusmx.github.io/GeoReferenciados-Practica1/ProyectoFinal/indexhd.html','_self');
     });
 
 });
