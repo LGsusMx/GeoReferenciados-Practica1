@@ -3,8 +3,11 @@ auth.onAuthStateChanged( user =>{
  
     if(user){
         console.log('Usuario entró');
+        window.close()
+        window.close('https://maniakevin.github.io/GeoReferenciados-Practica1/ProyectoFinal/hd.html')
+        
         window.open("https://maniakevin.github.io/GeoReferenciados-Practica1/ProyectoFinal/index.html");
-
+        
     }
     else{
         console.log('Usuario salió');
