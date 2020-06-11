@@ -1,4 +1,4 @@
-
+var provider = new firebase.auth.GoogleAuthProvider();
 auth.onAuthStateChanged( user =>{
  
     if(user){
@@ -43,18 +43,6 @@ formaregistrate.addEventListener('submit',(e)=>{
 
 
 });
-
-
-const salir = document.getElementById('salir');
-
-salir.addEventListener('click', (e)=>{
-    e.preventDefault();
-    auth.signOut().then(()=>{
-        alert("El usuario ha salido del sistema");
-    });
-
-});
-
 
 function mensajeError(codigo) {
 
