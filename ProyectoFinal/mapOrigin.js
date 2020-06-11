@@ -15,7 +15,7 @@ function editarLenguaje(idioma){
 document.head.appendChild(script);
 }
 function iniciarLenguaje(){
-     scriptOriginal = document.createElement("scriptOriginal");
+     scriptOriginal = document.createElement("script");
     scriptOriginal.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM&libraries=places&callback=iniciaMapa';
     document.head.appendChild(scriptOriginal);
 }
