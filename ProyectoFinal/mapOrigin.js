@@ -18,5 +18,4 @@ function iniciarLenguaje(){
      scriptOriginal = document.createElement("scriptOriginal");
     scriptOriginal.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM&libraries=places&callback=iniciaMapa';
     document.head.appendChild(scriptOriginal);
-    document.onload = iniciarLenguaje();
 }
