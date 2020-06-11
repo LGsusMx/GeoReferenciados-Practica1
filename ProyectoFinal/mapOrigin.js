@@ -28,7 +28,8 @@ auth.onAuthStateChanged( user =>{
         console.log('Usuario entró');
     }
     else{
-        window.open('https://maniakevin.github.io/GeoReferenciados-Practica1/ProyectoFinal/indexhd.html','_self');
+        console.log('Usuario salio');
+        //window.open('https://maniakevin.github.io/GeoReferenciados-Practica1/ProyectoFinal/indexhd.html','_self');
     }
 
 });
