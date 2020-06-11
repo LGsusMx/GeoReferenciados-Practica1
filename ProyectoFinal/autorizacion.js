@@ -113,3 +113,35 @@ entrarGoogle = () => {
     });
 
 }
+
+entrarFacebook = () => {
+ 
+    var provider = new firebase.auth.FacebookAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+
+        var token = result.credential.accessToken;
+        console.log(token);
+
+        var user = result.user;
+
+            console.log(user);
+            const html = `
+            <img src="${ user.photoURL }" width="50px"  >
+                <p>Nombre: ${ user.displayName }</p>
+                <p>Correo: ${ user.email}</p>
+                
+            `;
+            datosdelacuenta.innerHTML = html;
+
+            $('#ingresarmodal').modal('hide');
+            formaingresar.reset();
+            formaingresar.querySelector('.error').innerHTML = '';
+
+
+        // ...
+        }).catch(function(error) {
+            console.log(error);
+    });
+
+}
