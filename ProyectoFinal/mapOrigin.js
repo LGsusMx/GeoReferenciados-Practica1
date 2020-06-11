@@ -1,8 +1,8 @@
-
 var script= null;
-var scriptOriginal = document.createElement('scriptOriginal');
+var scriptOriginal = null;
 scriptOriginal.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM&libraries=places&callback=iniciaMapa';
 document.head.appendChild(scriptOriginal);
+document.onload = iniciarLenguaje();
 function editarLenguaje(idioma){
     if(scriptOriginal == null){
         document.head.removeChild(scriptOriginal);
@@ -16,4 +16,10 @@ function editarLenguaje(idioma){
     script.src ="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM&libraries=places&callback=iniciaMapa&language=" +
   idioma;
 document.head.appendChild(script);
+}
+function iniciarLenguaje(){
+     scriptOriginal = document.createElement('scriptOriginal');
+    scriptOriginal.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM&libraries=places&callback=iniciaMapa';
+    document.head.appendChild(scriptOriginal);
+    document.onload = iniciarLenguaje();
 }
