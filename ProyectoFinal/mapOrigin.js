@@ -1,6 +1,6 @@
 var script= null;
 var scriptOriginal = null;
-document.onload = iniciarLenguaje();
+window.onload = iniciarLenguaje();
 function editarLenguaje(idioma){
     if(scriptOriginal == null){
         document.head.removeChild(scriptOriginal);
