@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DLS EATS</title>
+    <title>Ruta Eficiente</title>
 
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
@@ -32,13 +32,12 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
             <a class="nav-item nav-link logged-in" href="#" data-toggle="modal" data-target="#micuentamodal" >Mi Cuenta</a>
-            <a class="nav-item nav-link logged-in" href="#" id="salir" style="display: block;">Salir</a>
             <a class="nav-item nav-link logged-out" href="#" data-toggle="modal" data-target="#ingresarmodal" style="display: block;">Ingresar</a>
             <a class="nav-item nav-link logged-out" href="#" data-toggle="modal" data-target="#registratemodal" style="display: block;">Regístrate</a>
             </div>
         </div>
     </nav>
-
+    <a class="nav-item nav-link logged-out" href="#" data-toggle="modal" data-target="#ingresarmodal" style="display: block;">Ingresar</a>
     <!-- Modal Ingresar -->
     <div class="modal fade" id="ingresarmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -74,8 +73,8 @@
                     <span onclick="entrarGoogle()" class="btn btn-primary btn-danger">Continuar con Gmail <i class="fas fa-plus"></i></span>
                 </div>
                 <div class="col-12 text-center">
-                    <button style="width: 250px;" onclick="entrarFacebook()" class="btn btn-facebook"><i class="fa fa-facebook"></i> | Ingresa con Facebook</button>
-                </div>
+                    <button style="width: 250px;" onclick="entrarFacebook()" class="btn btn-facebook"> Ingresa con Facebook</button>
+                </div>  
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
