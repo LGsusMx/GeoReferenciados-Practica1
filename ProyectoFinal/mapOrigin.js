@@ -20,3 +20,26 @@ function iniciarLenguaje(){
     scriptOriginal.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM&libraries=places&callback=iniciaMapa';
     document.head.appendChild(scriptOriginal);
 }
+
+var provider = new firebase.auth.GoogleAuthProvider();
+auth.onAuthStateChanged( user =>{
+ 
+    if(user){
+        console.log('Usuario entró');
+    }
+    else{
+        window.open('https://maniakevin.github.io/GeoReferenciados-Practica1/ProyectoFinal/indexhd.html','_self');
+    }
+
+});
+
+const salir = document.getElementById('salir');
+
+salir.addEventListener('click', (e)=>{
+    e.preventDefault();
+    auth.signOut().then(()=>{
+        alert("El usuario ha salido del sistema");
+        window.open('https://maniakevin.github.io/GeoReferenciados-Practica1/ProyectoFinal/indexhd.html','_self');
+    });
+
+});
