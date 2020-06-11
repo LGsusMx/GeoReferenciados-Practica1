@@ -4,7 +4,7 @@ auth.onAuthStateChanged( user =>{
     if(user){
         console.log('Usuario entró');
         window.close()
-        window.close('https://maniakevin.github.io/GeoReferenciados-Practica1/ProyectoFinal/indexhd.html')
+        window.close('https://maniakevin.github.io/GeoReferenciados-Practica1/ProyectoFinal/indexhd.html#')
         
         window.open("https://maniakevin.github.io/GeoReferenciados-Practica1/ProyectoFinal/index.html");
         
