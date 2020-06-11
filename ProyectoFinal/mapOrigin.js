@@ -10,7 +10,7 @@ function editarLenguaje(idioma){
         document.head.removeChild(script);
     }
     
-    var script = document.createElement("script");
+    script = document.createElement("script");
     script.src ="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM&libraries=places&callback=iniciaMapa&language=" +
   idioma;
 document.head.appendChild(script);
