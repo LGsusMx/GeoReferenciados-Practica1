@@ -160,12 +160,14 @@ function trazarRuta(rutas) {
       var distamce = document.getElementById('distance');
       var dumration = document.getElementById('duration');
       var searchbar = document.getElementById('searchbar');
+      var selectidioma = document.getElementById('selectidioma');
       var btnParada = document.getElementById('botonParada');
       var btnRuta = document.getElementById('botonRuta');
       var borraParadas = document.getElementById('borraParadas');
       var labelAdvertencia = document.getElementById('labelAdvertencia');
 
       searchbar.innerHTML = '';
+      selectidioma.innerHTML = '';
       btnParada.innerHTML = '';
       borraParadas.innerHTML = '';
       labelAdvertencia.innerHTML = '';
@@ -197,6 +199,7 @@ function borrarRutas() {
   var searchbar = document.getElementById('searchbar');
   var btnParada = document.getElementById('botonParada');
   var btnRuta = document.getElementById('botonRuta');
+  var selectidioma = document.getElementById('selectidioma');
 
   distamce.innerHTML = '';
   dumration.innerHTML = '';
@@ -209,6 +212,17 @@ function borrarRutas() {
 
   btnRuta.innerHTML = '<li class="nav-item mr-sm-2 form-inline" id="botonRuta"><button id="pac-input2"' +
     'class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">Trazar ruta</button></li>';
+
+  selectidioma.innerHTML = '<li id="selectidioma" class="nav-item mr-sm-2 form-inline">' +
+  '<div class="col-6 text-center"><select name="idioma" id="idioma" class="theme-pink" onchange="cambioIdioma()">' +
+      '<option value="es" id="español">Español</option>' +
+      '<option value="en" id="ingles">Inglés</option>' +
+      '<option value="it" id="italiano">Italiano</option>' +
+      '<option value="zh" id="chino">Chino</option>' +
+      '<option value="ja" id="japones">Japonés</option>' +
+      '<option value="ru" id="ruso">Ruso</option>' +
+      '<option value="de" id="aleman">Alemán</option>' +
+    '</select></div></li>';
 }
 
 function borrarUnaParada(parada) {
