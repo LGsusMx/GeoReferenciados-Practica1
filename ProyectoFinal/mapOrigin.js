@@ -2,9 +2,8 @@ var script= null;
 var scriptOriginal = null;
 window.onload = iniciarLenguaje();
 function editarLenguaje(idioma){
-    if(scriptOriginal == null){
+    if(script == null){
         document.head.removeChild(scriptOriginal);
-        script = document.createElement('script');
     }
     if (script !=null) {
         document.head.removeChild(script);
@@ -16,7 +15,7 @@ function editarLenguaje(idioma){
 document.head.appendChild(script);
 }
 function iniciarLenguaje(){
-     scriptOriginal = document.createElement('scriptOriginal');
+     scriptOriginal = document.createElement("scriptOriginal");
     scriptOriginal.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtdoQeXdlgm1q7E8gEVrxZeOA-8fssxOM&libraries=places&callback=iniciaMapa';
     document.head.appendChild(scriptOriginal);
     document.onload = iniciarLenguaje();
