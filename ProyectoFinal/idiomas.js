@@ -2,7 +2,7 @@ function cambioIdioma() {
 
     d = document.getElementById('idioma');
     idioma = d.value;
-
+    editarLenguaje(idioma);
     var titulo = document.getElementById('title');
     var añadir = document.getElementById('Add');
     var ruta = document.getElementById('pac-input');
