@@ -4,9 +4,7 @@ auth.onAuthStateChanged( user =>{
     if(user){
         console.log('Usuario entró');
         
-        auth.signOut().then(()=>{
-            alert("El usuario ha salido del sistema");
-        });
+        auth.signOut()
         window.open('https://lgsusmx.github.io/GeoReferenciados-Practica1/ProyectoFinal/index.html','_self')
     }
     else{
