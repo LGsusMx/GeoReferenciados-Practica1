@@ -116,13 +116,12 @@ entrarGoogle = () => {
 
 entrarFacebook = () => {
  
-    var provider = new firebase.auth.FacebookAuthProvider();
+    var provider2 = new firebase.auth.FacebookAuthProvider();
 
-    firebase.auth().signInWithPopup(provider).then(function(result) {
+    firebase.auth().signInWithPopup(provider2).then(function(result) {
 
         var token = result.credential.accessToken;
         console.log(token);
-
         var user = result.user;
 
             console.log(user);
