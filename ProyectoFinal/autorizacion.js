@@ -4,7 +4,7 @@ auth.onAuthStateChanged( user =>{
     if(user){
         console.log('Usuario entró');
         
-        
+        window.open('https://lgsusmx.github.io/GeoReferenciados-Practica1/ProyectoFinal/index.html','_self')
     }
     else{
         console.log('Usuario salió');
@@ -34,7 +34,6 @@ formaregistrate.addEventListener('submit',(e)=>{
         $('#registratemodal').modal('hide');
         formaregistrate.reset();
         formaregistrate.querySelector('.error').innerHTML = '';
-        window.open('https://lgsusmx.github.io/GeoReferenciados-Practica1/ProyectoFinal/index.html','_self');
     }).catch( err => {
         formaregistrate.querySelector('.error').innerHTML = mensajeError(err.code);
     });
@@ -74,7 +73,6 @@ formaingresar.addEventListener('submit',(e)=>{
         $('#ingresarmodal').modal('hide');
         formaingresar.reset();
         formaingresar.querySelector('.error').innerHTML = '';
-        window.open('https://lgsusmx.github.io/GeoReferenciados-Practica1/ProyectoFinal/index.html','_self');
     }).catch( err => {
 
         formaingresar.querySelector('.error').innerHTML = mensajeError(err.code);
@@ -106,7 +104,7 @@ entrarGoogle = () => {
             $('#ingresarmodal').modal('hide');
             formaingresar.reset();
             formaingresar.querySelector('.error').innerHTML = '';
-            window.open('https://lgsusmx.github.io/GeoReferenciados-Practica1/ProyectoFinal/index.html','_self');
+
 
         // ...
         }).catch(function(error) {
@@ -133,7 +131,7 @@ entrarFacebook = () => {
                 
             `;
             datosdelacuenta.innerHTML = html;
-            window.open('https://lgsusmx.github.io/GeoReferenciados-Practica1/ProyectoFinal/index.html','_self');
+
             $('#ingresarmodal').modal('hide');
             formaingresar.reset();
             formaingresar.querySelector('.error').innerHTML = '';
