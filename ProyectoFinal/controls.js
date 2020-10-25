@@ -560,7 +560,7 @@ function guardarActual(posicion){
 }
 
 function calcularConsumo(distance){
-  var combo = document.getElementById("transporte");
+  var combo = document.getElementById("transportes");
   var selected = combo.options[combo.selectedIndex].text;
   console.log(selected);
 
