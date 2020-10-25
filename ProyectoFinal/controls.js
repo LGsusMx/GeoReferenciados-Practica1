@@ -152,6 +152,7 @@ function trazarRuta(rutas) {
     avoidTolls: false
   }, function (response, status) {
     if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+      var consumo=calcularConsumo(distance);
       var distance = response.rows[0].elements[0].distance.text;
       var duration = response.rows[0].elements[0].duration.text;
       var distamce = document.getElementById('distance');
@@ -171,7 +172,6 @@ function trazarRuta(rutas) {
       borraParadas.innerHTML = '';
       labelAdvertencia.innerHTML = '';
       selectransporte.innerHTML = '';
-      var consumo=calcularConsumo(distance);
       btnRuta.innerHTML = '<button id="pac-input2" class="controls btn btn-outline-danger my-2 my-sm-0" onclick="borrarRutas()">Trazar una nueva ruta</button>';
 
       distamce.innerHTML = 'Distancia: ' + distance +' generando un consumo de ' + consumo;
@@ -552,6 +552,7 @@ function iniciarEstilos(posicion){
 
 function agregarActual(){
   navigator.geolocation.getCurrentPosition(guardarActual);
+  document.getElementById('botoninicialowo').style.visibility = 'hidden';
   
 }
 
