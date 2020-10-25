@@ -602,6 +602,7 @@ function calcularConsumo(distance) {
   console.log(selected);
   var distanceNum = distance.replace( /^\D+/g, '');
   distanceNum = parseInt(distanceNum);
+  console.log(distanceNum);
   switch (selected) {
     case "Motocicleta":
       return (4.4*distanceNum)/100+' L';
