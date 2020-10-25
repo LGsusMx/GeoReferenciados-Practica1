@@ -185,9 +185,9 @@ function trazarRuta(rutas) {
         status == google.maps.DistanceMatrixStatus.OK &&
         response.rows[0].elements[0].status != "ZERO_RESULTS"
       ) {
-        var consumo = calcularConsumo(distance);
         var distance = response.rows[0].elements[0].distance.text;
         var duration = response.rows[0].elements[0].duration.text;
+        var consumo = calcularConsumo(distance);
         var distamce = document.getElementById("distance");
         var dumration = document.getElementById("duration");
         var searchbar = document.getElementById("searchbar");
