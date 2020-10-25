@@ -209,7 +209,7 @@ function borrarRutas() {
   dumration.innerHTML = '';
   selectransporte.innerHTML = '<li id="transporte">'+
   '<select class="theme-pink"  name="transporte">'+
-    '<option value="moto">Motocicleta</option>'++
+    '<option value="moto">Motocicleta</option>'+
     '<option value="automovil">Automovil</option>'+
     '<option value="furgoneta">Furgoneta</option>'+
     '<option value="camion">Camion</option>'+
