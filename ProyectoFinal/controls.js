@@ -600,8 +600,8 @@ function calcularConsumo(distance) {
   var combo = document.getElementById("transportes");
   var selected = combo.options[combo.selectedIndex].text;
   console.log(selected);
-  var distanceNum= ar  = distance.replace( /^\D+/g, '');
-  distanceNum = parseInt(distanceNum,10);
+  var distanceNum = distance.replace( /^\D+/g, '');
+  distanceNum = parseInt(distanceNum);
   switch (selected) {
     case "Motocicleta":
       return (4.4*distanceNum)/100+' L';
