@@ -4,26 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruta Eficiente</title>
-
-    <!-- Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        <!-- Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./css/social-buttons.css">
+        
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
     <!--===============================================================================================-->
 
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
         img {
@@ -88,33 +85,30 @@
                     <form id="formaingresar">
                         <div class="row m-2">
                             <div class="col-12">
-                                <input type="email" class="form-control" required id="correo"
-                                    placeholder="Ingrese su correo electrónico">
+                                <input type="email" class="form-control" required id="correo" placeholder="Ingrese su correo electrónico">
                             </div>
                         </div>
                         <div class="row m-2">
-                            <div class="col-12">
-                                <input type="password" class="form-control" required id="contrasena"
-                                    placeholder="Ingrese su contraseña">
+                            <div class="col-12 ">
+                                <input type="password" class="form-control" required id="contrasena" placeholder="Ingrese su contraseña">
                             </div>
                         </div>
                         <div class="row text-center">
-                            <div class="col-12">
-                                <input type="submit" class="btn btn-primary" value="Ingresar">
+                            <div class="col-12 text-center">
                                 <p class="error text-danger"></p>
+                                <button style="width: 250px;" type="submit" class="btn btn-weibo"><i class="fa fa-envelope"></i> | Ingresa con Correo   </button>
+                                
+                            </div>
+                            <div class="col-12 text-center">
+                                <button style="width: 250px;" onclick="entrarGoogle()" class="btn btn-google-plus"><i class="fa fa-google"></i> | Ingresa con Google</button>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button style="width: 250px;" onclick="entrarFacebook()" class="btn btn-facebook"><i class="fa fa-facebook"></i> | Ingresa con Facebook</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <span onclick="entrarGoogle()" class="btn btn-primary btn-danger">Continuar con Gmail</span>
-                    </div>
-                    <div class="col-12 text-center">
-                        <button style="width: 250px;" onclick="entrarFacebook()" class="btn btn-primary"> Ingresa con
-                            Facebook</button>
-                    </div>
-                </div>
+    
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
