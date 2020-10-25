@@ -535,3 +535,12 @@ function iniciarEstilos(posicion){
   map.mapTypes.set("Night Mode", styledMapType);
   map.setMapTypeId("Night Mode");
 }
+
+function agregarActual(){
+  navigator.geolocation.getCurrentPosition(guardarActual);
+  
+}
+
+function guardarActual(posicion){
+  locationsF.push({ "address": 'Ubicacion Actual', "lat": posicion.coords.latitude, "lng": posicion.coords.longitude  });
+}

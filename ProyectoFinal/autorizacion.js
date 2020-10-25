@@ -3,10 +3,7 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     console.log("Usuario entró");
 
-    window.open(
-      "https://lgsusmx.github.io/GeoReferenciados-Practica1/ProyectoFinal/index.html",
-      "_self"
-    );
+    window.open("https://lgsusmx.github.io/GeoReferenciados-Practica1/ProyectoFinal/index.html","_self");
   } else {
     console.log("Usuario salió");
   }
