@@ -203,10 +203,21 @@ function borrarRutas() {
   var btnParada = document.getElementById('botonParada');
   var btnRuta = document.getElementById('botonRuta');
   var selectidioma = document.getElementById('selectidioma');
-
+  var btninicial = document.getElementById('botoninicialowo');
+  var selectransporte = document.getElementById('transporte');
   distamce.innerHTML = '';
   dumration.innerHTML = '';
-
+  selectransporte.innerHTML = '<li id="transporte">'+
+  '<select class="theme-pink"  name="transporte">'+
+    '<option value="moto">Motocicleta</option>'++
+    '<option value="automovil">Automovil</option>'+
+    '<option value="furgoneta">Furgoneta</option>'+
+    '<option value="camion">Camion</option>'+
+    '</select>'+
+'</li>';
+  btninicial.innerHTML = '<li class="nav-item" id="botoninicialowo">'+
+  '<button onclick="agregarActual()" id="Odd" class="btn btn-outline-primary my-2 my-sm-0 mr-sm-2">Agregar ubicacion actual</button>'+
+'</li>';
   searchbar.innerHTML = '<li class="nav-item" id="searchbar"><input id="pac-input" ' +
     'class="form-control mr-sm-2 controls" type="text" placeholder="Escriba una parada" aria-label="Search" /></li>'
 
@@ -226,6 +237,7 @@ function borrarRutas() {
       '<option value="ru" id="ruso">Ruso</option>' +
       '<option value="de" id="aleman">Alemán</option>' +
     '</select></div></li>';
+
 }
 
 
