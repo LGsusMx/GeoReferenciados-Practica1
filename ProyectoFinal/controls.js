@@ -154,7 +154,6 @@ function trazarRuta(rutas) {
     if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
       var distance = response.rows[0].elements[0].distance.text;
       var duration = response.rows[0].elements[0].duration.text;
-
       var distamce = document.getElementById('distance');
       var dumration = document.getElementById('duration');
       var searchbar = document.getElementById('searchbar');
@@ -172,10 +171,10 @@ function trazarRuta(rutas) {
       borraParadas.innerHTML = '';
       labelAdvertencia.innerHTML = '';
       selectransporte.innerHTML = '';
-      calcularConsumo();
+      var consumo=calcularConsumo(distance);
       btnRuta.innerHTML = '<button id="pac-input2" class="controls btn btn-outline-danger my-2 my-sm-0" onclick="borrarRutas()">Trazar una nueva ruta</button>';
 
-      distamce.innerHTML = 'Distancia: ' + distance;
+      distamce.innerHTML = 'Distancia: ' + distance +' generando un consumo de ' + consumo;
       dumration.innerHTML = 'Duración: ' + duration;
 
     } else {
@@ -560,7 +559,10 @@ function guardarActual(posicion){
   locationsF.push({ "address": 'Ubicacion Actual', "lat": posicion.coords.latitude, "lng": posicion.coords.longitude  });
 }
 
-function calcularConsumo(){
-  var cod = document.getElementById("transporte").value;
-  console.log(cod);
+function calcularConsumo(distance){
+  var combo = document.getElementById("transporte");
+  var selected = combo.options[combo.selectedIndex].text;
+  console.log(selected);
+
+  return distance*2 +' L';
 }
