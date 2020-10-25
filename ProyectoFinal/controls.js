@@ -601,7 +601,7 @@ function calcularConsumo(distance) {
   var selected = combo.options[combo.selectedIndex].text;
   console.log(selected);
   var distanceNum = distance.replace( /^\D+/g, '');
-  distanceNum = parseInt(distanceNum);
+  distanceNum = parseFloat(distanceNum);
   console.log(distanceNum);
   switch (selected) {
     case "Motocicleta":
