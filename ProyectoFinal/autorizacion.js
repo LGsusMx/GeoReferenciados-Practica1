@@ -141,12 +141,11 @@ entrarFacebook = () => {
 };
 
 function recuperarPWD() {
-  var emailAddress = "user@example.com";
-
+  var emailAddress = document.getElementById('rrecuperacorreo').value;
   auth.sendPasswordResetEmail(emailAddress).then(function () {
       alert('Enviamos un correo a tu direccion proporcionada para restablecer la contraseña');
     })
     .catch(function (error) {
-      // An error happened.
+        alert(error);
     });
 }
