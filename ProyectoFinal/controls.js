@@ -1,3 +1,4 @@
+// Enviroment variables
 var current;
 var locationsF = [];
 var map;
@@ -9,6 +10,8 @@ function iniciaMapa() {
     console.log("El navegador no tiene geolocalización");
   }
 }
+
+// Google search places init
 function iniciaAutoCompletado(posicion) {
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
@@ -71,6 +74,7 @@ function iniciaAutoCompletado(posicion) {
 
 }
 
+// Add place to the array
 function agregarLugarcito() {
   locationsF.push({ "address": current.name, "lat": current.geometry.location.lat(), "lng": current.geometry.location.lng() });
   console.log(JSON.stringify(locationsF));
@@ -80,6 +84,7 @@ function agregarLugarcito() {
   alert('Se agregó ' + current.name + ' a la lista de paradas');
 }
 
+// Make a request to routexl api 
 function hacerLaTrazacion() {
   var request = jQuery.ajax({
 
@@ -103,6 +108,7 @@ function hacerLaTrazacion() {
   });
 }
 
+// Draw the route on the map
 function trazarRuta(rutas) {
   var posicionex = [];
   var wayputos = [];
@@ -175,6 +181,7 @@ function trazarRuta(rutas) {
   });
 }
 
+// Erease the routes
 function quitarParadas() {
   var paradas = document.getElementById('paradasList');
   paradas.innerHTML = '<a class="dropdown-item" style="color: red;" href="#" onclick="quitarParadas()" id="borraParadas">Borrar todas las paradas</a><div class="dropdown-divider"></div>';
@@ -182,6 +189,7 @@ function quitarParadas() {
   locationsF = [];
 }
 
+// Clear the map
 function borrarRutas() {
   quitarParadas();
   directionx.setMap(null);
@@ -217,6 +225,8 @@ function borrarRutas() {
     '</select></div></li>';
 }
 
+
+// Erease only one route
 function borrarUnaParada(parada) {
   
   alert('Se borró ' + parada + ' de la lista de paradas');
@@ -228,299 +238,300 @@ function borrarUnaParada(parada) {
       locationsF.splice(i, 1);
     }
   }
+}
 
-  function iniciarEstilos(posicion){
-    var styledMapType = new google.maps.StyledMapType(
-      [
-        {
-          elementType: "labels",
-          stylers: [
-            {
-              visibility: "on",
-            },
-          ],
-        },
-        {
-          elementType: "labels.icon",
-          stylers: [
-            {
-              visibility: "off",
-            },
-          ],
-        },
-        {
-          elementType: "labels.text.fill",
-          stylers: [
-            {
-              color: "#000000",
-            },
-            {
-              saturation: 36,
-            },
-            {
-              lightness: 40,
-            },
-          ],
-        },
-        {
-          elementType: "labels.text.stroke",
-          stylers: [
-            {
-              color: "#000000",
-            },
-            {
-              lightness: 16,
-            },
-            {
-              visibility: "on",
-            },
-          ],
-        },
-        {
-          featureType: "administrative",
-          elementType: "geometry.fill",
-          stylers: [
-            {
-              color: "#000000",
-            },
-            {
-              lightness: 20,
-            },
-          ],
-        },
-        {
-          featureType: "administrative",
-          elementType: "geometry.stroke",
-          stylers: [
-            {
-              color: "#000000",
-            },
-            {
-              lightness: 17,
-            },
-            {
-              weight: 1.2,
-            },
-          ],
-        },
-        {
-          featureType: "administrative.locality",
-          elementType: "labels.text.fill",
-          stylers: [
-            {
-              color: "#c4c4c4",
-            },
-          ],
-        },
-        {
-          featureType: "administrative.neighborhood",
-          elementType: "labels.text.fill",
-          stylers: [
-            {
-              color: "#707070",
-            },
-          ],
-        },
-        {
-          featureType: "landscape",
-          elementType: "geometry",
-          stylers: [
-            {
-              color: "#000000",
-            },
-            {
-              lightness: 20,
-            },
-          ],
-        },
-        {
-          featureType: "poi",
-          elementType: "geometry",
-          stylers: [
-            {
-              color: "#000000",
-            },
-            {
-              lightness: 21,
-            },
-            {
-              visibility: "on",
-            },
-          ],
-        },
-        {
-          featureType: "poi.business",
-          elementType: "geometry",
-          stylers: [
-            {
-              visibility: "on",
-            },
-          ],
-        },
-        {
-          featureType: "road.arterial",
-          elementType: "geometry",
-          stylers: [
-            {
-              color: "#000000",
-            },
-            {
-              lightness: 18,
-            },
-          ],
-        },
-        {
-          featureType: "road.arterial",
-          elementType: "geometry.fill",
-          stylers: [
-            {
-              color: "#575757",
-            },
-          ],
-        },
-        {
-          featureType: "road.arterial",
-          elementType: "labels.text.fill",
-          stylers: [
-            {
-              color: "#ffffff",
-            },
-          ],
-        },
-        {
-          featureType: "road.arterial",
-          elementType: "labels.text.stroke",
-          stylers: [
-            {
-              color: "#2c2c2c",
-            },
-          ],
-        },
-        {
-          featureType: "road.highway",
-          elementType: "geometry.fill",
-          stylers: [
-            {
-              color: "#be2026",
-            },
-            {
-              lightness: "0",
-            },
-            {
-              visibility: "on",
-            },
-          ],
-        },
-        {
-          featureType: "road.highway",
-          elementType: "geometry.stroke",
-          stylers: [
-            {
-              visibility: "off",
-            },
-          ],
-        },
-        {
-          featureType: "road.highway",
-          elementType: "labels.text.fill",
-          stylers: [
-            {
-              visibility: "off",
-            },
-          ],
-        },
-        {
-          featureType: "road.highway",
-          elementType: "labels.text.stroke",
-          stylers: [
-            {
-              hue: "#ff000a",
-            },
-            {
-              visibility: "off",
-            },
-          ],
-        },
-        {
-          featureType: "road.local",
-          elementType: "geometry",
-          stylers: [
-            {
-              color: "#000000",
-            },
-            {
-              lightness: 16,
-            },
-          ],
-        },
-        {
-          featureType: "road.local",
-          elementType: "labels.text.fill",
-          stylers: [
-            {
-              color: "#999999",
-            },
-          ],
-        },
-        {
-          featureType: "road.local",
-          elementType: "labels.text.stroke",
-          stylers: [
-            {
-              saturation: "-52",
-            },
-          ],
-        },
-        {
-          featureType: "transit",
-          elementType: "geometry",
-          stylers: [
-            {
-              color: "#000000",
-            },
-            {
-              lightness: 19,
-            },
-          ],
-        },
-        {
-          featureType: "water",
-          elementType: "geometry",
-          stylers: [
-            {
-              color: "#000000",
-            },
-            {
-              lightness: 17,
-            },
-          ],
-        },
-      ],
-      { name: "Night Mode" }
-    );
 
-    var propiedades = {
-      center: {
-        lat: posicion.coords.latitude,
-        lng: posicion.coords.longitude 
-      },
-      zoom: 14,
-      mapTypeControlOptions: {
-        mapTypeIds: [
-          "roadmap",
-          "satellite",
-          "hybrid",
-          "terrain",
-          "Night Mode",
+// Gives style to the map
+function iniciarEstilos(posicion){
+  var styledMapType = new google.maps.StyledMapType(
+    [
+      {
+        elementType: "labels",
+        stylers: [
+          {
+            visibility: "on",
+          },
         ],
       },
-    };
+      {
+        elementType: "labels.icon",
+        stylers: [
+          {
+            visibility: "off",
+          },
+        ],
+      },
+      {
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#000000",
+          },
+          {
+            saturation: 36,
+          },
+          {
+            lightness: 40,
+          },
+        ],
+      },
+      {
+        elementType: "labels.text.stroke",
+        stylers: [
+          {
+            color: "#000000",
+          },
+          {
+            lightness: 16,
+          },
+          {
+            visibility: "on",
+          },
+        ],
+      },
+      {
+        featureType: "administrative",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#000000",
+          },
+          {
+            lightness: 20,
+          },
+        ],
+      },
+      {
+        featureType: "administrative",
+        elementType: "geometry.stroke",
+        stylers: [
+          {
+            color: "#000000",
+          },
+          {
+            lightness: 17,
+          },
+          {
+            weight: 1.2,
+          },
+        ],
+      },
+      {
+        featureType: "administrative.locality",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#c4c4c4",
+          },
+        ],
+      },
+      {
+        featureType: "administrative.neighborhood",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#707070",
+          },
+        ],
+      },
+      {
+        featureType: "landscape",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#000000",
+          },
+          {
+            lightness: 20,
+          },
+        ],
+      },
+      {
+        featureType: "poi",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#000000",
+          },
+          {
+            lightness: 21,
+          },
+          {
+            visibility: "on",
+          },
+        ],
+      },
+      {
+        featureType: "poi.business",
+        elementType: "geometry",
+        stylers: [
+          {
+            visibility: "on",
+          },
+        ],
+      },
+      {
+        featureType: "road.arterial",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#000000",
+          },
+          {
+            lightness: 18,
+          },
+        ],
+      },
+      {
+        featureType: "road.arterial",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#575757",
+          },
+        ],
+      },
+      {
+        featureType: "road.arterial",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#ffffff",
+          },
+        ],
+      },
+      {
+        featureType: "road.arterial",
+        elementType: "labels.text.stroke",
+        stylers: [
+          {
+            color: "#2c2c2c",
+          },
+        ],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#be2026",
+          },
+          {
+            lightness: "0",
+          },
+          {
+            visibility: "on",
+          },
+        ],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [
+          {
+            visibility: "off",
+          },
+        ],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            visibility: "off",
+          },
+        ],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "labels.text.stroke",
+        stylers: [
+          {
+            hue: "#ff000a",
+          },
+          {
+            visibility: "off",
+          },
+        ],
+      },
+      {
+        featureType: "road.local",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#000000",
+          },
+          {
+            lightness: 16,
+          },
+        ],
+      },
+      {
+        featureType: "road.local",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#999999",
+          },
+        ],
+      },
+      {
+        featureType: "road.local",
+        elementType: "labels.text.stroke",
+        stylers: [
+          {
+            saturation: "-52",
+          },
+        ],
+      },
+      {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#000000",
+          },
+          {
+            lightness: 19,
+          },
+        ],
+      },
+      {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#000000",
+          },
+          {
+            lightness: 17,
+          },
+        ],
+      },
+    ],
+    { name: "Night Mode" }
+  );
 
-    var mapa = document.getElementById("map");
-    map = new google.maps.Map(mapa, propiedades);
+  var propiedades = {
+    center: {
+      lat: posicion.coords.latitude,
+      lng: posicion.coords.longitude 
+    },
+    zoom: 14,
+    mapTypeControlOptions: {
+      mapTypeIds: [
+        "roadmap",
+        "satellite",
+        "hybrid",
+        "terrain",
+        "Night Mode",
+      ],
+    },
+  };
 
-    map.mapTypes.set("Night Mode", styledMapType);
-    map.setMapTypeId("Night Mode");
-  }
-  
+  var mapa = document.getElementById("map");
+  map = new google.maps.Map(mapa, propiedades);
+
+  map.mapTypes.set("Night Mode", styledMapType);
+  map.setMapTypeId("Night Mode");
 }
