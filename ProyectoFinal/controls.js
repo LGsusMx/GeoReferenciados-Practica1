@@ -159,17 +159,20 @@ function trazarRuta(rutas) {
       var dumration = document.getElementById('duration');
       var searchbar = document.getElementById('searchbar');
       var selectidioma = document.getElementById('selectidioma');
-      var btnParada = document.getElementById('botonParada');
+      var btnParada = document.getElementById('botonParada'); 
+      var btninicial = document.getElementById('botoninicialowo');
       var btnRuta = document.getElementById('botonRuta');
       var borraParadas = document.getElementById('borraParadas');
       var labelAdvertencia = document.getElementById('labelAdvertencia');
-
+      var selectransporte = document.getElementById('transporte');
       searchbar.innerHTML = '';
       selectidioma.innerHTML = '';
       btnParada.innerHTML = '';
+      btninicial.innerHTML= '';
       borraParadas.innerHTML = '';
       labelAdvertencia.innerHTML = '';
-
+      selectransporte.innerHTML = '';
+      calcularConsumo();
       btnRuta.innerHTML = '<button id="pac-input2" class="controls btn btn-outline-danger my-2 my-sm-0" onclick="borrarRutas()">Trazar una nueva ruta</button>';
 
       distamce.innerHTML = 'Distancia: ' + distance;
@@ -543,4 +546,9 @@ function agregarActual(){
 
 function guardarActual(posicion){
   locationsF.push({ "address": 'Ubicacion Actual', "lat": posicion.coords.latitude, "lng": posicion.coords.longitude  });
+}
+
+function calcularConsumo(){
+  var cod = document.getElementById("transporte").value;
+  console.log(cod);
 }
