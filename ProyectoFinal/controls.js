@@ -117,7 +117,7 @@ function agregarRutaFav(){
       db.collection('rutas').add({
       Descripcion: nombreRutaFav.value,
       idusuario: sessionStorage.getItem("idusuario"),
-      listadestinos: element
+      listadestinos: JSON.stringify(element)
     }));
     
   }
