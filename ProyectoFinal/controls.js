@@ -101,9 +101,44 @@ function agregarAfavoritos(){
   console.log(current.name);
   if(current != null){
     db.collection('sitios').add({
-      nombre: current.name,
+      //  geometry: current.geometry.lo,
+      //  idusuario: sessionStorage.getItem("idusuario"),
+      //  coordenadas: new firebase.firestore.GeoPoint(current.geometry.location.lat(), current.geometry.location.lng())
       idusuario: sessionStorage.getItem("idusuario"),
-      coordenadas: new firebase.firestore.GeoPoint(current.geometry.location.lat(), current.geometry.location.lng())
+      address_components: [
+        {
+           long_name: current.address_components.long_name()(),
+           short_name: current.address_components.short_name()(),
+           types: [ current.floor ]
+        }
+     ],
+     adr_address: current.adr_address(),
+     formatted_address: current.formatted_address(),
+     formatted_phone_number: current.formatted_phone_number(),
+     geometry: {
+        location: {
+           lat: current.geometry.location.lat(),
+           lng: current.geometry.location.lng
+        },
+        viewport: {
+           northeast: {
+              lat: current.geometry.viewport.northeast.lat(),
+              lng: current.geometry.viewport.northeast.lng
+           },
+           southwest: {
+              lat: current.geometry.viewport.southwest.lat(),
+              lng: current.geometry.viewport.southwest.lat
+           }
+        }
+     },
+     icon: current.icon(),
+     id: current.id(),
+     international_phone_number: current.international_phone_number(),
+     name: current.name(),
+     place_id: current.place_id(),
+     reference: current.reference(),
+     url: current.url(),
+     utc_offset: current.utc_offset(),
     });
   }
   else{
@@ -112,11 +147,11 @@ function agregarAfavoritos(){
 }
 function agregarRutaFav(){
   if (locationsF != null){
-    var nombreRutaFav = document.getElementById("").value
+    var nombreRutaFav = document.getElementById("textoRutaFav").value
     db.collection('rutas').add({
       Descripcion: nombreRutaFav.value,
       idusuario: sessionStorage.getItem("idusuario"),
-      coordenadas: new firebase.firestore.GeoPoint(current.geometry.location.lat(), current.geometry.location.lng())
+      listasdestinos: locationsF
     });
   }
 }
