@@ -100,9 +100,10 @@ function agregarLugarcito() {
 function agregarAfavoritos(){
   console.log(current.name);
   if(current != null){
-    current.idusuario = sessionStorage.getItem("idusuario");
-    db.collection("sitios").doc("data").set(current).then(function() {
-      console.log("Document successfully written!");
+    db.collection('sitios').add({
+      nombre: current.name,
+      idusuario: sessionStorage.getItem("idusuario"),
+      coordenadas: new firebase.firestore.GeoPoint(current.geometry.location.lat(), current.geometry.location.lng())
     });
   }
   else{
@@ -112,14 +113,13 @@ function agregarAfavoritos(){
 function agregarRutaFav(){
   if (locationsF != null){
     var nombreRutaFav = document.getElementById("textoRutaFav").value
-    locationsF.forEach(element => console.log(element));
-    db.collection('rutas').add({
+    locationsF.forEach(element => 
+      db.collection('rutas').add({
       Descripcion: nombreRutaFav.value,
       idusuario: sessionStorage.getItem("idusuario"),
-      
-
-      
-    });
+      listadestinos: element
+    }));
+    
   }
 }
 // Make a request to routexl api
