@@ -4,14 +4,12 @@ var locationsF = [];
 var map;
 var directionx;
 function iniciaMapa() {
-  console.log("Favoritosv8");
+  console.log("Favoritosv11");
   db.collection('sitios').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
       var user = sessionStorage.getItem("idusuario");
-      console.log(user + " | " + change.doc.data().idusuario);
       if (change.doc.data().idusuario == user) {
-        console.log(change.doc.data().coordenadas.latitude);
         let aLink = document.createElement("a");
         aLink.className = "dropdown-item";
         aLink.id = change.doc.data().coordenadas.latitude + "," + change.doc.data().coordenadas.longitude;
@@ -33,9 +31,10 @@ function iniciaMapa() {
 }
 
 function moverACoordenadas(posicion) {
-  console.log(posicion);
-  var center = new google.maps.LatLng(posicion.coordenadas.latitude, posicion.coordenadas.longitude);
+  var posicionSplit = posicion.split(",");
+  var center = new google.maps.LatLng(posicionSplit[0], posicionSplit[1]);
   window.map.panTo(center);
+  document.getElementById("").innerHTML = posicion;
 }
 
 // Google search places init
@@ -55,7 +54,7 @@ function iniciaAutoCompletado(posicion) {
   // more details for that place.
   searchBox.addListener("places_changed", function () {
     var places = searchBox.getPlaces();
-
+    console.log(places);
     if (places.length == 0) {
       return;
     }
