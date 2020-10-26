@@ -101,11 +101,9 @@ function agregarAfavoritos(){
   console.log(current.name);
   if(current != null){
     db.collection('sitios').add({
-      //  geometry: current.geometry.lo,
-      //  idusuario: sessionStorage.getItem("idusuario"),
-      //  coordenadas: new firebase.firestore.GeoPoint(current.geometry.location.lat(), current.geometry.location.lng())
+      nombre: current.name,
       idusuario: sessionStorage.getItem("idusuario"),
-      data: current,
+      coordenadas: new firebase.firestore.GeoPoint(current.geometry.location.lat(), current.geometry.location.lng())
     });
   }
   else{
@@ -115,10 +113,13 @@ function agregarAfavoritos(){
 function agregarRutaFav(){
   if (locationsF != null){
     var nombreRutaFav = document.getElementById("textoRutaFav").value
+    locationsF.forEach(element => console.log(element));
     db.collection('rutas').add({
       Descripcion: nombreRutaFav.value,
       idusuario: sessionStorage.getItem("idusuario"),
-      listasdestinos: locationsF
+      
+
+      
     });
   }
 }
