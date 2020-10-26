@@ -33,6 +33,19 @@
         <li class="nav-item" id="botoninicialowo">
           <button onclick="agregarActual()" id="Odd" class="btn btn-outline-primary my-2 my-sm-0 mr-sm-2">Agregar ubicacion actual</button>
         </li>
+        <li class="nav-item" id="botonFav">
+          <div class="btn-group">
+            <button class="btn btn-outline-warning" onclick="agregarAfavoritos()" type="button">
+              Favoritos
+            </button>
+            <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div id="dropFav" class="dropdown-menu">
+              
+            </div>
+          </div>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -45,20 +58,6 @@
             <a class="dropdown-item disabled" style="color: orange;" href="#" id="labelAdvertencia">Seleccione un
               elemento de la lista para borrarlo</a>
             <div class="dropdown-divider"></div>
-          </div>
-        </li>
-        <li class="nav-item" id="botonFav">
-          <!-- <button onclick="agregarAfavoritos()" id="Add" class="btn btn-outline-warning my-2 my-sm-0 mr-sm-2" >Favorito</button> -->
-          <div class="btn-group">
-            <button class="btn btn-outline-warning" onclick="agregarAfavoritos()" type="button">
-              Favoritos
-            </button>
-            <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div id="dropFav" class="dropdown-menu">
-              
-            </div>
           </div>
         </li>
         <li class="nav-item">

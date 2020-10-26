@@ -4,15 +4,11 @@ var locationsF = [];
 var map;
 var directionx;
 function iniciaMapa() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(iniciaAutoCompletado);
-  } else {
-    console.log("El navegador no tiene geolocalización");
-  }
+  console.log("Favoritos");
   db.collection('sitios').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
-
     changes.forEach(change => {
+      console.log(change.doc);
       var user = sessionStorage.getItem("idusuario");
       if (change.doc.id == user) {
         let aLink = document.createElement("li");
@@ -26,7 +22,12 @@ function iniciaMapa() {
         document.getElementById("dropFav").appendChild(aLink);
       }
     });
-});
+  });
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(iniciaAutoCompletado);
+  } else {
+    console.log("El navegador no tiene geolocalización");
+  }
 }
 
 function moverACoordenadas(posicion) {
