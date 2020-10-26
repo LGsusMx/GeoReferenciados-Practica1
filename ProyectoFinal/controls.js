@@ -113,11 +113,11 @@ function agregarAfavoritos(){
 function agregarRutaFav(){
   if (locationsF != null){
     var nombreRutaFav = document.getElementById("textoRutaFav").value
-    console.log(nombreRutaFav)
+    console.log(nombreRutaFav.value)
     locationsF.forEach(element => console.log(element))
     console.log(JSON.stringify(locationsF))
     db.collection('rutas').add({
-      descripcion: nombreRutaFav.value,
+      descripcion: nombreRutaFav,
       idusuario: sessionStorage.getItem("idusuario"),
       listadestinos: JSON.stringify(locationsF)
     })
