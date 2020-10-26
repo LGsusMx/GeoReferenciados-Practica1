@@ -117,7 +117,7 @@ function agregarRutaFav(){
     locationsF.forEach(element => console.log(element))
     console.log(JSON.stringify(locationsF))
     db.collection('rutas').add({
-      Descripcion: nombreRutaFav.value,
+      descripcion: nombreRutaFav.value,
       idusuario: sessionStorage.getItem("idusuario"),
       listadestinos: JSON.stringify(locationsF)
     })
