@@ -100,11 +100,12 @@ function agregarLugarcito() {
 function agregarAfavoritos(){
   console.log(current.name);
   if(current != null){
-    db.collection('sitios').add({
+    /*db.collection('sitios').add({
       nombre: current.name,
       idusuario: sessionStorage.getItem("idusuario"),
       coordenadas: new firebase.firestore.GeoPoint(current.geometry.location.lat(), current.geometry.location.lng())
-    });
+    });*/
+    db.collection('sitios').add(current);
   }
   else{
     alert("Selecciona una ruta profa");
