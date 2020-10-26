@@ -236,7 +236,7 @@ function trazarRuta(rutas) {
         labelAdvertencia.innerHTML = "";
         selectransporte.innerHTML = "";
         btnFav.innerHTML = 
-        '<button id="botonFav" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarRutaFav()">Marcar ruta como favorita</button>';
+        '<button id="botonFav" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarRutaFav()">Marcar ruta como favorita <img height="20px" width="20px" src="https://cdn.discordapp.com/attachments/752649206895870004/770066430720737290/iconmonstr-favorite-3-240.png" alt="exit" /></button>';
         btnRuta.innerHTML =
           '<button id="pac-input2" class="controls btn btn-outline-danger my-2 my-sm-0" onclick="borrarRutas()">Trazar una nueva ruta</button>';
 
@@ -302,7 +302,7 @@ function borrarRutas() {
     'class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">Trazar ruta</button></li>';
   
   btnFav.innerHTML = 
-    '<button id="botonFav" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarAfavoritos()">Favorito</button>';  
+    '<button id="botonFav" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarAfavoritos()">Favorito <img height="20px" width="20px" src="https://cdn.discordapp.com/attachments/752649206895870004/770066430720737290/iconmonstr-favorite-3-240.png" alt="exit" /></button>';  
   selectidioma.innerHTML =
     '<li id="selectidioma" class="nav-item mr-sm-2 form-inline">' +
     '<div class="col-6 text-center"><select name="idioma" id="idioma" class="theme-pink" onchange="cambioIdioma()">' +
