@@ -4,16 +4,16 @@ var locationsF = [];
 var map;
 var directionx;
 function iniciaMapa() {
-  console.log("Favoritosv5");
+  console.log("Favoritosv7");
   db.collection('sitios').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
       var user = sessionStorage.getItem("idusuario");
       console.log(user + " | " + change.doc.data().idusuario);
-      //if (change.doc.id == user) {
+      if (change.doc.data().idusuario == user) {
         console.log(change.doc.data());
         let aLink = document.createElement("li");
-        aLink.className("dropdown-item");
+        aLink.className = "dropdown-item";
         aLink.href(change.doc.data().coordenadas.lat + "," + change.doc.data().coordenadas.lng);
         aLink.textContent = change.doc.data().name;
         aLink.addEventListener("click", (e) => {
@@ -21,7 +21,7 @@ function iniciaMapa() {
           moverACoordenadas(href);
         });
         document.getElementById("dropFav").appendChild(aLink);
-      //}
+      }
     });
   });
   if (navigator.geolocation) {
