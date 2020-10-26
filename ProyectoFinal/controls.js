@@ -15,7 +15,7 @@ function iniciaMapa() {
         aLink.innerHTML = change.doc.data().nombre;
         aLink.href = "#";
         aLink.addEventListener("click", (e) => {
-          moverACoordenadas(change.doc.data().coordenadas.latitude + "," + change.doc.data().coordenadas.longitude);
+          moverACoordenadas(change.doc.data().coordenadas.latitude + "," + change.doc.data().coordenadas.longitude + "," + change.doc.data().nombre);
         });
         document.getElementById("dropFav").appendChild(aLink);
       }
@@ -33,7 +33,15 @@ function moverACoordenadas(posicion) {
   console.log(posicionSplit);
   var center = new google.maps.LatLng(posicionSplit[0], posicionSplit[1]);
   window.map.panTo(center);
-  document.getElementById("pac-input").innerHTML = posicion;
+  markers.push(
+    new google.maps.Marker({
+      map: map,
+      icon: "https://cdn.discordapp.com/attachments/752649206895870004/770101180625322024/location.png",
+      title: posicionSplit[2],
+      position: { lat: osicionSplit[0], lng: osicionSplit[1] },
+    })
+  );
+  document.getElementById("pac-input").innerHTML = posicionSplit[2];
 }
 
 // Google search places init
