@@ -2,7 +2,7 @@ var provider = new firebase.auth.GoogleAuthProvider();
 auth.onAuthStateChanged((user) => {
   if (user) {
     console.log("Usuario entró");
-
+    sessionStorage.setItem("idusuario",user.uid);
     window.open("https://lgsusmx.github.io/GeoReferenciados-Practica1/ProyectoFinal/index.html","_self");
   } else {
     console.log("Usuario salió");
@@ -28,6 +28,7 @@ formaregistrate.addEventListener("submit", (e) => {
     })
     .then(() => {
       $("#registratemodal").modal("hide");
+      sessionStorage.setItem("idusuario",cred.user.uid);
       formaregistrate.reset();
       formaregistrate.querySelector(".error").innerHTML = "";
     })

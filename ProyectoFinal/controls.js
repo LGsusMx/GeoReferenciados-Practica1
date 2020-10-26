@@ -95,7 +95,19 @@ function agregarLugarcito() {
 
   alert("Se agregó " + current.name + " a la lista de paradas");
 }
-
+//Add to favorites
+function agregarAfavoritos(){
+  if(current > 1){
+    db.collection('sitios').add({
+      nombre: current.name,
+      idusuario: sessionStorage.getItem("idusuario"),
+      coordenadas: new firebase.firestore.GeoPoint(current.geometry.location.lat(), current.geometry.location.lng())
+    });
+  }
+  else{
+    alert("Selecciona una ruta profa");
+  }
+}
 // Make a request to routexl api
 function hacerLaTrazacion() {
   var request = jQuery.ajax({
