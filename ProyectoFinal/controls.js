@@ -110,6 +110,11 @@ function agregarAfavoritos(){
     alert("Selecciona una ruta profa");
   }
 }
+function agregarRutas(){
+  if(locationsF){
+
+  }
+}
 // Make a request to routexl api
 function hacerLaTrazacion() {
   var request = jQuery.ajax({
@@ -207,6 +212,7 @@ function trazarRuta(rutas) {
         var searchbar = document.getElementById("searchbar");
         var selectidioma = document.getElementById("selectidioma");
         var btnParada = document.getElementById("botonParada");
+        var btnFav = document.getElementById("botonFav")
         var btninicial = document.getElementById("botoninicialowo");
         var btnRuta = document.getElementById("botonRuta");
         var borraParadas = document.getElementById("borraParadas");
@@ -215,6 +221,7 @@ function trazarRuta(rutas) {
         searchbar.innerHTML = "";
         selectidioma.innerHTML = "";
         btnParada.innerHTML = "";
+        btnFav.innerHTML = "";
         btninicial.innerHTML = "";
         borraParadas.innerHTML = "";
         labelAdvertencia.innerHTML = "";
