@@ -99,7 +99,7 @@ function agregarLugarcito() {
 //Add to favorites
 function agregarAfavoritos(){
   console.log(current.name);
-  if(current > 0){
+  if(current != null){
     db.collection('sitios').add({
       nombre: current.name,
       idusuario: sessionStorage.getItem("idusuario"),
