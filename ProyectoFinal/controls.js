@@ -4,7 +4,7 @@ var locationsF = [];
 var map;
 var directionx;
 function iniciaMapa() {
-  console.log("Favoritosv11");
+  console.log("Favoritosv13");
   db.collection('sitios').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
@@ -12,12 +12,10 @@ function iniciaMapa() {
       if (change.doc.data().idusuario == user) {
         let aLink = document.createElement("a");
         aLink.className = "dropdown-item";
-        aLink.id = change.doc.data().coordenadas.latitude + "," + change.doc.data().coordenadas.longitude;
         aLink.innerHTML = change.doc.data().nombre;
         aLink.href = "#";
         aLink.addEventListener("click", (e) => {
-          let href = e.target.parentElement.getAttribute("id");
-          moverACoordenadas(href);
+          moverACoordenadas(change.doc.data().coordenadas.latitude + "," + change.doc.data().coordenadas.longitude);
         });
         document.getElementById("dropFav").appendChild(aLink);
       }
