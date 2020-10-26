@@ -32,9 +32,10 @@ function iniciaMapa() {
 
 function moverACoordenadas(posicion) {
   var posicionSplit = posicion.split(",");
+  console.log(posicionSplit);
   var center = new google.maps.LatLng(posicionSplit[0], posicionSplit[1]);
   window.map.panTo(center);
-  document.getElementById("").innerHTML = posicion;
+  document.getElementById("pac-input").innerHTML = posicion;
 }
 
 // Google search places init
