@@ -48,7 +48,18 @@
           </div>
         </li>
         <li class="nav-item" id="botonFav">
-          <button onclick="agregarAfavoritos()" id="Add" class="btn btn-outline-warning my-2 my-sm-0 mr-sm-2" >Favorito <img height="20px" width="20px" src="https://cdn.discordapp.com/attachments/752649206895870004/770066430720737290/iconmonstr-favorite-3-240.png" alt="exit" /></button>
+          <!-- <button onclick="agregarAfavoritos()" id="Add" class="btn btn-outline-warning my-2 my-sm-0 mr-sm-2" >Favorito</button> -->
+          <div class="btn-group">
+            <button class="btn btn-outline-warning" onclick="agregarAfavoritos()" type="button">
+              Favoritos
+            </button>
+            <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div id="dropFav" class="dropdown-menu">
+              
+            </div>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" id="distance"></a>

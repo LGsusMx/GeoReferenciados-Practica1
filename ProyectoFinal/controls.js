@@ -9,6 +9,28 @@ function iniciaMapa() {
   } else {
     console.log("El navegador no tiene geolocalización");
   }
+  db.collection('sitios').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+
+    changes.forEach(change => {
+      var user = sessionStorage.getItem("idusuario");
+      if (change.doc.id == user) {
+        let aLink = document.createElement("li");
+        aLink.className("dropdown-item");
+        aLink.href(change.doc.coordenadas.lat + "," + change.doc.coordenadas.lng);
+        aLink.textContent = change.doc.name;
+        aLink.addEventListener("click", (e) => {
+          let href = e.target.parentElement.getAttribute("href");
+          moverACoordenadas(href);
+        });
+        document.getElementById("dropFav").appendChild(aLink);
+      }
+    });
+});
+}
+
+function moverACoordenadas(posicion) {
+  console.log(posicion);
 }
 
 // Google search places init
