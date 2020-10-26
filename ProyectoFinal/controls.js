@@ -8,9 +8,10 @@ function iniciaMapa() {
   db.collection('sitios').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
-      console.log(change.doc);
       var user = sessionStorage.getItem("idusuario");
+      console.log(user + " | " + change.doc.id);
       if (change.doc.id == user) {
+        console.log(change.doc.data());
         let aLink = document.createElement("li");
         aLink.className("dropdown-item");
         aLink.href(change.doc.data().coordenadas.lat + "," + change.doc.data().coordenadas.lng);
@@ -32,6 +33,8 @@ function iniciaMapa() {
 
 function moverACoordenadas(posicion) {
   console.log(posicion);
+  var center = new google.maps.LatLng(posicion.coordenadas.lat, posicion.coordenadas.lng);
+  window.map.panTo(center);
 }
 
 // Google search places init
