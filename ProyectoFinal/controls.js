@@ -113,6 +113,8 @@ function agregarAfavoritos(){
 function agregarRutaFav(){
   if (locationsF != null){
     var nombreRutaFav = document.getElementById("textoRutaFav").value
+    console.log(nombreRutaFav)
+    locationsF.forEach(element => console.log(element))
     locationsF.forEach(element => 
       db.collection('rutas').add({
       Descripcion: nombreRutaFav.value,
