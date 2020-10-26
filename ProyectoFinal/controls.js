@@ -116,13 +116,12 @@ function agregarRutaFav(){
     console.log(nombreRutaFav)
     locationsF.forEach(element => console.log(element))
     console.log(JSON.stringify(locationsF))
-    locationsF.forEach(element => 
-      db.collection('rutas').add({
+    db.collection('rutas').add({
       Descripcion: nombreRutaFav.value,
       idusuario: sessionStorage.getItem("idusuario"),
-      listadestinos: JSON.stringify(element)
-    }));
-    
+      listadestinos: JSON.stringify(locationsF)
+    })
+  
   }
 }
 // Make a request to routexl api
