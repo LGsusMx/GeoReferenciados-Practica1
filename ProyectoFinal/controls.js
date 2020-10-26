@@ -77,6 +77,7 @@ function iniciaAutoCompletado(posicion) {
 
 // Add place to the array
 function agregarLugarcito() {
+  console.log(current.name);
   locationsF.push({
     address: current.name,
     lat: current.geometry.location.lat(),
@@ -97,7 +98,7 @@ function agregarLugarcito() {
 }
 //Add to favorites
 function agregarAfavoritos(){
-  console.log(stringify(current.name));
+  console.log(current.name);
   if(current > 0){
     db.collection('sitios').add({
       nombre: current.name,
