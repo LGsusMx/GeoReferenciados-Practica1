@@ -107,8 +107,8 @@ function agregarAfavoritos(){
       idusuario: sessionStorage.getItem("idusuario"),
       address_components: [
         {
-           long_name: current.address_components.long_name()(),
-           short_name: current.address_components.short_name()(),
+           long_name: current.address_components.long_name(),
+           short_name: current.address_components.short_name(),
            types: [ current.floor ]
         }
      ],
@@ -118,16 +118,16 @@ function agregarAfavoritos(){
      geometry: {
         location: {
            lat: current.geometry.location.lat(),
-           lng: current.geometry.location.lng
+           lng: current.geometry.location.lng()
         },
         viewport: {
            northeast: {
               lat: current.geometry.viewport.northeast.lat(),
-              lng: current.geometry.viewport.northeast.lng
+              lng: current.geometry.viewport.northeast.lng()
            },
            southwest: {
               lat: current.geometry.viewport.southwest.lat(),
-              lng: current.geometry.viewport.southwest.lat
+              lng: current.geometry.viewport.southwest.lat()
            }
         }
      },
