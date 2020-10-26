@@ -269,6 +269,7 @@ function borrarRutas() {
   var dumration = document.getElementById("duration");
   var searchbar = document.getElementById("searchbar");
   var btnParada = document.getElementById("botonParada");
+  var btnFav = document.getElementById("botonFav")
   var btnRuta = document.getElementById("botonRuta");
   var selectidioma = document.getElementById("selectidioma");
   var btninicial = document.getElementById("botoninicialowo");
