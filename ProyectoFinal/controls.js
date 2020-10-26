@@ -13,8 +13,8 @@ function iniciaMapa() {
       if (change.doc.id == user) {
         let aLink = document.createElement("li");
         aLink.className("dropdown-item");
-        aLink.href(change.doc.coordenadas.lat + "," + change.doc.coordenadas.lng);
-        aLink.textContent = change.doc.name;
+        aLink.href(change.doc.data().coordenadas.lat + "," + change.doc.data().coordenadas.lng);
+        aLink.textContent = change.doc.data().name;
         aLink.addEventListener("click", (e) => {
           let href = e.target.parentElement.getAttribute("href");
           moverACoordenadas(href);
