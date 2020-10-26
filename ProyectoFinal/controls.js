@@ -107,14 +107,14 @@ function agregarAfavoritos(){
       idusuario: sessionStorage.getItem("idusuario"),
       address_components: [
         {
-           long_name: current.address_components.long_name(),
-           short_name: current.address_components.short_name(),
+           long_name: current.address_components.long_name,
+           short_name: current.address_components.short_name,
            types: [ current.floor ]
         }
      ],
-     adr_address: current.adr_address(),
-     formatted_address: current.formatted_address(),
-     formatted_phone_number: current.formatted_phone_number(),
+     adr_address: current.adr_address,
+     formatted_address: current.formatted_address,
+     formatted_phone_number: current.formatted_phone_number,
      geometry: {
         location: {
            lat: current.geometry.location.lat(),
@@ -131,14 +131,14 @@ function agregarAfavoritos(){
            }
         }
      },
-     icon: current.icon(),
-     id: current.id(),
-     international_phone_number: current.international_phone_number(),
-     name: current.name(),
-     place_id: current.place_id(),
-     reference: current.reference(),
-     url: current.url(),
-     utc_offset: current.utc_offset(),
+     icon: current.icon,
+     id: current.id,
+     international_phone_number: current.international_phone_number,
+     name: current.name,
+     place_id: current.place_id,
+     reference: current.reference,
+     url: current.url,
+     utc_offset: current.utc_offset,
     });
   }
   else{
