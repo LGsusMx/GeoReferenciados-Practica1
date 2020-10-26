@@ -115,6 +115,7 @@ function agregarRutaFav(){
     var nombreRutaFav = document.getElementById("textoRutaFav").value
     console.log(nombreRutaFav)
     locationsF.forEach(element => console.log(element))
+    console.log(JSON.stringify(locationsF))
     locationsF.forEach(element => 
       db.collection('rutas').add({
       Descripcion: nombreRutaFav.value,
@@ -236,7 +237,7 @@ function trazarRuta(rutas) {
         labelAdvertencia.innerHTML = "";
         selectransporte.innerHTML = "";
         btnFav.innerHTML = 
-        '<button id="pac-input2" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarRutaFav()">Marcar ruta como favorita</button>';
+        '<button id="botonFav" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarRutaFav()">Marcar ruta como favorita</button>';
         btnRuta.innerHTML =
           '<button id="pac-input2" class="controls btn btn-outline-danger my-2 my-sm-0" onclick="borrarRutas()">Trazar una nueva ruta</button>';
 
