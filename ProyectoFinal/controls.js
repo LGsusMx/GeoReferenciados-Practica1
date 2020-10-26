@@ -14,7 +14,7 @@ function iniciaMapa() {
         console.log(change.doc.data());
         let aLink = document.createElement("li");
         aLink.className = "dropdown-item";
-        aLink.href(change.doc.data().coordenadas.lat + "," + change.doc.data().coordenadas.lng);
+        aLink.href = change.doc.data().coordenadas.latitude + "," + change.doc.data().coordenadas.longitude;
         aLink.textContent = change.doc.data().name;
         aLink.addEventListener("click", (e) => {
           let href = e.target.parentElement.getAttribute("href");
@@ -33,7 +33,7 @@ function iniciaMapa() {
 
 function moverACoordenadas(posicion) {
   console.log(posicion);
-  var center = new google.maps.LatLng(posicion.coordenadas.lat, posicion.coordenadas.lng);
+  var center = new google.maps.LatLng(posicion.coordenadas.latitude, posicion.coordenadas.longitude);
   window.map.panTo(center);
 }
 
