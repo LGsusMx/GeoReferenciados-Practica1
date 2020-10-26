@@ -301,7 +301,7 @@ function borrarRutas() {
     'class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">Trazar ruta</button></li>';
   
   btnFav.innerHTML = 
-    '<button id="pac-input2" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarAfavoritos()">Favorito</button>';  
+    '<button id="botonFav" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarAfavoritos()">Favorito</button>';  
   selectidioma.innerHTML =
     '<li id="selectidioma" class="nav-item mr-sm-2 form-inline">' +
     '<div class="col-6 text-center"><select name="idioma" id="idioma" class="theme-pink" onchange="cambioIdioma()">' +
