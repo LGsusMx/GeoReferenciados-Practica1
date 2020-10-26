@@ -110,9 +110,14 @@ function agregarAfavoritos(){
     alert("Selecciona una ruta profa");
   }
 }
-function agregarRutas(){
-  if(locationsF){
-
+function agregarRutaFav(){
+  if (locationsF != null){
+    var nombreRutaFav = document.getElementById("").value
+    db.collection('rutas').add({
+      Descripcion: nombreRutaFav.value,
+      idusuario: sessionStorage.getItem("idusuario"),
+      coordenadas: new firebase.firestore.GeoPoint(current.geometry.location.lat(), current.geometry.location.lng())
+    });
   }
 }
 // Make a request to routexl api
@@ -226,6 +231,8 @@ function trazarRuta(rutas) {
         borraParadas.innerHTML = "";
         labelAdvertencia.innerHTML = "";
         selectransporte.innerHTML = "";
+        btnFav.innerHTML = 
+        '<button id="pac-input2" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarRutaFav()">Marcar ruta como favorita</button>';
         btnRuta.innerHTML =
           '<button id="pac-input2" class="controls btn btn-outline-danger my-2 my-sm-0" onclick="borrarRutas()">Trazar una nueva ruta</button>';
 
@@ -288,7 +295,9 @@ function borrarRutas() {
   btnRuta.innerHTML =
     '<li class="nav-item mr-sm-2 form-inline" id="botonRuta"><button id="pac-input2"' +
     'class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">Trazar ruta</button></li>';
-
+  
+  btnFav.innerHTML = 
+    '<button id="pac-input2" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarAfavoritos()">Favorito</button>';  
   selectidioma.innerHTML =
     '<li id="selectidioma" class="nav-item mr-sm-2 form-inline">' +
     '<div class="col-6 text-center"><select name="idioma" id="idioma" class="theme-pink" onchange="cambioIdioma()">' +
