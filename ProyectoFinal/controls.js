@@ -100,10 +100,9 @@ function agregarLugarcito() {
 function agregarAfavoritos(){
   console.log(current.name);
   if(current != null){
-    db.collection('sitios').add({
-      nombre: current.name,
-      idusuario: sessionStorage.getItem("idusuario"),
-      coordenadas: new firebase.firestore.GeoPoint(current.geometry.location.lat(), current.geometry.location.lng())
+    current.idusuario = sessionStorage.getItem("idusuario");
+    db.collection("sitios").doc("data").set(current).then(function() {
+      console.log("Document successfully written!");
     });
   }
   else{
