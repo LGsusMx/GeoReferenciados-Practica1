@@ -4,7 +4,7 @@ var locationsF = [];
 var map;
 var directionx;
 function iniciaMapa() {
-  console.log("Favoritosv15");
+  console.log("Favoritosv16");
   db.collection('sitios').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
@@ -38,12 +38,13 @@ function moverACoordenadas(posicion) {
   markers.forEach(function (marker) {
     marker.setMap(null);
   });
+  markers = [];
   markers.push(
     new google.maps.Marker({
       map: map,
       icon: "https://cdn.discordapp.com/attachments/752649206895870004/770101180625322024/location.png",
       title: posicionSplit[2],
-      position: { lat: posicionSplit[0], lng: posicionSplit[1] },
+      position: { lat: parseFloat(posicionSplit[0]), lng: parseFloat(posicionSplit[1]) },
     })
   );
   document.getElementById("pac-input").innerHTML = posicionSplit[2];
