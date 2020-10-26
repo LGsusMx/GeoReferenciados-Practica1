@@ -4,7 +4,7 @@ var locationsF = [];
 var map;
 var directionx;
 function iniciaMapa() {
-  console.log("Favoritosv16");
+  console.log("Favoritosv17");
   db.collection('sitios').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
@@ -39,15 +39,22 @@ function moverACoordenadas(posicion) {
     marker.setMap(null);
   });
   markers = [];
+  var icon = {
+    url: "https://cdn.discordapp.com/attachments/752649206895870004/770101180625322024/location.png",
+    size: new google.maps.Size(71, 71),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(17, 34),
+    scaledSize: new google.maps.Size(25, 25),
+  };
   markers.push(
     new google.maps.Marker({
       map: map,
-      icon: "https://cdn.discordapp.com/attachments/752649206895870004/770101180625322024/location.png",
+      icon: icon,
       title: posicionSplit[2],
       position: { lat: parseFloat(posicionSplit[0]), lng: parseFloat(posicionSplit[1]) },
     })
   );
-  document.getElementById("pac-input").innerHTML = posicionSplit[2];
+  document.getElementById("searchbar").value = posicionSplit[2];
 }
 
 // Google search places init
