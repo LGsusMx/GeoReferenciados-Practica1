@@ -97,7 +97,7 @@ function agregarLugarcito() {
 }
 //Add to favorites
 function agregarAfavoritos(){
-  console.log(current.address);
+  console.log(stringify(current.name));
   if(current > 0){
     db.collection('sitios').add({
       nombre: current.name,
