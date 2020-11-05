@@ -348,7 +348,7 @@ function borrarRutas() {
     'class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">Trazar ruta</button></li>';
   
   btnFav.innerHTML = 
-    '<button id="botonFav" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarAfavoritos()">Favorito <img height="20px" width="20px" src="https://cdn.discordapp.com/attachments/752649206895870004/770066430720737290/iconmonstr-favorite-3-240.png" alt="exit" /></button><button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>';  
+    '<div class="btn-group"><button class="btn btn-outline-warning" onclick="agregarAfavoritos()" type="button">Favoritos</button><button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button><div id="dropFav" class="dropdown-menu"></div></div>';  
   selectidioma.innerHTML =
     '<li id="selectidioma" class="nav-item mr-sm-2 form-inline">' +
     '<div class="col-6 text-center"><select name="idioma" id="idioma" class="theme-pink" onchange="cambioIdioma()">' +
