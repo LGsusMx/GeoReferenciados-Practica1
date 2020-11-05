@@ -284,6 +284,7 @@ function trazarRuta(rutas) {
         var selectidioma = document.getElementById("selectidioma");
         var btnParada = document.getElementById("botonParada");
         var btnFav = document.getElementById("botonFav")
+        var btnFavRuta = document.getElementById("botonFavRuta")
         var btninicial = document.getElementById("botoninicialowo");
         var btnRuta = document.getElementById("botonRuta");
         var borraParadas = document.getElementById("borraParadas");
@@ -299,6 +300,8 @@ function trazarRuta(rutas) {
         selectransporte.innerHTML = "";
         btnFav.innerHTML = 
         '<button id="botonFav" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarRutaFav()">Marcar ruta como favorita <img height="20px" width="20px" src="https://cdn.discordapp.com/attachments/752649206895870004/770066430720737290/iconmonstr-favorite-3-240.png" alt="exit" /></button>';
+        btnFavRuta.innerHTML = 
+        '<div class="btn-group"><input id="txtRutaFav" placeholder="Nombre de Ruta fav"><button class="btn btn-outline-warning" type="button">Rutas Favoritas</button><button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span></button><div id="dropFav2" class="dropdown-menu"></div></div>'
         btnRuta.innerHTML =
           '<button id="pac-input2" class="controls btn btn-outline-danger my-2 my-sm-0" onclick="borrarRutas()">Trazar una nueva ruta</button>';
 
