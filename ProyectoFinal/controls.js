@@ -21,6 +21,22 @@ function iniciaMapa() {
       }
     });
   });
+  db.collection('rutas').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+      var user = sessionStorage.getItem("idusuario");
+      if (change.doc.data().idusuario == user) {
+        let aLink = document.createElement("a");
+        aLink.className = "dropdown-item";
+        aLink.innerHTML = change.doc.data().descripcion;
+        aLink.href = "#";
+        aLink.addEventListener("click", (e) => {
+          moverACoordenadas(change.doc.data().coordenadas.latitude + "," + change.doc.data().coordenadas.longitude + "," + change.doc.data().nombre);
+        });
+        document.getElementById("dropFav2").appendChild(aLink);
+      }
+    });
+  });
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(iniciaAutoCompletado);
   } else {
