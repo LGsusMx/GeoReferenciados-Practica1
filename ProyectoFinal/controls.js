@@ -174,7 +174,7 @@ function agregarAfavoritos(){
 }
 function agregarRutaFav(){
   if (locationsF != null){
-    var nombreRutaFav = document.getElementById("textoRutaFav").value
+    var nombreRutaFav = document.getElementById("txtRutaFav").value
     console.log(nombreRutaFav.value)
     locationsF.forEach(element => console.log(element))
     console.log(JSON.stringify(locationsF))
