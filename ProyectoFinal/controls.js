@@ -335,6 +335,7 @@ function borrarRutas() {
   var searchbar = document.getElementById("searchbar");
   var btnParada = document.getElementById("botonParada");
   var btnFav = document.getElementById("botonFav")
+  var btnFavRuta = document.getElementById("botonFavRuta")
   var btnRuta = document.getElementById("botonRuta");
   var selectidioma = document.getElementById("selectidioma");
   var btninicial = document.getElementById("botoninicialowo");
@@ -368,7 +369,9 @@ function borrarRutas() {
   
   btnFav.innerHTML = 
     '<div class="btn-group"><button class="btn btn-outline-warning" onclick="agregarAfavoritos()" type="button">Favoritos</button><button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button><div id="dropFav" class="dropdown-menu"></div></div>';  
-  selectidioma.innerHTML =
+  btnFavRuta.innerHTML = 
+  '<div class="btn-group">  <button class="btn btn-outline-warning" type="button">    Rutas Favoritas</button><button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button><div id="dropFav2" class="dropdown-menu"></div></div>'
+    selectidioma.innerHTML =
     '<li id="selectidioma" class="nav-item mr-sm-2 form-inline">' +
     '<div class="col-6 text-center"><select name="idioma" id="idioma" class="theme-pink" onchange="cambioIdioma()">' +
     '<option value="es" id="español">Español</option>' +
