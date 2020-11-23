@@ -75,10 +75,10 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mt-2" style="color: white; font-weight: bold;">
                     <a class="nav-link" href="#" id="distance"></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mt-2" style="color: white; font-weight: bold;">
                     <a class="nav-link" href="#" id="duration"></a>
                 </li>
               </ul>
@@ -93,7 +93,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-2">
-                <select class="btn btn-primary mt-3" data-live-search="true" style="font-weight: bold; width: 100%; color: white; text-align-last:center;" id="idioma" name="idioma">
+                <select class="btn btn-primary mt-3" data-live-search="true" style="font-weight: bold; width: 100%; color: white; text-align-last:center;" id="idioma" name="idioma" onchange="cambioIdioma()">
                     <optgroup class="mb-1" label="Seleccione un idioma"></optgroup>
                     <option value="es" id="español">Español</option>
                     <option value="en" id="ingles">Inglés</option>
@@ -124,6 +124,9 @@
   <script src="mapOrigin.js"></script>
   <script src="controls.js"></script>
   <script src="idiomas.js"></script>
-  <script> var txtRutaFav = document.getElementById("textoRutaFav"); txtRutaFav.innerHTML ="";</script>
+  <script> 
+    var txtRutaFav = document.getElementById("textoRutaFav"); 
+    txtRutaFav.innerHTML = "";
+  </script>
 </body>
 </html>
