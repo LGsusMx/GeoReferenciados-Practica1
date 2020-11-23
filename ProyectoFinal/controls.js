@@ -195,9 +195,9 @@ function hacerLaTrazacion() {
         "Basic " + btoa("RedMx14:Tofis123")
       );
     },
-    url: "https://api.routexl.nl/tour",
+    url: "https://api.routexl.com/tour",
     method: "POST",
-    dataType: "jsonp",
+    dataType: "json",
     data: { locations: locationsF },
   });
 
@@ -211,6 +211,7 @@ function hacerLaTrazacion() {
     alert("Asegurese que agregó al menos dos paradas a su ruta");
   });
 }
+
 
 // Draw the route on the map
 function trazarRuta(rutas) {
