@@ -148,13 +148,8 @@ function agregarLugarcito() {
   console.log(JSON.stringify(locationsF));
   var paradas = document.getElementById("paradasList");
   paradas.innerHTML +=
-    '<a class="dropdown-item" href="#" onclick="borrarUnaParada(&apos;' +
-    current.name +
-    '&apos;)" id="' +
-    current.name +
-    '">' +
-    current.name +
-    "</a>";
+    '<a class="dropdown-item" href="#" onclick="borrarUnaParada(&apos;<label style="color: red">X</label>' + 
+    current.name + '&apos;)" id="' + current.name + '">' + current.name + "</a>";
 
   alert("Se agregó " + current.name + " a la lista de paradas");
 }
@@ -628,6 +623,7 @@ function iniciarEstilos(posicion) {
 
 function agregarActual() {
   navigator.geolocation.getCurrentPosition(guardarActual);
+  map.panTo(new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude));
   //document.getElementById("botoninicialowo").style.visibility = "hidden";
 }
 
