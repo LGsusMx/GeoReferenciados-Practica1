@@ -278,32 +278,20 @@ function trazarRuta(rutas) {
       ) {
         var _distance = response.rows[0].elements[0].distance.text;
         var _duration = response.rows[0].elements[0].duration.text;
-        var _consumo = calcularConsumo(distance);
-        var distance = document.getElementById("distance");
-        var duration = document.getElementById("duration");
-        var searchbar = document.getElementById("searchbar");
-        var selectidioma = document.getElementById("selectidioma");
-        var btnParada = document.getElementById("botonParada");
-        var btnFav = document.getElementById("botonFav")
-        var btnFavRuta = document.getElementById("botonFavRuta")
-        var btninicial = document.getElementById("botoninicialowo");
-        var btnRuta = document.getElementById("botonRuta");
-        var borraParadas = document.getElementById("borraParadas");
-        var labelAdvertencia = document.getElementById("labelAdvertencia");
-        var selectransporte = document.getElementById("transporte");
-        searchbar.innerHTML = "";
-        selectidioma.innerHTML = "";
-        btnParada.innerHTML = "";
-        btnFav.innerHTML = "";
-        btninicial.innerHTML = "";
-        borraParadas.innerHTML = "";
-        labelAdvertencia.innerHTML = "";
-        selectransporte.innerHTML = "";
-        btnRuta.innerHTML = '<button onclick="hacerLaTrazacion()" id="pac-input2" class="controls btn btn-primary ml-2" style="font-weight: bold; width: 200px;">Trazar ruta</button>';
-        btnFav.innerHTML = '<button class="btn btn-outline-warning" onclick="agregarAfavoritos()" type="button"> Favoritos </button> <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span> </button> <div id="dropFav" class="dropdown-menu"> </div> </div>';  
-        btnFavRuta.innerHTML = '<div class="btn-group d-flex mt-3"> <button class="btn btn-outline-warning" style="font-weight: bold; width: 100%;" type="button">Ruta Favorita</button> <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button> <div id="dropFav2" class="dropdown-menu dropdown-menu-right btn btn-block"></div> </div>';
-        distance.innerHTML = '<li class="nav-item mt-2" style="color: white; font-weight: bold;"> <a class="nav-link" href="#" id="distance">Distancia:' + _distance + ' generando un consumo de ' + _consumo + '</a> </li>'
-        duration.innerHTML = '<li class="nav-item mt-2" style="color: white; font-weight: bold;"> <a class="nav-link" href="#" id="duration">Duración:' + _duration + '</a> </li>';
+        var _consumo = calcularConsumo(_distance);
+        document.getElementById("distance").innerHTML = "Distancia:" + _distance + " generando un consumo de " + _consumo + "";
+        document.getElementById("duration").innerHTML = "Duración:" + _duration + "";
+        var searchbar = document.getElementById("searchbar").disable = true;
+        var selectidioma = document.getElementById("selectidioma").disabled = true;
+        var btnParada = document.getElementById("botonParada").disabled = true;
+        var btnFav = document.getElementById("botonFav").disabled = true;
+        var btnFavRuta = document.getElementById("botonFavRuta").disabled = true;
+        var btninicial = document.getElementById("botoninicialowo").disabled = true;
+        var btnRuta = document.getElementById("botonRuta").disabled = true;
+        var borraParadas = document.getElementById("borraParadas").disabled = true;
+        var labelAdvertencia = document.getElementById("labelAdvertencia").disabled = true;
+        var selectransporte = document.getElementById("transporte").disabled = true;
+
       } else {
         alert("Unable to find the distance via road.");
       }
@@ -323,26 +311,16 @@ function borrarRutas() {
   quitarParadas();
   directionx.setMap(null);
 
-  var distance = document.getElementById("distance");
-  var duration = document.getElementById("duration");
-  var searchbar = document.getElementById("searchbar");
-  var btnParada = document.getElementById("botonParada");
-  var btnFav = document.getElementById("botonFav")
-  var btnFavRuta = document.getElementById("botonFavRuta")
-  var btnRuta = document.getElementById("botonRuta");
-  var selectidioma = document.getElementById("selectidioma");
-  var btninicial = document.getElementById("botoninicialowo");
-  var selectransporte = document.getElementById("transportes");
-  distance.innerHTML = "";
-  duration.innerHTML = "";
-  selectransporte.innerHTML = '<label style="color: white; font-weight: bold;">Seleccione un transporte:</label> <select class="form-control btn btn-primary text-center" style="font-weight: bold; text-align-last:center;" id="transportes" name="transporte"> <option value="moto">Motocicleta</option> <option value="automovil">Automovil</option> <option value="furgoneta">Furgoneta</option> <option value="camion">Camion</option> </select>';
-  btninicial.innerHTML = '<button onclick="agregarActual()" id="Odd" style="font-weight: bold; width: 200px;" class="btn btn-primary mr-2">Obtener ubicacion</button>';
-  searchbar.innerHTML = '<input id="pac-input" style="width: 550px;" class="form-control controls" type="text" placeholder="Escriba una parada" aria-label="Search" />';
-  btnParada.innerHTML = '<button onclick="agregarLugarcito()" id="Add" style="font-weight: bold; width: 200px;" class="btn btn-success ml-2">Agregar parada</button>';
-  btnRuta.innerHTML = '<button onclick="hacerLaTrazacion()" id="pac-input2" class="controls btn btn-primary ml-2" style="font-weight: bold; width: 200px;">Trazar ruta</button>';
-  btnFav.innerHTML = '<div class="btn-group"> <button class="btn btn-outline-warning" onclick="agregarAfavoritos()" type="button"> Favoritos </button> <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span> </button> <div id="dropFav" class="dropdown-menu"> </div> </div>';  
-  btnFavRuta.innerHTML = '<div class="btn-group d-flex mt-3"> <button class="btn btn-outline-warning" style="font-weight: bold; width: 100%;" type="button">Ruta Favorita</button> <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button> <div id="dropFav2" class="dropdown-menu dropdown-menu-right btn btn-block"></div> </div>'
-  selectidioma.innerHTML = '<select class="btn btn-primary mt-3" data-live-search="true" style="font-weight: bold; width: 100%; color: white; text-align-last:center;" id="idioma" name="idioma" onchange="cambioIdioma()"> <optgroup class="mb-1" label="Seleccione un idioma"></optgroup> <option value="es" id="español">Español</option> <option value="en" id="ingles">Inglés</option> <option value="it" id="italiano">Italiano</option> <option value="zh" id="chino">Chino</option> <option value="ja" id="japones">Japonés</option> <option value="ru" id="ruso">Ruso</option> <option value="de" id="aleman">Alemán</option> </select>';
+  var distance = document.getElementById("distance").innerHTML = "";
+  var duration = document.getElementById("duration").innerHTML = "";
+  var searchbar = document.getElementById("searchbar").disabled = false;
+  var btnParada = document.getElementById("botonParada").disabled = false;
+  var btnFav = document.getElementById("botonFav").disabled = false;
+  var btnFavRuta = document.getElementById("botonFavRuta").disabled = false;
+  var btnRuta = document.getElementById("botonRuta").disabled = false;
+  var selectidioma = document.getElementById("selectidioma").disabled = false;
+  var btninicial = document.getElementById("botoninicialowo").disabled = false;
+  var selectransporte = document.getElementById("transportes").disabled = false;
 }
 
 // Erease only one route
