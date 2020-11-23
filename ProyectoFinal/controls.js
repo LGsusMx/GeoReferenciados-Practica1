@@ -197,7 +197,7 @@ function hacerLaTrazacion() {
     },
     url: "https://api.routexl.nl/tour",
     method: "POST",
-    dataType: "json",
+    dataType: "jsonp",
     data: { locations: locationsF },
   });
 
