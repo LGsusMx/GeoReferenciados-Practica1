@@ -278,8 +278,8 @@ function trazarRuta(rutas) {
         var distance = response.rows[0].elements[0].distance.text;
         var duration = response.rows[0].elements[0].duration.text;
         var consumo = calcularConsumo(distance);
-        var distamce = document.getElementById("distance");
-        var dumration = document.getElementById("duration");
+        var distance = document.getElementById("distance");
+        var duration = document.getElementById("duration");
         var searchbar = document.getElementById("searchbar");
         var selectidioma = document.getElementById("selectidioma");
         var btnParada = document.getElementById("botonParada");
@@ -298,16 +298,11 @@ function trazarRuta(rutas) {
         borraParadas.innerHTML = "";
         labelAdvertencia.innerHTML = "";
         selectransporte.innerHTML = "";
-        btnFav.innerHTML = 
-        '<button id="botonFav" class="controls btn btn-outline-warning my-2 my-sm-0" onclick="agregarRutaFav()">Marcar ruta como favorita <img height="20px" width="20px" src="https://cdn.discordapp.com/attachments/752649206895870004/770066430720737290/iconmonstr-favorite-3-240.png" alt="exit" /></button>';
-        btnFavRuta.innerHTML = 
-        '<div class="btn-group"><input id="txtRutaFav" placeholder="Nombre de Ruta fav"><button class="btn btn-outline-warning" type="button">Rutas Favoritas</button><button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span></button><div id="dropFav2" class="dropdown-menu"></div></div>'
-        btnRuta.innerHTML =
-          '<button id="pac-input2" class="controls btn btn-outline-danger my-2 my-sm-0" onclick="borrarRutas()">Trazar una nueva ruta</button>';
-
-        distamce.innerHTML =
-          "Distancia: " + distance + " generando un consumo de " + consumo;
-        dumration.innerHTML = "Duración: " + duration;
+        btnRuta.innerHTML = '<li class="nav-item mr-sm-2 form-inline" id="botonRuta"> <button onclick="hacerLaTrazacion()" id="pac-input2" class="controls btn btn-primary ml-2" style="font-weight: bold; width: 200px;">Trazar ruta</button> </li>';
+        btnFav.innerHTML = '<li class="nav-item" id="botonFav"> <div class="btn-group"> <button class="btn btn-outline-warning" onclick="agregarAfavoritos()" type="button"> Favoritos </button> <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span> </button> <div id="dropFav" class="dropdown-menu"> </div> </div> </li>';  
+        btnFavRuta.innerHTML = '<li class="nav-item" id="botonFavRuta"> <div class="btn-group d-flex mt-3"> <button class="btn btn-outline-warning" style="font-weight: bold; width: 100%;" type="button">Ruta Favorita</button> <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button> <div id="dropFav2" class="dropdown-menu dropdown-menu-right btn btn-block"></div> </div> </li>';
+        distance.innerHTML = '<li class="nav-item mt-2" style="color: white; font-weight: bold;"> <a class="nav-link" href="#" id="distance">Distancia:' + distance + ' generando un consumo de ' + consumo + '</a> </li>'
+        duration.innerHTML = '<li class="nav-item mt-2" style="color: white; font-weight: bold;"> <a class="nav-link" href="#" id="duration">Duración:' + duration + '</a> </li>';
       } else {
         alert("Unable to find the distance via road.");
       }
@@ -318,10 +313,7 @@ function trazarRuta(rutas) {
 // Erease the routes
 function quitarParadas() {
   var paradas = document.getElementById("paradasList");
-  paradas.innerHTML =
-    '<a class="dropdown-item" style="color: red;" href="#" onclick="quitarParadas()" id="borraParadas">Borrar todas las paradas</a><div class="dropdown-divider"></div>';
-  paradas.innerHTML +=
-    '<a class="dropdown-item disabled" style="color: orange;" href="#" id="labelAdvertencia">Seleccione un elemento de la lista para borrarlo</a><div class="dropdown-divider"></div>';
+  paradas.innerHTML = '<div class="container-fluid"> <button onclick="quitarParadas()" id="borraParadas" style="font-weight: bold;" class="btn btn-danger btn-block">Eliminar Paradas</button> <div class="dropdown-divider"></div> <a class="dropdown-item disabled" style="color: #FF9800;" href="#" id="labelAdvertencia"></a> <div class="dropdown-divider"></div> </div>';
   locationsF = [];
 }
 
@@ -330,8 +322,8 @@ function borrarRutas() {
   quitarParadas();
   directionx.setMap(null);
 
-  var distamce = document.getElementById("distance");
-  var dumration = document.getElementById("duration");
+  var distance = document.getElementById("distance");
+  var duration = document.getElementById("duration");
   var searchbar = document.getElementById("searchbar");
   var btnParada = document.getElementById("botonParada");
   var btnFav = document.getElementById("botonFav")
@@ -339,49 +331,17 @@ function borrarRutas() {
   var btnRuta = document.getElementById("botonRuta");
   var selectidioma = document.getElementById("selectidioma");
   var btninicial = document.getElementById("botoninicialowo");
-  var selectransporte = document.getElementById("transporte");
-  distamce.innerHTML = "";
-  dumration.innerHTML = "";
-  selectransporte.innerHTML =
-    '<li id="transporte">' +
-    '<select class="theme-pink"  name="transporte">' +
-    '<option value="moto">Motocicleta</option>' +
-    '<option value="automovil">Automovil</option>' +
-    '<option value="furgoneta">Furgoneta</option>' +
-    '<option value="camion">Camion</option>' +
-    "</select>" +
-    "</li>";
-  btninicial.innerHTML =
-    '<li class="nav-item" id="botoninicialowo">' +
-    '<button onclick="agregarActual()" id="Odd" class="btn btn-outline-primary my-2 my-sm-0 mr-sm-2">Agregar ubicacion actual</button>' +
-    "</li>";
-  searchbar.innerHTML =
-    '<li class="nav-item" id="searchbar"><input id="pac-input" ' +
-    'class="form-control mr-sm-2 controls" type="text" placeholder="Escriba una parada" aria-label="Search" /></li>';
-
-  btnParada.innerHTML =
-    '<li class="nav-item" id="botonParada"><button onclick="agregarLugarcito()"' +
-    'class="btn btn-outline-success my-2 my-sm-0 mr-sm-2">Agregar parada</button></li>';
-
-  btnRuta.innerHTML =
-    '<li class="nav-item mr-sm-2 form-inline" id="botonRuta"><button id="pac-input2"' +
-    'class="controls btn btn-outline-info my-2 my-sm-0" onclick="hacerLaTrazacion()">Trazar ruta</button></li>';
-  
-  btnFav.innerHTML = 
-    '<div class="btn-group"><button class="btn btn-outline-warning" onclick="agregarAfavoritos()" type="button">Favoritos</button><button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button><div id="dropFav" class="dropdown-menu"></div></div>';  
-  btnFavRuta.innerHTML = 
-  '<div class="btn-group">  <button class="btn btn-outline-warning" type="button">    Rutas Favoritas</button><button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button><div id="dropFav2" class="dropdown-menu"></div></div>'
-    selectidioma.innerHTML =
-    '<li id="selectidioma" class="nav-item mr-sm-2 form-inline">' +
-    '<div class="col-6 text-center"><select name="idioma" id="idioma" class="theme-pink" onchange="cambioIdioma()">' +
-    '<option value="es" id="español">Español</option>' +
-    '<option value="en" id="ingles">Inglés</option>' +
-    '<option value="it" id="italiano">Italiano</option>' +
-    '<option value="zh" id="chino">Chino</option>' +
-    '<option value="ja" id="japones">Japonés</option>' +
-    '<option value="ru" id="ruso">Ruso</option>' +
-    '<option value="de" id="aleman">Alemán</option>' +
-    "</select></div></li>";
+  var selectransporte = document.getElementById("transportes");
+  distance.innerHTML = "";
+  duration.innerHTML = "";
+  selectransporte.innerHTML = '<li id="transporte" class="nav-item dropdown mt-3"> <label style="color: white; font-weight: bold;">Seleccione un transporte:</label> <select class="form-control btn btn-primary text-center" style="font-weight: bold; text-align-last:center;" id="transportes" name="transporte"> <option value="moto">Motocicleta</option> <option value="automovil">Automovil</option> <option value="furgoneta">Furgoneta</option> <option value="camion">Camion</option> </select> </li>';
+  btninicial.innerHTML = '<li class="nav-item" id="botoninicialowo"> <button onclick="agregarActual()" id="Odd" style="font-weight: bold; width: 200px;" class="btn btn-primary mr-2">Obtener ubicacion</button> </li>';
+  searchbar.innerHTML = '<li class="nav-item" id="searchbar"> <input id="pac-input" style="width: 550px;" class="form-control controls" type="text" placeholder="Escriba una parada" aria-label="Search" /> </li>';
+  btnParada.innerHTML = '<li class="nav-item" id="botonParada"> <button onclick="agregarLugarcito()" id="Add" style="font-weight: bold; width: 200px;" class="btn btn-success ml-2">Agregar parada</button> </li>';
+  btnRuta.innerHTML = '<li class="nav-item mr-sm-2 form-inline" id="botonRuta"> <button onclick="hacerLaTrazacion()" id="pac-input2" class="controls btn btn-primary ml-2" style="font-weight: bold; width: 200px;">Trazar ruta</button> </li>';
+  btnFav.innerHTML = '<li class="nav-item" id="botonFav"> <div class="btn-group"> <button class="btn btn-outline-warning" onclick="agregarAfavoritos()" type="button"> Favoritos </button> <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-outline-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span> </button> <div id="dropFav" class="dropdown-menu"> </div> </div> </li>';  
+  btnFavRuta.innerHTML = '<li class="nav-item" id="botonFavRuta"> <div class="btn-group d-flex mt-3"> <button class="btn btn-outline-warning" style="font-weight: bold; width: 100%;" type="button">Ruta Favorita</button> <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button> <div id="dropFav2" class="dropdown-menu dropdown-menu-right btn btn-block"></div> </div> </li>'
+  selectidioma.innerHTML = '<div class="col-2" id="selectidioma"> <select class="btn btn-primary mt-3" data-live-search="true" style="font-weight: bold; width: 100%; color: white; text-align-last:center;" id="idioma" name="idioma" onchange="cambioIdioma()"> <optgroup class="mb-1" label="Seleccione un idioma"></optgroup> <option value="es" id="español">Español</option> <option value="en" id="ingles">Inglés</option> <option value="it" id="italiano">Italiano</option> <option value="zh" id="chino">Chino</option> <option value="ja" id="japones">Japonés</option> <option value="ru" id="ruso">Ruso</option> <option value="de" id="aleman">Alemán</option> </select> </div>';
 }
 
 // Erease only one route

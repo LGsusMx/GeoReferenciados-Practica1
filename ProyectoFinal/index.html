@@ -31,8 +31,8 @@
             </li>
         </ul>
         <ul class="navbar-nav mr-1">
-            <li class="nav-item" id="botonParada">
-                <button id="salir" style="font-weight: bold; width: 100px;" class="btn btn-danger">Salir</button>
+            <li class="nav-item">
+                <button id="salir" style="font-weight: bold; width: 100px;" class="btn btn-danger" alt="exit">Salir</button>
             </li>
         </ul>
     </div>
@@ -56,7 +56,7 @@
                       <div id="dropFav2" class="dropdown-menu dropdown-menu-right btn btn-block"></div>
                     </div>
                 </li>
-                <li class="nav-item dropdown mt-3">
+                <li id="transporte" class="nav-item dropdown mt-3">
                     <label style="color: white; font-weight: bold;">Seleccione un transporte:</label>
                     <select class="form-control btn btn-primary text-center" style="font-weight: bold; text-align-last:center;" id="transportes" name="transporte">
                         <option value="moto">Motocicleta</option>
@@ -70,7 +70,9 @@
                     <a class="btn btn-success dropdown-toggle btn-block" style="font-weight: bold;" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Paradas</a>
                     <div class="dropdown-menu" style="background-color: #202044; width: 100%;" aria-labelledby="navbarDropdown" id="paradasList">
                         <div class="container-fluid">
-                            <button onclick="quitarParadas()" id="borraParadas" style="font-weight: bold;" class="btn btn-danger btn-block">Eliminar Parada</button>
+                            <button onclick="quitarParadas()" id="borraParadas" style="font-weight: bold;" class="btn btn-danger btn-block">Eliminar Paradas</button>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item disabled" style="color: #FF9800;" href="#" id="labelAdvertencia"></a>
                             <div class="dropdown-divider"></div>
                         </div>
                     </div>
@@ -92,7 +94,7 @@
   <footer class="footer" style="background-color: #202044;">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2">
+            <div class="col-2" id="selectidioma">
                 <select class="btn btn-primary mt-3" data-live-search="true" style="font-weight: bold; width: 100%; color: white; text-align-last:center;" id="idioma" name="idioma" onchange="cambioIdioma()">
                     <optgroup class="mb-1" label="Seleccione un idioma"></optgroup>
                     <option value="es" id="español">Español</option>
@@ -105,7 +107,7 @@
                 </select>
             </div>
 
-            <div class="text-center col-10 font-weight-light mt-3">
+            <div class="text-center col-10 font-weight-light mt-4">
                 <h6 class="text-white"><small style="color: #9E9E9E;">@ 2020 Copyright. </small>RGByte.com</h6>
             </div>
         </div>
@@ -126,7 +128,7 @@
   <script src="idiomas.js"></script>
   <script> 
     var txtRutaFav = document.getElementById("textoRutaFav"); 
-    txtRutaFav.innerHTML = "";
+    txtRutaFav.innerHTML = "a";
   </script>
 </body>
 </html>
