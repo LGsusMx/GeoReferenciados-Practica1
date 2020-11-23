@@ -215,6 +215,16 @@ function hacerLaTrazacion() {
 
 // Draw the route on the map
 function trazarRuta(rutas) {
+  document.getElementById("searchbar").classList.add("disabled");
+  document.getElementById("selectidioma").classList.add("disabled");
+  document.getElementById("botonParada").classList.add("disabled");
+  document.getElementById("botonFav").classList.add("disabled");
+  document.getElementById("botonFavRuta").classList.add("disabled");
+  document.getElementById("botoninicialowo").classList.add("disabled");
+  document.getElementById("botonRuta").classList.add("disabled");
+  document.getElementById("borraParadas").classList.add("disabled");
+  document.getElementById("labelAdvertencia").classList.add("disabled");
+  document.getElementById("transporte").classList.add("disabled");
   var posicionex = [];
   var wayputos = [];
   for (let index = 0; index < locationsF.length; index++) {
@@ -279,18 +289,9 @@ function trazarRuta(rutas) {
         var _distance = response.rows[0].elements[0].distance.text;
         var _duration = response.rows[0].elements[0].duration.text;
         var _consumo = calcularConsumo(_distance);
-        document.getElementById("distance").innerHTML = "Distancia:" + _distance + " generando un consumo de " + _consumo + "";
-        document.getElementById("duration").innerHTML = "Duración:" + _duration + "";
-        document.getElementById("searchbar").classList.add("disabled");
-        //document.getElementById("selectidioma").classList.add("disabled");
-        document.getElementById("botonParada").classList.add("disabled");
-        //document.getElementById("botonFav").classList.add("disabled");
-        //document.getElementById("botonFavRuta").classList.add("disabled");
-        document.getElementById("botoninicialowo").classList.add("disabled");
-        document.getElementById("botonRuta").classList.add("disabled");
-        document.getElementById("borraParadas").classList.add("disabled");
-        document.getElementById("labelAdvertencia").classList.add("disabled");
-        document.getElementById("transporte").classList.add("disabled");
+        document.getElementById("IdDistance").innerHTML = "Distancia: " + _distance;
+        document.getElementById("IdConsumption").innerHTML = "Consumo: " + _consumo + "itros";
+        document.getElementById("IdDuration").innerHTML = "Duration: " + _duration;
       } else {
         alert("Unable to find the distance via road.");
       }
@@ -310,16 +311,19 @@ function borrarRutas() {
   quitarParadas();
   directionx.setMap(null);
 
-  document.getElementById("distance").innerHTML = "";
-  document.getElementById("duration").innerHTML = "";
+  document.getElementById("IdDistance").innerHTML = "";
+  document.getElementById("IdConsumption").innerHTML = "";
+  document.getElementById("IdDuration").innerHTML = "";
   document.getElementById("searchbar").classList.remove("disabled");
-  document.getElementById("botonParada").classList.remove("disabled");;
-  //document.getElementById("botonFav").classList.remove("disabled");;
-  //document.getElementById("botonFavRuta").classList.remove("disabled");;
-  document.getElementById("botonRuta").classList.remove("disabled");;
-  //document.getElementById("selectidioma").classList.remove("disabled");;
-  document.getElementById("botoninicialowo").classList.remove("disabled");;
-  document.getElementById("transportes").classList.remove("disabled");;
+  document.getElementById("selectidioma").classList.remove("disabled");
+  document.getElementById("botonParada").classList.remove("disabled");
+  document.getElementById("botonFav").classList.remove("disabled");
+  document.getElementById("botonFavRuta").classList.remove("disabled");
+  document.getElementById("botoninicialowo").classList.remove("disabled");
+  document.getElementById("botonRuta").classList.remove("disabled");
+  document.getElementById("borraParadas").classList.remove("disabled");
+  document.getElementById("labelAdvertencia").classList.remove("disabled");
+  document.getElementById("transporte").classList.remove("disabled");
 }
 
 // Erease only one route
@@ -638,7 +642,6 @@ function guardarActual(posicion) {
 }
 
 function calcularConsumo(distance) {
-  alert(distance);
   var combo = document.getElementById("transportes");
   var selected = combo.options[combo.selectedIndex].text;
   console.log(selected);
