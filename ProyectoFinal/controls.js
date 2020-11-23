@@ -56,7 +56,7 @@ function moverACoordenadas(posicion) {
   });
   markers = [];
   var icon = {
-    url: "https://cdn.discordapp.com/attachments/752649206895870004/770101180625322024/location.png",
+    url: './images/marcador.png',
     size: new google.maps.Size(71, 71),
     origin: new google.maps.Point(0, 0),
     anchor: new google.maps.Point(17, 34),
@@ -109,7 +109,7 @@ function iniciaAutoCompletado(posicion) {
         return;
       }
       var icon = {
-        url: place.icon,
+        url: './images/marcador.png',
         size: new google.maps.Size(71, 71),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(17, 34),
@@ -148,8 +148,8 @@ function agregarLugarcito() {
   console.log(JSON.stringify(locationsF));
   var paradas = document.getElementById("paradasList");
   paradas.innerHTML +=
-    '<a class="dropdown-item" href="#" onclick="borrarUnaParada(&apos;<h5 style="color: red">X</h5>' + 
-    current.name + '&apos;)" id="' + current.name + '">' + current.name + "</a>";
+    '<a class="dropdown-item" href="#" onclick="borrarUnaParada(&apos;' + 
+    current.name + '&apos;)" id="' + current.name + '"><h5 style="color: red">X</h5>' + current.name + "</a>";
 
   alert("Se agregó " + current.name + " a la lista de paradas");
 }
