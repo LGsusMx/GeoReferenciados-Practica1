@@ -281,17 +281,16 @@ function trazarRuta(rutas) {
         var _consumo = calcularConsumo(_distance);
         document.getElementById("distance").innerHTML = "Distancia:" + _distance + " generando un consumo de " + _consumo + "";
         document.getElementById("duration").innerHTML = "Duración:" + _duration + "";
-        var searchbar = document.getElementById("searchbar").disable = true;
-        var selectidioma = document.getElementById("selectidioma").disabled = true;
-        var btnParada = document.getElementById("botonParada").disabled = true;
-        var btnFav = document.getElementById("botonFav").disabled = true;
-        var btnFavRuta = document.getElementById("botonFavRuta").disabled = true;
-        var btninicial = document.getElementById("botoninicialowo").disabled = true;
-        var btnRuta = document.getElementById("botonRuta").disabled = true;
-        var borraParadas = document.getElementById("borraParadas").disabled = true;
-        var labelAdvertencia = document.getElementById("labelAdvertencia").disabled = true;
-        var selectransporte = document.getElementById("transporte").disabled = true;
-
+        document.getElementById("searchbar").classList.add("disabled");
+        //document.getElementById("selectidioma").classList.add("disabled");
+        document.getElementById("botonParada").classList.add("disabled");
+        //document.getElementById("botonFav").classList.add("disabled");
+        //document.getElementById("botonFavRuta").classList.add("disabled");
+        document.getElementById("botoninicialowo").classList.add("disabled");
+        document.getElementById("botonRuta").classList.add("disabled");
+        document.getElementById("borraParadas").classList.add("disabled");
+        document.getElementById("labelAdvertencia").classList.add("disabled");
+        document.getElementById("transporte").classList.add("disabled");
       } else {
         alert("Unable to find the distance via road.");
       }
@@ -311,16 +310,16 @@ function borrarRutas() {
   quitarParadas();
   directionx.setMap(null);
 
-  var distance = document.getElementById("distance").innerHTML = "";
-  var duration = document.getElementById("duration").innerHTML = "";
-  var searchbar = document.getElementById("searchbar").disabled = false;
-  var btnParada = document.getElementById("botonParada").disabled = false;
-  var btnFav = document.getElementById("botonFav").disabled = false;
-  var btnFavRuta = document.getElementById("botonFavRuta").disabled = false;
-  var btnRuta = document.getElementById("botonRuta").disabled = false;
-  var selectidioma = document.getElementById("selectidioma").disabled = false;
-  var btninicial = document.getElementById("botoninicialowo").disabled = false;
-  var selectransporte = document.getElementById("transportes").disabled = false;
+  document.getElementById("distance").innerHTML = "";
+  document.getElementById("duration").innerHTML = "";
+  document.getElementById("searchbar").classList.remove("disabled");
+  document.getElementById("botonParada").classList.remove("disabled");;
+  //document.getElementById("botonFav").classList.remove("disabled");;
+  //document.getElementById("botonFavRuta").classList.remove("disabled");;
+  document.getElementById("botonRuta").classList.remove("disabled");;
+  //document.getElementById("selectidioma").classList.remove("disabled");;
+  document.getElementById("botoninicialowo").classList.remove("disabled");;
+  document.getElementById("transportes").classList.remove("disabled");;
 }
 
 // Erease only one route
@@ -639,6 +638,7 @@ function guardarActual(posicion) {
 }
 
 function calcularConsumo(distance) {
+  alert(distance);
   var combo = document.getElementById("transportes");
   var selected = combo.options[combo.selectedIndex].text;
   console.log(selected);
