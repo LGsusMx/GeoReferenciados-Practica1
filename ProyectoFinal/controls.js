@@ -223,7 +223,6 @@ function trazarRuta(rutas) {
   document.getElementById("botoninicialowo").classList.add("disabled");
   document.getElementById("botonRuta").classList.add("disabled");
   document.getElementById("borraParadas").classList.add("disabled");
-  document.getElementById("labelAdvertencia").classList.add("disabled");
   document.getElementById("transporte").classList.add("disabled");
   var posicionex = [];
   var wayputos = [];
@@ -302,7 +301,7 @@ function trazarRuta(rutas) {
 // Erease the routes
 function quitarParadas() {
   var paradas = document.getElementById("paradasList");
-  paradas.innerHTML = '<div class="container-fluid"> <button onclick="quitarParadas()" id="borraParadas" style="font-weight: bold;" class="btn btn-danger btn-block">Eliminar Paradas</button> <div class="dropdown-divider"></div> <a class="dropdown-item disabled" style="color: #FF9800;" href="#" id="labelAdvertencia"></a> <div class="dropdown-divider"></div> </div>';
+  paradas.innerHTML = '<div class="container-fluid"> <button onclick="quitarParadas()" id="borraParadas" style="font-weight: bold;" class="btn btn-danger btn-block">Eliminar Paradas</button> <div class="dropdown-divider"></div><div class="dropdown-divider"></div> </div>';
   locationsF = [];
 }
 
@@ -322,7 +321,6 @@ function borrarRutas() {
   document.getElementById("botoninicialowo").classList.remove("disabled");
   document.getElementById("botonRuta").classList.remove("disabled");
   document.getElementById("borraParadas").classList.remove("disabled");
-  document.getElementById("labelAdvertencia").classList.remove("disabled");
   document.getElementById("transporte").classList.remove("disabled");
 }
 
@@ -630,7 +628,7 @@ function iniciarEstilos(posicion) {
 
 function agregarActual() {
   navigator.geolocation.getCurrentPosition(guardarActual);
-  document.getElementById("botoninicialowo").style.visibility = "hidden";
+  //document.getElementById("botoninicialowo").style.visibility = "hidden";
 }
 
 function guardarActual(posicion) {

@@ -8,7 +8,6 @@ function cambioIdioma() {
     var ruta = document.getElementById('pac-input');
     var paradas = document.getElementById('navbarDropdown');
     var borrar = document.getElementById('borraParadas');
-    var advertencia = document.getElementById('labelAdvertencia');
     var trazar = document.getElementById('pac-input2');
     var español = document.getElementById('español');
     var ingles = document.getElementById('ingles');
@@ -25,7 +24,6 @@ function cambioIdioma() {
         ruta.placeholder = "Escriba una parada";
         paradas.textContent = "Paradas";
         borrar.textContent = "Borrar todas las paradas";
-        advertencia.textContent = "Seleccione un elemento de la lista para borrarlo";
         trazar.textContent = "Trazar ruta";
         español.textContent = "Español";
         ingles.textContent = "Inglés";
@@ -40,7 +38,6 @@ function cambioIdioma() {
         ruta.placeholder = "Write a destination";
         paradas.textContent = "Stops";
         borrar.textContent = "Clear all stops";
-        advertencia.textContent = "Select an item from the list to delete it";
         trazar.textContent = "Trace route";
         español.textContent = "Spanish";
         ingles.textContent = "English";
@@ -55,7 +52,6 @@ function cambioIdioma() {
         ruta.placeholder = "Scrivi una fermata";
         paradas.textContent = "Fermate";
         borrar.textContent = "Cancella tutte le fermate";
-        advertencia.textContent = "Seleziona un elemento dall'elenco per eliminarlo";
         trazar.textContent = "Traccia percorso";
         español.textContent = "Spagnolo";
         ingles.textContent = "Inglese";
@@ -70,7 +66,6 @@ function cambioIdioma() {
         ruta.placeholder = "写一个停止";
         paradas.textContent = "停止";
         borrar.textContent = "清除所有停靠点";
-        advertencia.textContent = "从列表中选择一个项目以将其删除";
         trazar.textContent = "绘制路线";
         español.textContent = "西班牙文";
         ingles.textContent = "英文";
@@ -85,7 +80,6 @@ function cambioIdioma() {
         ruta.placeholder = "ストップを書く";
         paradas.textContent = "ストップ";
         borrar.textContent = "すべてのストップをクリア";
-        advertencia.textContent = "リストからアイテムを選択して削除します";
         trazar.textContent = "ルートをプロット";
         español.textContent = "スペイン語";
         ingles.textContent = "英語";
@@ -100,7 +94,6 @@ function cambioIdioma() {
         ruta.placeholder = "Напиши стоп";
         paradas.textContent = "Остановки";
         borrar.textContent = "Очистить все остановки";
-        advertencia.textContent = "Выберите элемент из списка, чтобы удалить его";
         trazar.textContent = "Участок маршрута";
         español.textContent = "испанский язык";
         ingles.textContent = "английский";
@@ -115,7 +108,6 @@ function cambioIdioma() {
         ruta.placeholder = "Schreiben Sie einen Stopp";
         paradas.textContent = "Stopps";
         borrar.textContent = "Alle Stopps löschen";
-        advertencia.textContent = "Wählen Sie ein Element aus der Liste aus, um es zu löschen";
         trazar.textContent = "Route zeichnen";
         español.textContent = "Spanisch";
         ingles.textContent = "Englisch";

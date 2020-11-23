@@ -42,6 +42,11 @@ font-weight: 300;
 font-weight: bold;
 }
 
+#paradasList > a {
+    color: white;
+    font-weight: bold;
+}
+
 #infowindow-content {
 display: none;
 }
