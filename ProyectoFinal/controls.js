@@ -149,7 +149,7 @@ function agregarLugarcito() {
   var paradas = document.getElementById("paradasList");
   paradas.innerHTML +=
     '<a class="dropdown-item" href="#" onclick="borrarUnaParada(&apos;' + 
-    current.name + '&apos;)" id="' + current.name + '"><h5 style="color: red">X</h5>' + current.name + "</a>";
+    current.name + '&apos;)" id="' + current.name + '">X - ' + current.name + "</a>";
 
   alert("Se agregó " + current.name + " a la lista de paradas");
 }
@@ -633,6 +633,11 @@ function guardarActual(posicion) {
     lng: posicion.coords.longitude,
   });
   map.panTo(new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude));
+  new google.maps.Marker({
+    position: new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude),
+    map,
+    icon: './images/marcador.png'
+  });
 }
 
 function calcularConsumo(distance) {
