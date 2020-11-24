@@ -148,8 +148,7 @@ function agregarLugarcito() {
   console.log(JSON.stringify(locationsF));
   var paradas = document.getElementById("paradasList");
   paradas.innerHTML +=
-    '<a class="dropdown-item" href="#" onclick="borrarUnaParada(&apos;' + 
-    current.name + '&apos;)" id="' + current.name + '">X - ' + current.name + "</a>";
+    '<a class="dropdown-item" href="#" onclick="borrarUnaParada(&apos;' + current.name + '&apos;)" id="' + current.name + '"><span style="color: #f44336>X</span> ' + current.name + "</a>";
 
   alert("Se agregó " + current.name + " a la lista de paradas");
 }
@@ -633,11 +632,12 @@ function guardarActual(posicion) {
     lng: posicion.coords.longitude,
   });
   map.panTo(new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude));
-  new google.maps.Marker({
+  var marker = new google.maps.Marker({
     position: new google.maps.LatLng(posicion.coords.latitude, posicion.coords.longitude),
-    map,
-    icon: './images/marcador.png'
+    icon: './images/marcador.png',
+    map
   });
+  marker.setMap(map);
 }
 
 function calcularConsumo(distance) {
