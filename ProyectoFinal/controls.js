@@ -147,10 +147,9 @@ function agregarLugarcito() {
   });
   console.log(JSON.stringify(locationsF));
   var paradas = document.getElementById("paradasList");
-  paradas.innerHTML +=
-    '<a class="dropdown-item" href="#" onclick="borrarUnaParada(&apos;' + current.name + '&apos;)" id="' + current.name + '"><span style="color: #f44336>X</span> ' + current.name + "</a>";
-
-  alert("Se agregó " + current.name + " a la lista de paradas");
+  paradas.innerHTML += '<a class="dropdown-item" href="#" onclick="borrarUnaParada(&apos;' + current.name + '&apos;)" id="' + current.name + '">/a>"';
+  var spanDelete = document.getElementById(current.name);
+  spanDelete.innerHTML = '<span style="color: #f44336>X</span> ' + current.name;
 }
 //Add to favorites
 function agregarAfavoritos(){
