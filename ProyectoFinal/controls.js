@@ -281,7 +281,7 @@ function trazarRuta(rutas) {
         var _consumo = calcularConsumo(_distance);
         document.getElementById("IdDistance").innerHTML = "Distancia: " + _distance;
         document.getElementById("IdConsumption").innerHTML = "Consumo: " + _consumo + "itros";
-        document.getElementById("IdDuration").innerHTML = "Duration: " + _duration;
+        document.getElementById("IdDuration").innerHTML = "Duración: " + _duration + "utos";
       } else {
         alert("Unable to find the distance via road.");
       }
